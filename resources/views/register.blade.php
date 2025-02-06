@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -26,7 +26,7 @@
             </ul>
         </div>
         @endif
-        
+
         <form action="{{ route('registerUser') }}" method="POST">
             @csrf
 
