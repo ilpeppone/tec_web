@@ -6,7 +6,7 @@ use App\Http\Controllers\OrganizerController;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 
 Route::get('/register', [UserController::class, 'showRegistrationForm'])->name('showRegisterForm');

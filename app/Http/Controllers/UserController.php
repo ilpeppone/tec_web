@@ -27,6 +27,6 @@ class UserController extends Controller
 
         Auth::login($user);
         
-        return redirect()->route('home')->with('success', 'Registrazione avvenuta con successo!');
+        return redirect()->route('home')->with('success','Registrazione avvenuta con successo!');
     }
 }
