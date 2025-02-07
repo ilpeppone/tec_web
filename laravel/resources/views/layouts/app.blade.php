@@ -11,11 +11,17 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    
-
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <!-- Scripts -->
 
     <!-- Styles -->
+    <style>
+         .card {
+            background:rgba(0, 0, 0, 0.5); /* colore sfondo della card */
+            color:#f1f1f1; /* colore testo nelle card */
+        }
+    </style>
     
 </head>
 <body class="bg-dark text-black">
