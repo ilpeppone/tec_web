@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" >
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-bs-theme="dark">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,27 +14,15 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <!-- Scripts -->
-
+    @vite([resources/saas/app.scss, resources/saas/app.js])
     <!-- Styles -->
-    <style>
-        .card-header {
-            background:black; /* colore sfondo della card */
-            color:#f1f1f1; /* colore testo nelle card */
-        }
-        .card-body {
-            background-color: #122121 ;
-            color: #f1f1f1;
-        }
-        .card{
-            background-color: #122121 ;
-            color: #f1f1f1;
-        }
-    </style>
+    
     
 </head>
 <body class="bg-dark text-white">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-black shadow-sm">
+        {{-- <nav class="navbar navbar-expand-md navbar-dark bg-black shadow-sm"> --}}
+        <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom border-info-subtle">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
