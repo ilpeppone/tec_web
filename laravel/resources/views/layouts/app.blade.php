@@ -32,7 +32,7 @@
     </style>
     
 </head>
-<body class="bg-dark text-black">
+<body class="bg-dark text-white">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-black shadow-sm">
             <div class="container">
