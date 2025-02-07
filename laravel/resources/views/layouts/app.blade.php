@@ -14,7 +14,9 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <!-- Scripts -->
-    @vite([resources/saas/app.scss, resources/saas/app.js])
+    @vite(['resources/sass/app.scss', 'resources/sass/app.scss'])
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <!-- Styles -->
     
     
