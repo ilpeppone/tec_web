@@ -41,23 +41,7 @@
     <body class="bg-dark text-white">
         <main>
         <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
-        <div id="post-carousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner" id="carousel-posts">
-        <div class="carousel-item active">
-            <div class="d-block w-100 p-4 text-center bg-dark">
-            <h3>Caricamento post...</h3>
-            </div>
-        </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#post-carousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#post-carousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-        </button>
-    </div>
+        
   
   
 
@@ -90,6 +74,7 @@
             </nav>
         @endif
     </header>
+    
     </main>
     <footer class="py-16 text-center text-sm text-white dark:text-white/70" style="background-color: #122121;">
     Giuseppe Viggiano <span style="margin-left: 2em;"></span>Riccardo Augusto Chira
