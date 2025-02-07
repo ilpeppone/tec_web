@@ -17,9 +17,17 @@
 
     <!-- Styles -->
     <style>
-         .card {
-            background:rgba(0, 0, 0, 0.5); /* colore sfondo della card */
+        .card-header {
+            background:black; /* colore sfondo della card */
             color:#f1f1f1; /* colore testo nelle card */
+        }
+        .card-body {
+            background-color: #122121 ;
+            color: #f1f1f1;
+        }
+        .card{
+            background-color: #122121 ;
+            color: #f1f1f1;
         }
     </style>
     
