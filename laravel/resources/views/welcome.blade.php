@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 {{-- Imposta il titolo della pagina --}}
-@section('title', 'Welcome')
+@section('title', 'Torbit')
 
 {{-- Sezione per eventuali script o stili specifici della pagina --}}
 @section('head')
