@@ -28,11 +28,39 @@
 
         .navbar {
         min-height: 50px; /* Altezza minima più piccola */
-    }
+        }
+
+        .btn-custom-pri {
+            background-color:rgb(217, 119, 6); /* Arancione rame */
+            border-color: #D97706;
+            color: white;
+        }
+
+        .btn-custom-sec {
+            background-color:rgb(217, 119, 6); /* Arancione rame */
+            border-color:rgba(217, 119, 6, 0.73);
+            color: white;
+        }
+
+        .btn-custom-pri:hover {
+            background-color:rgba(180, 83, 9, 0); /* Più scuro */
+            border-color: #B45309;
+        }
+
+        .btn-custom-sec:hover {
+            background-color:rgba(180, 83, 9, 0); /* Più scuro */
+            border-color: #B45309;
+        }
+
+        .nav-item:hover{
+            background-color:rgba(180, 83, 9, 0.6); /* Più scuro */
+            color: white;
+        }
+
     </style>
 
-    @yield('head')
 </head>
+
 <body class="bg-dark text-white">
     <div id="app">
         <!-- Navbar -->
@@ -49,49 +77,48 @@
                 </button>
 
                 <!-- Menu di navigazione -->
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav gap-3">
+                <div class="collapse navbar-collapse">
+                    <!-- Links Centrali -->
+                    <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">About</a>
+                            <a href="#" class="nav-link text-center">About</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Contact</a>
+                            <a href="#" class="nav-link text-center">Contact</a>
                         </li>
+                    </ul>
+
+                    <!-- Auth (Login, Register o Utente) -->
+                    <div class="ms-auto d-flex align-items-center">
                         @if (Route::has('login'))
                             @auth
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                        {{ Auth::user()->name }}
                                     </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                            @else
-                                <li class="nav-item">
-                                    <a href="{{ route('login') }}" class="btn btn-primary">Log in</a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
                                 </li>
+                            @else
+                                <div class="vr mx-3 d-none d-lg-block" style="height: 30px; background-color: rgba(255, 255, 255, 0.3);"></div>
+                                <a href="{{ route('login') }}" class="btn btn-custom-sec ms-3">Log in</a>
                                 @if (Route::has('register'))
-                                    <li class="nav-item">
-                                        <a href="{{ route('register') }}" class="btn btn-light">Register</a>
-                                    </li>
+                                    <a href="{{ route('register') }}" class="btn btn-custom-pri ms-3">Register</a>
                                 @endif
                             @endauth
                         @endif
-                    </ul>
+                    </div>
                 </div>
-            </div>
+
         </nav>
 
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    @yield('scripts')
 </body>
 </html>
