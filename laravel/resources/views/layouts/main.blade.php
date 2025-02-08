@@ -31,14 +31,14 @@
         }
 
         .btn-custom-pri {
-            background-color:rgb(217, 119, 6); /* Arancione rame */
+            background-color:rgb(255, 136, 0); /* Arancione rame */
             border-color: #D97706;
             color: white;
         }
 
         .btn-custom-sec {
-            background-color:rgb(217, 119, 6); /* Arancione rame */
-            border-color:rgba(217, 119, 6, 0.73);
+            background-color:rgb(189, 101, 0); /* Arancione rame */
+            border-color:rgba(255, 136, 1, 0.73);
             color: white;
         }
 
@@ -52,12 +52,38 @@
             border-color: #B45309;
         }
 
-        .nav-item:hover{
-            background-color:rgba(180, 83, 9, 0.6); /* Più scuro */
+        .nav-link {
+            position: relative; /* Per posizionare la sottolineatura */
+        }
+
+        .nav-link:hover::after {
+            content: ""; /* Elemento virtuale per la linea */
+            position: absolute;
+            left: 0;
+            bottom: -3px; /* Distanza dal testo */
+            width: 100%;
+            height: 2px; /* Spessore della linea */
+            background-color: rgba(180, 83, 9, 0.6); /* Colore della linea */
+        }
+
+        .dropdown-menu{
+            background-color:rgba(52, 48, 45, 0.59); /* Più scuro */
+        }
+
+        .dropdown-item{
+            background-color:rgba(52, 48, 45, 0.59); /* Più scuro */
             color: white;
+        }
+        .dropdown-item:hover{
+            background-color:rgba(188, 85, 17, 0.6); /* Più scuro */
+            color: black;
         }
 
     </style>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </head>
 
@@ -92,8 +118,8 @@
                     <div class="ms-auto d-flex align-items-center">
                         @if (Route::has('login'))
                             @auth
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                <div class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="btn btn-custom-sec dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                                         {{ Auth::user()->name }}
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end">
@@ -106,7 +132,7 @@
                                             @csrf
                                         </form>
                                     </div>
-                                </li>
+                                </div>
                             @else
                                 <div class="vr mx-3 d-none d-lg-block" style="height: 30px; background-color: rgba(255, 255, 255, 0.3);"></div>
                                 <a href="{{ route('login') }}" class="btn btn-custom-sec ms-3">Log in</a>
