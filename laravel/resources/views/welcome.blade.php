@@ -19,7 +19,7 @@
                 @if (Route::has('login'))
                     <nav>
                         @auth
-                            <a href="{{ route('home') }}" class="btn btn-outline-light">Dashboard</a>
+                            <a href="{{ route('home') }}" class="btn btn-outline-light">Home</a>
                         @else
                             <a href="{{ route('login') }}" class="btn btn-light me-2">Log in</a>
                             @if (Route::has('register'))

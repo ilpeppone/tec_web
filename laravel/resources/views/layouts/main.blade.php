@@ -13,58 +13,73 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Stili custom (eventualmente per le card) -->
+    <!-- Stili custom -->
     <style>
         .card-header {
             background: black;
             color: #f1f1f1;
         }
+
         .card-body,
         .card {
             background-color: #122121;
             color: #f1f1f1;
         }
+
+        .navbar {
+        min-height: 50px; /* Altezza minima più piccola */
+    }
     </style>
 
-    {{-- Sezione per includere ulteriori risorse nel <head> --}}
     @yield('head')
 </head>
 <body class="bg-dark text-white">
     <div id="app">
         <!-- Navbar -->
-        <nav class="border-bottom mb-4">
-            <div class="container d-flex align-items-center justify-content-between py-3">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom py-2">
+            <div class="container">
                 <!-- Logo -->
-                <a href="{{ url('/') }}" class="text-decoration-none">
-                    <!-- SVG Logo (versione semplificata per esempio) -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="90" viewBox="0 0 100 90" fill="none">
-                        <path d="M10 10 L50 10 L30 50 Z" fill="#5e3e31"/>
-                    </svg>
+                <a href="{{ url('/') }}" class="navbar-brand">
+                    <img src="{{ asset('images/logoExt.png') }}" width="240" height="64" alt="Logo">
                 </a>
+
+                <!-- Toggle per dispositivi mobili -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
                 <!-- Menu di navigazione -->
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-white">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-white">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-white">Contact</a>
-                    </li>
-                </ul>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav gap-3">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Contact</a>
+                        </li>
+                        @if (Route::has('login'))
+                            @auth
+                                <li class="nav-item">
+                                    <a href="{{ route('home') }}" class="nav-link">Home</a>
+                                </li>
+                            @else
+                                <li class="nav-item">
+                                    <a href="{{ route('login') }}" class="btn btn-primary">Log in</a>
+                                </li>
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a href="{{ route('register') }}" class="btn btn-light">Register</a>
+                                    </li>
+                                @endif
+                            @endauth
+                        @endif
+                    </ul>
+                </div>
             </div>
         </nav>
-        
-        <!-- Sezione principale dei contenuti -->
-        <div class="container">
-            @yield('content')
-        </div>
-    </div>
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    {{-- Sezione per eventuali script aggiuntivi --}}
     @yield('scripts')
 </body>
 </html>
