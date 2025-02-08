@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@yield('title', config('app.name', 'Laravel'))</title>
+    <title>@yield('title', config('app.name', 'Torbit'))</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -27,7 +27,7 @@
         }
 
         .navbar {
-        min-height: 50px; /* Altezza minima più piccola */
+        min-height: 50px; /* Altezza minima piÃ¹ piccola */
     }
     </style>
 
@@ -79,7 +79,6 @@
         </nav>
 
     <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    @yield('scripts')
+    
 </body>
 </html>
