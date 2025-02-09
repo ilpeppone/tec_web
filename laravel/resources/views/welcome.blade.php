@@ -3,26 +3,37 @@
 @section('title', 'Torbit - Benvenuto')
 
 @section('content')
-    <!-- Hero Section -->
-    <section class="hero-section text-center text-white" style="background: gray; padding: 100px 0;">
-        <div class="container">
-            <h1 class="display-4">Benvenuto su Torbit</h1>
-            <p class="lead">Scopri gli eventi più interessanti a Ferrara, organizzati sia da te che dagli altri utenti!</p>
-            <div class="d-flex justify-content-center align-items-center mt-4">
-                <a href="#" class="btn btn-custom-pri btn-lg me-3">Scopri Eventi</a>
-                @if (Route::has('login'))
-                    @auth
-                        <a href="#" class="btn btn-custom-pri btn-lg me-3">Crea un nuovo Evento</a>
-                    @else
-                        <a href="{{ route('login') }}" class="btn btn-custom-pri btn-lg">Accedi per Inserire Evento</a>
-                    @endauth
-                @endif
-            </div>
+   <!-- Hero Section -->
+<section class="hero-section text-center text-white" style="position: relative; padding: 100px 0;">
+    <img src="{{ asset('images/ferraracaccotown.png') }}" alt="Hero Background" class="img-fluid w-100" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+    <div class="container" style="position: relative; z-index: 1; color: black; background-color: rgba(255, 255, 255, 0.8); border-radius: 10px; padding: 20px;">
+        <h1 class="display-4">Benvenuto su Torbit</h1>
+        <p class="lead">Scopri gli eventi più interessanti a Ferrara, organizzati sia da te che dagli altri utenti!</p>
+        <div class="d-flex justify-content-center align-items-center mt-4">
+            <a href="#" class="btn btn-custom-pri btn-lg me-3">Scopri Eventi</a>
+            @if (Route::has('login'))
+                @auth
+                    <a href="#" class="btn btn-custom-pri btn-lg me-3">Crea un nuovo Evento</a>
+                @else
+                    <a href="{{ route('login') }}" class="btn btn-custom-pri btn-lg">Accedi per Inserire Evento</a>
+                @endauth
+            @endif
+        </div>
+   
             <!-- Search Bar -->
             <div class="mt-5">
                 <form action="#" method="GET" class="d-flex justify-content-center">
-                    <input type="text" name="query" class="form-control form-control-lg me-2" placeholder="Cerca eventi..." required>
-                    <button type="submit" class="btn btn-custom-pri btn-lg">Cerca</button>
+                    <input type="text" name="query" class="form-control form-control-lg me-2" placeholder="Nome evento">
+                    <select name="category" class="form-control form-control-lg me-2">
+                        <option value="">Tutte le categorie</option>
+                        <!-- Aggiungi qui altre categorie -->
+                    </select>
+                    <select name="location" class="form-control form-control-lg me-2">
+                        <option value="">All'aperto</option>
+                        <option value="">Al chiuso</option>
+                        <!-- Aggiungi qui altre categorie -->
+                    </select>
+                    <button type="submit" class="btn btn-custom-pri btn-lg ms-2">Cerca</button>
                 </form>
             </div>
         </div>
