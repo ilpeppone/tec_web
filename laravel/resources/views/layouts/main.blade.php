@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale())  }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,78 +15,63 @@
 
     <!-- Stili custom -->
     <style>
+        /* Inserisci qui il tuo CSS personalizzato */
         .card-header {
             background: black;
             color: #f1f1f1;
         }
-
         .card-body,
         .card {
             background-color: #122121;
             color: #f1f1f1;
         }
-
         .navbar {
-        min-height: 50px; /* Altezza minima più piccola */
+            min-height: 50px;
         }
-
         .btn-custom-pri {
-            background-color:rgb(255, 136, 0); /* Arancione rame */
+            background-color: rgb(255, 136, 0);
             border-color: #D97706;
             color: white;
         }
-
         .btn-custom-sec {
-            background-color:rgb(189, 101, 0); /* Arancione rame */
-            border-color:rgba(255, 136, 1, 0.73);
+            background-color: rgb(189, 101, 0);
+            border-color: rgba(255, 136, 1, 0.73);
             color: white;
         }
-
-        .btn-custom-pri:hover {
-            background-color:rgba(180, 83, 9, 0); /* Più scuro */
+        .btn-custom-pri:hover, .btn-custom-sec:hover {
+            background-color: rgba(180, 83, 9, 0);
             border-color: #B45309;
         }
-
-        .btn-custom-sec:hover {
-            background-color:rgba(180, 83, 9, 0); /* Più scuro */
-            border-color: #B45309;
-        }
-
         .nav-link {
-            position: relative; /* Per posizionare la sottolineatura */
+            position: relative;
         }
-
         .nav-link:hover::after {
-            content: ""; /* Elemento virtuale per la linea */
+            content: "";
             position: absolute;
             left: 0;
-            bottom: -3px; /* Distanza dal testo */
+            bottom: -3px;
             width: 100%;
-            height: 2px; /* Spessore della linea */
-            background-color: rgba(180, 83, 9, 0.6); /* Colore della linea */
+            height: 2px;
+            background-color: rgba(180, 83, 9, 0.6);
         }
-
-        .dropdown-menu{
-            background-color:rgba(52, 48, 45, 0.59); /* Più scuro */
+        .dropdown-menu {
+            background-color: rgba(52, 48, 45, 0.59);
         }
-
-        .dropdown-item{
-            background-color:rgba(52, 48, 45, 0.59); /* Più scuro */
+        .dropdown-item {
+            background-color: rgba(52, 48, 45, 0.59);
             color: white;
         }
-        .dropdown-item:hover{
-            background-color:rgba(188, 85, 17, 0.6); /* Più scuro */
+        .dropdown-item:hover {
+            background-color: rgba(188, 85, 17, 0.6);
             color: black;
         }
-
     </style>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-
+    @yield('head')
 </head>
-
 <body class="bg-dark text-white">
     <div id="app">
         <!-- Navbar -->
@@ -124,8 +109,8 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end">
                                         <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
+                                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -143,8 +128,13 @@
                         @endif
                     </div>
                 </div>
-
+            </div>
         </nav>
 
+        <!-- Qui verrà inserito il contenuto specifico della pagina -->
+        <main>
+            @yield('content')
+        </main>
+    </div>
 </body>
 </html>
