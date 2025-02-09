@@ -107,15 +107,7 @@
                             <a href="#" class="nav-link text-center">Contattaci</a>
                         </li>
                     </ul>
-
-                    <div class="ms-auto my-auto">
-                        <form class="rj-search" method="POST" action="#">
-                            <input id="gsearch" class="rj-search-input" name="gsearch" data-url="" type="text" placeholder="Search" autocomplete="off" aria-label="Search">
-                            <div id="gsearch_results" class="hidden" style="display: none" tabindex="0"></div>
-                            <a href=# class="btn btn-custom-sec ms-3">Cerca</a>
-                        </form>
-                    </div>
-
+                    
                     <!-- Auth (Login, Register o Utente) -->
                     <div class="ms-auto d-flex align-items-center">
                         @if (Route::has('login'))
