@@ -92,16 +92,13 @@
                     <!-- Links Centrali -->
                     <ul class="navbar-nav mx-auto my-auto">
                     <li class="nav-item">
-                            <a href="#" class="nav-link text-center">Tornei</a>
+                            <a href="#" class="nav-link text-center">1</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-center">Giochi</a>
+                            <a href="#" class="nav-link text-center">2</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-center">community</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-center">Contact</a>
+                            <a href="#" class="nav-link text-center">3</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link text-center">Chi Siamo?</a>
@@ -115,9 +112,7 @@
                         <form class="rj-search" method="POST" action="#">
                             <input id="gsearch" class="rj-search-input" name="gsearch" data-url="" type="text" placeholder="Search" autocomplete="off" aria-label="Search">
                             <div id="gsearch_results" class="hidden" style="display: none" tabindex="0"></div>
-                            <button class="btn">
-                                <i class="btn btn-custom-sec">Cerca</i>
-                            </button>
+                            <a href=# class="btn btn-custom-sec ms-3">Cerca</a>
                         </form>
                     </div>
 
