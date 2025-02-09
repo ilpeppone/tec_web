@@ -5,10 +5,7 @@
 
 {{-- Sezione per script e stili specifici --}}
 @section('head')
-    <!-- Stile personalizzato per la homepage -->
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    <!-- Script personalizzato (eventuale) -->
-    <script src="{{ asset('js/home.js') }}" defer></script>
+   
 @endsection
 
 {{-- Contenuto principale della pagina --}}
@@ -18,7 +15,7 @@
         <div class="container">
             <h1 class="display-4">Benvenuto su Torbit</h1>
             <p class="lead">La piattaforma definitiva per la gestione dei tornei di videogiochi</p>
-            <a href="{{ url('/tournaments') }}" class="btn btn-primary btn-lg">Scopri i Tornei</a>
+            <a href="{{ url('/tournaments') }}" class="btn btn-custom-pri btn-lg">Scopri i Tornei</a>
         </div>
     </section>
 
@@ -34,7 +31,7 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Torneo FPS Challenge</h5>
                             <p class="card-text">Sfida i migliori in un torneo di sparatutto in prima persona e dimostra le tue abilità.</p>
-                            <a href="{{ url('/tournaments/1') }}" class="btn btn-primary mt-auto">Partecipa</a>
+                            <a href="{{ url('/tournaments/1') }}" class="btn btn-custom-sec mt-auto">Partecipa</a>
                         </div>
                     </div>
                 </div>
@@ -45,7 +42,7 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Battle Royale Showdown</h5>
                             <p class="card-text">Entra in un'epica battaglia e cerca di sopravvivere fino all'ultimo.</p>
-                            <a href="{{ url('/tournaments/2') }}" class="btn btn-primary mt-auto">Partecipa</a>
+                            <a href="{{ url('/tournaments/2') }}" class="btn btn-custom-sec mt-auto">Partecipa</a>
                         </div>
                     </div>
                 </div>
@@ -56,7 +53,7 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Strategia e Squadre</h5>
                             <p class="card-text">Un torneo di strategia dove tattica e lavoro di squadra sono fondamentali.</p>
-                            <a href="{{ url('/tournaments/3') }}" class="btn btn-primary mt-auto">Partecipa</a>
+                            <a href="{{ url('/tournaments/3') }}" class="btn btn-custom-sec mt-auto">Partecipa</a>
                         </div>
                     </div>
                 </div>
@@ -65,7 +62,7 @@
     </section>
 
     <!-- Sezione: Ultime Notizie -->
-    <section class="latest-news py-5 bg-light">
+    <section class="latest-news py-5 ">
         <div class="container">
             <h2 class="mb-4 text-center">Ultime Notizie</h2>
             <div class="row">
@@ -74,7 +71,7 @@
                     <div class="news-card p-3 border">
                         <h4>Nuovo Torneo Annunciato!</h4>
                         <p>Stiamo per lanciare un nuovo torneo con premi straordinari. Preparati a competere con i migliori!</p>
-                        <a href="{{ url('/news/1') }}" class="btn btn-secondary">Leggi di più</a>
+                        <a href="{{ url('/news/1') }}" class="btn btn-custom-pri">Leggi di più</a>
                     </div>
                 </div>
                 <!-- Card Notizia 2 -->
@@ -82,7 +79,7 @@
                     <div class="news-card p-3 border">
                         <h4>Aggiornamenti alla Piattaforma</h4>
                         <p>Scopri le nuove funzionalità che abbiamo aggiunto per migliorare l'esperienza dei tornei.</p>
-                        <a href="{{ url('/news/2') }}" class="btn btn-secondary">Leggi di più</a>
+                        <a href="{{ url('/news/2') }}" class="btn btn-custom-pri">Leggi di più</a>
                     </div>
                 </div>
             </div>
