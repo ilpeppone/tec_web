@@ -29,13 +29,9 @@
             background-color: #122121;
             color: #f1f1f1;
         }
-
+        
         .navbar {
-            min-height: 50px; /* Altezza minima più piccola */
-        }
-
-        .navbar {
-        min-height: 50px; /* Altezza minima più piccola */
+            min-height: 50px; 
         }
 
         .btn-custom-pri {
