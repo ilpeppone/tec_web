@@ -107,7 +107,7 @@
                             <a href="#" class="nav-link text-center">Contattaci</a>
                         </li>
                     </ul>
-                    
+
                     <!-- Auth (Login, Register o Utente) -->
                     <div class="ms-auto d-flex align-items-center">
                         @if (Route::has('login'))
@@ -129,9 +129,9 @@
                                 </div>
                             @else
                                 <div class="vr mx-3 d-none d-lg-block" style="height: 30px; background-color: rgba(255, 255, 255, 0.3);"></div>
-                                <a href="{{ route('login') }}" class="btn btn-custom-sec ms-3">Log in</a>
+                                <a href="{{ route('login') }}" class="btn btn-custom-sec ms-3">Accedi</a>
                                 @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="btn btn-custom-pri ms-3">Register</a>
+                                    <a href="{{ route('register') }}" class="btn btn-custom-pri ms-3">Registrati</a>
                                 @endif
                             @endauth
                         @endif

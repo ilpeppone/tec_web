@@ -1,70 +1,52 @@
 @extends('layouts.app')
 
+@section('title', 'Login - Torbit')
+
 @section('content')
-<div class="container">
-    <div class="row justify-content-end">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header text-center">{{ __('Login') }}</div>
-
-                <div class="card-body text-center">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-                        <div class="row mb-3 justify-content-end">
-                            <div class="col-md-12">
-                                <input id="email" type="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+<div class="container vh-100 d-flex justify-content-center align-items-center">
+    <div class="row w-100">
+        <div class="col-md-6 d-flex align-items-center justify-content-center bg-dark text-white p-5" style="border-radius: 10px 0 0 10px;">
+            <div class="w-75">
+                <h3 class="text-center text-warning">Log in to <span class="fw-bold">Torbit</span></h3>
+                <p class="text-center">You need to <strong>log in</strong> before continuing.</p>
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email or Username</label>
+                        <input type="text" name="email" id="email" class="form-control bg-secondary text-white @error('email') is-invalid @enderror" value="{{ old('email') }}" required autofocus>
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="password" id="password" class="form-control bg-secondary text-white @error('password') is-invalid @enderror" required>
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="mb-3 d-flex justify-content-between align-items-center">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <label class="form-check-label" for="remember">
+                                Remember Me
+                            </label>
                         </div>
-
-                        <div class="row mb-3 justify-content-end">
-                            <div class="col-md-12">
-                                <input id="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3 justify-content-end">
-                            <div class="col-md-12">
-                                <div class="form-check d-flex align-items-center">
-                                    <input class="form-check-input me-2" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-3 justify-content-end">
-                            <div class="col-md-12">
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="row mb-0 justify-content-end">
-                            <div class="col-md-12">
-                                <button type="submit" class="btn btn-custom-pri">
-                                    {{ __('Login') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                        <a href="{{ route('password.request') }}" class="text-warning">Forgot your password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-warning w-100">Log In</button>
+                </form>
+                <div class="text-center mt-3">
+                    <p>Need an account? <a href="{{ route('register') }}" class="text-warning">Register here</a></p>
                 </div>
             </div>
+        </div>
+        <div class="col-md-6 d-none d-md-block p-0">
+            <img src="{{ asset('images/ferraracaccotown.png') }}" alt="Login Image" class="img-fluid w-100" style="border-radius: 0 10px 10px 0;">
         </div>
     </div>
 </div>
