@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Torbit - Home')
+@section('title', 'Torbit - Benvenuto')
 
 @section('content')
     <!-- Hero Section -->
