@@ -5,9 +5,9 @@
     <div class="row justify-content-end">
         <div class="col-md-4">
             <div class="card">
-                <div class="card-header text-end">{{ __('Login') }}</div>
+                <div class="card-header text-center">{{ __('Login') }}</div>
 
-                <div class="card-body text-end">
+                <div class="card-body text-center">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="row mb-3 justify-content-end">
@@ -36,9 +36,8 @@
 
                         <div class="row mb-3 justify-content-end">
                             <div class="col-md-12">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
+                                <div class="form-check d-flex align-items-center">
+                                    <input class="form-check-input me-2" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
