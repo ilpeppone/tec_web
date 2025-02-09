@@ -136,5 +136,17 @@
             @yield('content')
         </main>
     </div>
+    </div>
+     <!-- Footer -->
+     <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; {{ date('Y') }} Torbit. Tutti i diritti riservati.</p>
+            <p>
+                <a href="{{ url('/privacy') }}" class="text-white me-3">Privacy Policy</a>
+                <a href="{{ url('/terms') }}" class="text-white">Termini di Utilizzo</a>
+            </p>
+        </div>
+    </footer>
+    </div>
 </body>
 </html>

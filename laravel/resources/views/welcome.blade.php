@@ -110,32 +110,5 @@
         </div>
     </section>
 
-    <!-- Sezione: Partner -->
-    <section class="partners py-5 bg-dark text-white">
-        <div class="container">
-            <h2 class="mb-4 text-center">I Nostri Partner</h2>
-            <div class="row justify-content-center align-items-center">
-                <div class="col-auto">
-                    <img src="{{ asset('images/partner1.png') }}" alt="Partner 1" class="img-fluid" style="max-height: 80px;">
-                </div>
-                <div class="col-auto">
-                    <img src="{{ asset('images/partner2.png') }}" alt="Partner 2" class="img-fluid" style="max-height: 80px;">
-                </div>
-                <div class="col-auto">
-                    <img src="{{ asset('images/partner3.png') }}" alt="Partner 3" class="img-fluid" style="max-height: 80px;">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
-        <div class="container text-center">
-            <p>&copy; {{ date('Y') }} Torbit. Tutti i diritti riservati.</p>
-            <p>
-                <a href="{{ url('/privacy') }}" class="text-white me-3">Privacy Policy</a>
-                <a href="{{ url('/terms') }}" class="text-white">Termini di Utilizzo</a>
-            </p>
-        </div>
-    </footer>
+   
 @endsection
