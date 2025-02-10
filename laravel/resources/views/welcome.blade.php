@@ -13,7 +13,7 @@
             <a href="#" class="btn btn-custom-pri btn-lg me-3">Scopri Eventi</a>
             @if (Route::has('login'))
                 @auth
-                    <a href="#" class="btn btn-custom-pri btn-lg me-3">Crea un nuovo Evento</a>
+                    <a href="{{ route('events.create') }}" class="btn btn-custom-pri btn-lg me-3">Crea un nuovo Evento</a>
                 @else
                     <a href="{{ route('login') }}" class="btn btn-custom-pri btn-lg">Accedi per Inserire Evento</a>
                 @endauth

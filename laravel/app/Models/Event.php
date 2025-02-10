@@ -14,7 +14,9 @@ class Event extends Model
         'title',
         'description',
         'image_path',
-        'event_date', 
+        'event_date',
+        'location',
+        'max_participants',
     ];
 
     public function organizer()
