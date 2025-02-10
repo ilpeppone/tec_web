@@ -10,9 +10,14 @@
         <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data" class="mt-4  needs-validation" novalidate>
             @csrf
             <div class="mb-3">
-                <label for="title" class="form-label">Titolo</label>
+                <label for="title" class="form-label" >Titolo</label>
                 <input type="text" name="title" id="title" class="form-control bg-secondary text-white" required>
             </div>
+            @error('title')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
             <div class="mb-3">
                 <label for="description" class="form-label">Descrizione</label>
                 <textarea name="description" id="description" class="form-control bg-secondary text-white" required></textarea>

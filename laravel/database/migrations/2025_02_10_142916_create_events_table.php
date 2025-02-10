@@ -17,8 +17,9 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('image_path')->nullable();
-            $table->boolean('is_outdoor')->default(false); // Nuova colonna per indicare se è all'aperto o al chiuso
-            $table->dateTime('event_date'); // Nuova colonna per la data e l'ora dell'evento
+            $table->boolean('is_outdoor')->default(false); 
+            $table->dateTime('event_date'); 
+            $table->integer('max_participants'); // Nuova colonna per il numero massimo di partecipanti
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

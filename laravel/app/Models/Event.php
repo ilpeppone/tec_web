@@ -15,10 +15,10 @@ class Event extends Model
         'description',
         'image_path',
         'event_date',
-        'location',
+        'is_outdoor',
         'max_participants',
     ];
-
+    
     public function organizer()
     {
         return $this->belongsTo(User::class, 'organizer_id');

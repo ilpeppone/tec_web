@@ -132,6 +132,14 @@
                                         {{ Auth::user()->name }}
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end">
+                                        <a class="dropdown-item" href="{{ route('home') }}"
+                                            onclick="event.preventDefault();
+                                                        document.getElementById('home-form').submit();">
+                                                {{ __('Home') }}
+                                            </a>
+                                            <form id="home-form" action="{{ route('home') }}" method="GET" class="d-none">
+                                                @csrf
+                                            </form>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
