@@ -12,7 +12,7 @@
             <div class="w-75">
                 <h3 class="text-center text-warning">Registrati a <span class="fw-bold">Torbit</span></h3>
                 <p class="text-center">Crea un nuovo account per usufruire di tutte le funzionalità</p>
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('register') }}" class="needs-validation" novalidate>
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Nome Account</label>

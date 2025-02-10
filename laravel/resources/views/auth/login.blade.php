@@ -9,7 +9,7 @@
             <div class="w-75">
                 <h3 class="text-center text-warning">Accedi a <span class="fw-bold">Torbit</span></h3>
                 <p class="text-center">Devi <strong>accedere</strong> prima di continuare.</p>
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate>
                     @csrf
                     <div class="mb-3">
                         <label for="email" class="form-label">Email o Nome Utente</label>
