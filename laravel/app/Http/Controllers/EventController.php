@@ -29,6 +29,7 @@ class EventController extends Controller
             'title' => 'required',
             'description' => 'required',
             'image' => 'nullable|image|max:2048',
+            'event_date' => 'required|date',
         ]);
 
         $imagePath = null;
@@ -41,6 +42,8 @@ class EventController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'image_path' => $imagePath,
+            'is_outdoor' => $request->has('is_outdoor'),
+            'event_date' => $request->event_date,
         ]);
 
         return redirect()->route('events.index');
