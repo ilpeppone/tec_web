@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container vh-100 d-flex justify-content-center align-items-center">
-    <div class="row w-100">
+    <div class="row w-100 h-100">
         <div class="col-md-6 d-flex align-items-center justify-content-center bg-dark text-white p-5" style="border-radius: 10px 0 0 10px;">
             <div class="w-75">
                 <h3 class="text-center text-warning">Log in to <span class="fw-bold">Torbit</span></h3>
@@ -45,8 +45,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 d-none d-md-block p-0">
-            <img src="{{ asset('images/ferraracaccotown.png') }}" alt="Login Image" class="img-fluid w-100" style="border-radius: 0 10px 10px 0;">
+        <div class="col-md-6 d-none d-md-block p-0 h-100">
+            <img src="{{ asset('images/ferrara.png') }}" alt="Login Image" class="img-fluid h-100 w-100" style="border-radius: 0 0px 0px 0; object-fit: cover;">
         </div>
     </div>
 </div>

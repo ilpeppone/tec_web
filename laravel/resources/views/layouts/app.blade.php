@@ -34,6 +34,10 @@
             min-height: 50px; 
         }
 
+        .navbar-custom {
+            background-color: #6c757d; /* Grigio */
+        }
+
         .btn-custom-pri {
             background-color:rgb(217, 119, 6); /* Arancione rame */
             border-color: #D97706;
@@ -68,7 +72,7 @@
 <body class="bg-dark text-white">
     <div id="app">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom py-2">
+        <nav class="navbar navbar-expand-lg border-bottom py-2 navbar-custom">
             <div class="container">
                 <!-- Logo -->
                 <a href="{{ url('/') }}" class="navbar-brand">

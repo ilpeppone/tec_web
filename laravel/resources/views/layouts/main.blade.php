@@ -20,31 +20,42 @@
             background: black;
             color: #f1f1f1;
         }
+
         .card-body,
         .card {
             background-color: #122121;
             color: #f1f1f1;
         }
+
         .navbar {
             min-height: 50px;
         }
+
+        .navbar-custom {
+            background-color: #6c757d; /* Grigio */
+        }
+
         .btn-custom-pri {
             background-color: rgb(255, 136, 0);
             border-color: #D97706;
             color: white;
         }
+
         .btn-custom-sec {
             background-color: rgb(189, 101, 0);
             border-color: rgba(255, 136, 1, 0.73);
             color: white;
         }
+
         .btn-custom-pri:hover, .btn-custom-sec:hover {
             background-color: rgba(180, 83, 9, 0);
             border-color: #B45309;
         }
+
         .nav-link {
             position: relative;
         }
+
         .nav-link:hover::after {
             content: "";
             position: absolute;
@@ -54,17 +65,21 @@
             height: 2px;
             background-color: rgba(180, 83, 9, 0.6);
         }
+
         .dropdown-menu {
             background-color: rgba(52, 48, 45, 0.59);
         }
+
         .dropdown-item {
             background-color: rgba(52, 48, 45, 0.59);
             color: white;
         }
+
         .dropdown-item:hover {
             background-color: rgba(188, 85, 17, 0.6);
             color: black;
         }
+        
     </style>
 
     <!-- Scripts -->
@@ -75,7 +90,7 @@
 <body class="bg-dark text-white">
     <div id="app">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom py-2">
+        <nav class="navbar navbar-expand-lg border-bottom py-2 navbar-custom">
             <div class="container">
                 <!-- Logo -->
                 <a href="{{ url('/') }}" class="navbar-brand">
