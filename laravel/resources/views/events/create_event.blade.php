@@ -32,6 +32,10 @@
                 <label for="event_date" class="form-label">Data dell'evento</label>
                 <input type="datetime-local" name="event_date" id="event_date" class="form-control bg-secondary text-white" required>
             </div>
+            <div class="mb-3">
+                <label for="max_participants" class="form-label">Numero massimo di partecipanti</label>
+                <input type="number" name="max_participants" id="max_participants" class="form-control bg-secondary text-white" required>
+            </div>
             <button type="submit" class="btn btn-custom-pri w-100">Crea</button>
         </form>
     </div>

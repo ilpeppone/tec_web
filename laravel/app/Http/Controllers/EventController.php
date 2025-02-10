@@ -20,37 +20,34 @@ class EventController extends Controller
 
     public function create()
     {
-        return view('events.create');
-    }
-
-    public function create_event()
-    {
         return view('events.create_event');
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'title' => 'required',
+            'description' => 'required',
+            'image' => 'nullable|image|max:2048',
             'event_date' => 'required|date',
-            'location' => 'required|string|in:indoor,outdoor',
+            'max_participants' => 'required|integer|min:1',
         ]);
 
-        $event = new Event();
-        $event->title = $request->title;
-        $event->description = $request->description;
-        $event->event_date = $request->event_date;
-        $event->location = $request->location;
-
+        $imagePath = null;
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('events', 'public');
-            $event->image = $imagePath;
+            $imagePath = $request->file('image')->store('images', 'public');
         }
 
-        $event->save();
+        Event::create([
+            'user_id' => auth()->id(),
+            'title' => $request->title,
+            'description' => $request->description,
+            'image_path' => $imagePath,
+            'is_outdoor' => $request->has('is_outdoor'),
+            'event_date' => $request->event_date,
+            'max_participants' => $request->max_participants,
+        ]);
 
-        return redirect()->route('events.index')->with('success', 'Evento creato con successo!');
+        return redirect()->route('events.index');
     }
 }
