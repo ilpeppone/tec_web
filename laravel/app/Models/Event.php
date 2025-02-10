@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
         'user_id',
         'title',
@@ -17,11 +15,12 @@ class Event extends Model
         'event_date',
         'is_outdoor',
         'max_participants',
+        'address',
     ];
-    
+
     public function organizer()
     {
-        return $this->belongsTo(User::class, 'organizer_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function participants()
