@@ -76,7 +76,7 @@
             <div class="container">
                 <!-- Logo -->
                 <a href="{{ url('/') }}" class="navbar-brand">
-                    <img src="{{ asset('images/logoExt.png') }}" width="180" height="44" alt="Logo">
+                    <img src="{{ asset('images/logoExt.png') }}" width="144" height="34" alt="Logo">
                 </a>
 
                 <!-- Toggle per dispositivi mobili -->
