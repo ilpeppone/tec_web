@@ -26,21 +26,21 @@
         <p><strong>Indirizzo:</strong> {{ $event->address }}</p>
         <p><strong>Numero massimo di partecipanti:</strong> {{ $event->max_participants }}</p>
         <p><strong>Partecipanti attuali:</strong> {{ $event->participants()->count() }}</p>
-        @if ($event->participants()->count() < $event->max_participants)
-            @if (Auth::check() && $event->participants->contains(Auth::user()))
+        @if (Auth::check())
+            @if ($event->participants->contains(Auth::user()))
                 <form action="{{ route('events.unparticipate', $event->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger btn-lg me-3">Disiscriviti</button>
                 </form>
-            @else
+            @elseif ($event->participants()->count() < $event->max_participants)
                 <form action="{{ route('events.participate', $event->id) }}" method="POST">
                     @csrf
                     <button type="submit" class="btn btn-success btn-lg me-3">Partecipa</button>
                 </form>
+            @else
+                <button class="btn btn-secondary btn-lg me-3" disabled>Numero massimo di partecipanti raggiunto</button>
             @endif
-        @else
-            <button class="btn btn-secondary btn-lg me-3" disabled>Numero massimo di partecipanti raggiunto</button>
         @endif
         <a href="{{ route('events.index') }}" class="btn btn-secondary btn-lg">Torna indietro</a>
     </div>
