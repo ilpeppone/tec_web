@@ -10,7 +10,7 @@
         <h1 class="display-4">Benvenuto su Torbit</h1>
         <p class="lead">Scopri gli eventi più interessanti a Ferrara, organizzati sia da te che dagli altri utenti!</p>
         <div class="d-flex justify-content-center align-items-center mt-4">
-            <a href="#" class="btn btn-custom-pri btn-lg me-3">Scopri Eventi</a>
+            <a href="{{ route('events.index.public') }}" class="btn btn-custom-pri btn-lg me-3">Scopri Eventi</a>
             @if (Route::has('login'))
                 @auth
                     <a href="{{ route('events.create') }}" class="btn btn-custom-pri btn-lg me-3">Crea un nuovo Evento</a>
