@@ -17,11 +17,17 @@ class EventController extends Controller
     public function index()
     {
         // Recupera gli eventi con più iscritti, ordinati per numero di partecipanti in ordine decrescente
-        $events = Event::withCount('participants')
+        $mostSubscribedEvents = Event::withCount('participants')
             ->orderBy('participants_count', 'desc')
+            ->take(10)
             ->get();
 
-        return view('events.index', compact('events'));
+        // Recupera gli eventi più recenti, ordinati per data dell'evento in ordine decrescente
+        $recentEvents = Event::orderBy('event_date', 'desc')
+            ->take(10)
+            ->get();
+
+        return view('events.index', compact('mostSubscribedEvents', 'recentEvents'));
     }
 
     public function create()
