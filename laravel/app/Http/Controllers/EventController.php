@@ -74,4 +74,10 @@ class EventController extends Controller
             return redirect()->route('events.show', $event->id)->with('error', 'Numero massimo di partecipanti raggiunto.');
         }
     }
+
+    public function unparticipate(Event $event)
+    {
+        $event->participants()->detach(Auth::id());
+        return redirect()->route('events.show', $event->id)->with('success', 'Sei stato rimosso dall\'evento.');
+    }
 }
