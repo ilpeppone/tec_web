@@ -42,7 +42,7 @@
             </div>
             <div class="mb-3">
                 <label for="event_date" class="form-label">Data dell'evento</label>
-                <input type="text" name="event_date" id="event_date" class="form-control bg-secondary text-white" required>
+                <input type="date" name="event_date" id="event_date" class="form-control bg-secondary text-white" required>
                 @error('event_date')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -66,11 +66,4 @@
     </div>
 </section>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        flatpickr("#event_date", {
-            dateFormat: "d/m/Y",
-        });
-    });
-</script>
 @endsection
