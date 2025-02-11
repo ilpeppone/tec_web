@@ -44,17 +44,23 @@
         <div class="container">
             <h2 class="mb-4 text-center">Eventi in Evidenza</h2>
             <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="event-card border">
-                        <img src="https://via.placeholder.com/300" class="img-fluid" alt="Evento" loading="lazy">
-                        <div class="p-3">
-                            <h4>Nome Evento</h4>
-                            <p class="text-muted">Descrizione breve dell'evento.</p>
-                            <p class="text-muted"><i class="fa fa-calendar"></i> Data Evento</p>
-                            <a href="#" class="btn btn-custom-pri">Scopri di più</a>
+                @foreach ($featuredEvents as $event)
+                    <div class="col-md-4 mb-4">
+                        <div class="event-card border">
+                            @if ($event->image_path)
+                                <img src="{{ asset('storage/' . $event->image_path) }}" class="img-fluid" alt="{{ $event->title }}" loading="lazy">
+                            @else
+                                <img src="https://via.placeholder.com/300" class="img-fluid" alt="Evento" loading="lazy">
+                            @endif
+                            <div class="p-3">
+                                <h4>{{ $event->title }}</h4>
+                                <p class="text-muted">{{ Str::limit($event->description, 100) }}</p>
+                                <p class="text-muted"><i class="fa fa-calendar"></i> {{ $event->event_date }}</p>
+                                <a href="{{ route('events.show', $event->id) }}" class="btn btn-custom-pri">Scopri di più</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

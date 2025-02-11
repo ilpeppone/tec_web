@@ -11,12 +11,16 @@ class EventController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['index', 'show']);
     }
 
     public function index()
     {
-        $events = Event::all();
+        // Recupera gli eventi con più iscritti, ordinati per numero di partecipanti in ordine decrescente
+        $events = Event::withCount('participants')
+            ->orderBy('participants_count', 'desc')
+            ->get();
+
         return view('events.index', compact('events'));
     }
 
@@ -30,17 +34,18 @@ class EventController extends Controller
         Log::info('Request data: ', $request->all());
 
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'nullable|image|max:2048',
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'event_date' => 'required|date',
+            'is_outdoor' => 'required|boolean',
             'max_participants' => 'required|integer|min:1',
-            'address' => 'required|string',
+            'address' => 'required|string|max:255',
         ]);
 
         $imagePath = null;
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
+            $imagePath = $request->file('image')->store('events', 'public');
         }
 
         Event::create([
@@ -56,7 +61,7 @@ class EventController extends Controller
 
         Log::info('Event created successfully.');
 
-        return redirect()->route('events.index');
+        return redirect()->route('events.index')->with('success', 'Evento creato con successo!');
     }
 
     public function show($id)
