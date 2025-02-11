@@ -19,3 +19,4 @@ Route::get('/terms', [LegalController::class, 'terms'])->name('terms');
 
 Route::resource('events', EventController::class);
 Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
+Route::post('/events/{event}/participate', [EventController::class, 'participate'])->name('events.participate');

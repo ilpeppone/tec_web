@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'show']);
+        $this->middleware('auth');
     }
 
     public function index()
@@ -62,5 +63,15 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
         return view('events.show', compact('event'));
+    }
+
+    public function participate(Event $event)
+    {
+        if ($event->participants()->count() < $event->max_participants) {
+            $event->participants()->attach(Auth::id());
+            return redirect()->route('events.show', $event->id)->with('success', 'Sei stato aggiunto all\'evento.');
+        } else {
+            return redirect()->route('events.show', $event->id)->with('error', 'Numero massimo di partecipanti raggiunto.');
+        }
     }
 }
