@@ -18,3 +18,4 @@ Route::get('/privacy', [LegalController::class, 'privacy'])->name('privacy');
 Route::get('/terms', [LegalController::class, 'terms'])->name('terms');
 
 Route::resource('events', EventController::class);
+Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');

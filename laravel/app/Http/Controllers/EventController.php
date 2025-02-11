@@ -10,7 +10,7 @@ class EventController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['index', 'show']);
     }
 
     public function index()
@@ -56,5 +56,11 @@ class EventController extends Controller
         Log::info('Event created successfully.');
 
         return redirect()->route('events.index');
+    }
+
+    public function show($id)
+    {
+        $event = Event::findOrFail($id);
+        return view('events.show', compact('event'));
     }
 }

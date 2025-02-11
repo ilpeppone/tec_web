@@ -10,7 +10,9 @@
         <a href="{{ route('events.create') }}" class="btn btn-custom-pri btn-lg me-3">Crea un nuovo Evento</a>
         <ul class="list-group mt-4">
             @foreach ($events as $event)
-                <li class="list-group-item">{{ $event->title }}</li>
+                <li class="list-group-item">
+                    <a href="{{ route('events.show', $event->id) }}">{{ $event->title }}</a>
+                </li>
             @endforeach
         </ul>
     </div>
