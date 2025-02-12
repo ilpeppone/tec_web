@@ -133,19 +133,19 @@
                 <div class="collapse navbar-collapse">
                     <!-- Links Centrali -->
                     <ul class="navbar-nav mx-auto my-auto">
-                        <li class="nav-item">
+                        <li class="nav-item mx-4">
                             <a href="{{ route('events.index') }}" class="nav-link text-center">Eventi</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-4">
                             <a href="{{ route('events.create') }}" class="nav-link text-center">Crea</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-center">3</a>
+                        <li class="nav-item mx-4">
+                            <a href="#" class="nav-link text-center">3ESEMPIO</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-4">
                             <a href="{{ route('about') }}" class="nav-link text-center">Chi Siamo?</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-4">
                             <a href="{{ route('contact') }}" class="nav-link text-center">Contattaci</a>
                         </li>
                     </ul>
