@@ -29,6 +29,5 @@ Route::get('/contattaci', function () {
 })->name('contact');
 
 Route::post('/contattaci', [ContactController::class, 'submit'])->name('contact.submit');
-=======
 Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy');
->>>>>>> 1ca574f161461073c7eaeddbbb4177965bcbd09d
+
