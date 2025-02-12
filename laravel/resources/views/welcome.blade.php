@@ -19,64 +19,64 @@
                 @endauth
             @endif
         </div>
-   
-            <!-- Search Bar -->
-            <div class="mt-5">
-                <form action="#" method="GET" class="d-flex justify-content-center">
-                    <input type="text" name="query" class="form-control form-control-lg me-2" placeholder="Nome evento">
-                    <select name="category" class="form-control form-control-lg me-2">
-                        <option value="">Tutte le categorie</option>
-                        <!-- Aggiungi qui altre categorie -->
-                    </select>
-                    <select name="location" class="form-control form-control-lg me-2">
-                        <option value="">All'aperto</option>
-                        <option value="">Al chiuso</option>
-                        <!-- Aggiungi qui altre categorie -->
-                    </select>
-                    <button type="submit" class="btn btn-custom-pri btn-lg ms-2">Cerca</button>
+
+        <!-- Search Bar -->
+        <div class="mt-5">
+            <form action="#" method="GET" class="d-flex justify-content-center">
+                <input type="text" name="query" class="form-control form-control-lg me-2" placeholder="Nome evento">
+                <select name="category" class="form-control form-control-lg me-2">
+                    <option value="">Tutte le categorie</option>
+                    <!-- Aggiungi qui altre categorie -->
+                </select>
+                <select name="location" class="form-control form-control-lg me-2">
+                    <option value="">All'aperto</option>
+                    <option value="">Al chiuso</option>
+                    <!-- Aggiungi qui altre categorie -->
+                </select>
+                <button type="submit" class="btn btn-custom-pri btn-lg ms-2">Cerca</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Sezione: Eventi in Evidenza -->
+<section class="featured-events py-5">
+    <div class="container">
+        <h2 class="mb-4 text-center">Eventi in Evidenza</h2>
+        <div class="row">
+            @foreach ($featuredEvents as $event)
+                <div class="col-md-4 mb-4">
+                    <div class="event-card border">
+                        @if ($event->image_path)
+                            <img src="{{ asset('storage/' . $event->image_path) }}" class="img-fluid" alt="{{ $event->title }}" loading="lazy">
+                        @else
+                            <img src="{{ asset('images/ferrara.png') }}" class="img-fluid" alt="Evento" loading="lazy">
+                        @endif
+                        <div class="card-body p-3">
+                            <h4>{{ $event->title }}</h4>
+                            <p class="text-muted">{{ Str::limit($event->description, 100) }}</p>
+                            <p class="text-muted"><i class="fa fa-calendar"></i> {{ $event->event_date }}</p>
+                            <a href="{{ route('events.show', $event->id) }}" class="btn btn-custom-pri">Scopri di più</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+<!-- Sezione: Newsletter -->
+<section class="newsletter py-5 bg-dark text-white">
+    <div class="container">
+        <h2 class="mb-4 text-center">Resta Aggiornato</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form action="#" method="POST" class="d-flex justify-content-center">
+                    <input type="email" name="email" class="form-control form-control-lg w-100" placeholder="Inserisci la tua email" required>
+                    <button type="submit" class="btn btn-custom-pri btn-lg ms-2">Iscriviti</button>
                 </form>
             </div>
         </div>
-    </section>
-
-    <!-- Sezione: Eventi in Evidenza -->
-    <section class="featured-events py-5">
-        <div class="container">
-            <h2 class="mb-4 text-center">Eventi in Evidenza</h2>
-            <div class="row">
-                @foreach ($featuredEvents as $event)
-                    <div class="col-md-4 mb-4">
-                        <div class="event-card border">
-                            @if ($event->image_path)
-                                <img src="{{ asset('storage/' . $event->image_path) }}" class="img-fluid" alt="{{ $event->title }}" loading="lazy">
-                            @else
-                                <img src="https://via.placeholder.com/300" class="img-fluid" alt="Evento" loading="lazy">
-                            @endif
-                            <div class="p-3">
-                                <h4>{{ $event->title }}</h4>
-                                <p class="text-muted">{{ Str::limit($event->description, 100) }}</p>
-                                <p class="text-muted"><i class="fa fa-calendar"></i> {{ $event->event_date }}</p>
-                                <a href="{{ route('events.show', $event->id) }}" class="btn btn-custom-pri">Scopri di più</a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    <!-- Sezione: Newsletter -->
-    <section class="newsletter py-5 bg-dark text-white">
-        <div class="container">
-            <h2 class="mb-4 text-center">Resta Aggiornato</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <form action="#" method="POST" class="d-flex justify-content-center">
-                        <input type="email" name="email" class="form-control form-control-lg w-100" placeholder="Inserisci la tua email" required>
-                        <button type="submit" class="btn btn-custom-pri btn-lg ms-2">Iscriviti</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 @endsection

@@ -16,9 +16,9 @@
                     @if ($event->image_path)
                         <img src="{{ asset('storage/' . $event->image_path) }}" class="img-fluid" alt="{{ $event->title }}" loading="lazy">
                     @else
-                        <img src="https://via.placeholder.com/300" class="img-fluid" alt="Evento" loading="lazy">
+                        <img src="{{ asset('images/ferrara.png') }}" class="img-fluid" alt="Evento" loading="lazy">
                     @endif
-                    <div class="p-3">
+                    <div class="card-body p-3">
                         <h4>{{ $event->title }}</h4>
                         <p class="text-muted">{{ Str::limit($event->description, 100) }}</p>
                         <p class="text-muted"><i class="fa fa-calendar"></i> {{ $event->event_date }}</p>
@@ -39,9 +39,9 @@
                     @if ($event->image_path)
                         <img src="{{ asset('storage/' . $event->image_path) }}" class="img-fluid" alt="{{ $event->title }}" loading="lazy">
                     @else
-                        <img src="https://via.placeholder.com/300" class="img-fluid" alt="Evento" loading="lazy">
+                        <img src="{{ asset('images/ferrara.png') }}" class="img-fluid" alt="Evento" loading="lazy">
                     @endif
-                    <div class="p-3">
+                    <div class="card-body p-3">
                         <h4>{{ $event->title }}</h4>
                         <p class="text-muted">{{ Str::limit($event->description, 100) }}</p>
                         <p class="text-muted"><i class="fa fa-calendar"></i> {{ $event->event_date }}</p>

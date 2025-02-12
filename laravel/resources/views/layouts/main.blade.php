@@ -23,8 +23,8 @@
 
         .card-body,
         .card {
-            background-color: #122121;
-            color: #f1f1f1;
+            background-color: #6c757d; /* Stesso background della navbar */
+            color: black; /* Testo in nero */
         }
 
         .navbar {
@@ -84,6 +84,29 @@
         main {
             padding-top: 70px; /* Altezza della navbar */
         }
+
+        /* Stili per i riquadri degli eventi */
+        .event-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-card img {
+            max-height: 200px;
+            object-fit: cover;
+            filter: blur(5px); /* Aggiungi sfocatura */
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .event-card img:hover {
+            filter: blur(0); /* Rimuovi sfocatura al passaggio del mouse */
+        }
+
+        .event-card .card-body {
+            flex: 1;
+        }
+
     </style>
 
     <!-- Scripts -->
