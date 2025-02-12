@@ -19,15 +19,19 @@ class EventController extends Controller
         // Recupera gli eventi con più iscritti, ordinati per numero di partecipanti in ordine decrescente
         $mostSubscribedEvents = Event::withCount('participants')
             ->orderBy('participants_count', 'desc')
-            ->take(10)
+            ->take(6)
             ->get();
 
         // Recupera gli eventi più recenti, ordinati per data dell'evento in ordine decrescente
         $recentEvents = Event::orderBy('event_date', 'desc')
-            ->take(10)
+            ->take(6)
             ->get();
 
-        return view('events.index', compact('mostSubscribedEvents', 'recentEvents'));
+        $newlyCreatedEvents = Event::orderBy('created_at', 'desc')
+            ->take(6)
+            ->get();
+
+        return view('events.index', compact('mostSubscribedEvents', 'recentEvents', 'newlyCreatedEvents'));
     }
 
     public function create()
