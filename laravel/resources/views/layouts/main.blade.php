@@ -13,9 +13,6 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Flatpickr CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
     <!-- Stili custom -->
     <style>
         /* Inserisci qui il tuo CSS personalizzato */
@@ -82,7 +79,11 @@
             background-color: rgba(188, 85, 17, 0.6);
             color: black;
         }
-        
+
+        /* Aggiungi padding al contenuto principale per evitare che la navbar copra il contenuto */
+        main {
+            padding-top: 70px; /* Altezza della navbar */
+        }
     </style>
 
     <!-- Scripts -->
@@ -93,7 +94,7 @@
 <body class="bg-dark text-white">
     <div id="app">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg border-bottom py-2 navbar-custom">
+        <nav class="navbar navbar-expand-lg border-bottom py-2 navbar-custom fixed-top">
             <div class="container">
                 <!-- Logo -->
                 <a href="{{ url('/') }}" class="navbar-brand">
@@ -109,7 +110,7 @@
                 <div class="collapse navbar-collapse">
                     <!-- Links Centrali -->
                     <ul class="navbar-nav mx-auto my-auto">
-                    <li class="nav-item">
+                        <li class="nav-item">
                             <a href="#" class="nav-link text-center">1</a>
                         </li>
                         <li class="nav-item">

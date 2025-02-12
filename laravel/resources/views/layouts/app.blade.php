@@ -64,6 +64,17 @@
             background-color:rgba(180, 83, 9, 0.6); /* Più scuro */
             color: white;
         }
+
+        /* Aggiungi padding al contenuto principale per evitare che la navbar copra il contenuto */
+        main {
+            padding-top: 70px; /* Altezza della navbar */
+        }
+
+        /* Disabilita lo scrolling */
+        html, body {
+            overflow: hidden;
+            height: 100%;
+        }
         
     </style>
 
@@ -72,7 +83,7 @@
 <body class="bg-dark text-white">
     <div id="app">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg border-bottom py-2 navbar-custom">
+        <nav class="navbar navbar-expand-lg border-bottom py-2 navbar-custom fixed-top">
             <div class="container">
                 <!-- Logo -->
                 <a href="{{ url('/') }}" class="navbar-brand">
