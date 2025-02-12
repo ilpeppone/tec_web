@@ -19,6 +19,7 @@ Route::resource('events', EventController::class);
 Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
 Route::post('/events/{event}/participate', [EventController::class, 'participate'])->name('events.participate');
 Route::delete('/events/{event}/unparticipate', [EventController::class, 'unparticipate'])->name('events.unparticipate');
+<<<<<<< HEAD
 
 Route::get('/about', function () {
     return view('about');
@@ -29,3 +30,6 @@ Route::get('/contattaci', function () {
 })->name('contact');
 
 Route::post('/contattaci', [ContactController::class, 'submit'])->name('contact.submit');
+=======
+Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy');
+>>>>>>> 1ca574f161461073c7eaeddbbb4177965bcbd09d

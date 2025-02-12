@@ -42,6 +42,13 @@
                 <button class="btn btn-secondary btn-lg me-3" disabled>Numero massimo di partecipanti raggiunto</button>
             @endif
         @endif
+        @if(auth()->user()->id === $event->user_id)
+            <form action="{{ route('events.destroy', $event->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Delete Event</button>
+            </form>
+        @endif
         <a href="{{ route('events.index') }}" class="btn btn-secondary btn-lg">Torna indietro</a>
     </div>
 </section>
