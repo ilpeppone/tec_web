@@ -95,4 +95,18 @@ class EventController extends Controller
         $event->participants()->detach(Auth::id());
         return redirect()->route('events.show', $event->id)->with('success', 'Sei stato rimosso dall\'evento.');
     }
+
+    public function destroy($id)
+    {
+        $event = Event::findOrFail($id);
+
+        // Check if the authenticated user is the owner of the event
+        if (auth()->user()->id !== $event->user_id) {
+            return redirect()->route('events.index')->with('error', 'Unauthorized action.');
+        }
+
+        $event->delete();
+
+        return redirect()->route('events.index')->with('success', 'Event deleted successfully.');
+    }
 }
