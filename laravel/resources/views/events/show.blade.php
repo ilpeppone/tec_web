@@ -49,6 +49,13 @@
                 <button type="submit" class="btn btn-danger">Delete Event</button>
             </form>
         @endif
+        @if(auth()->user()->is_admin && !$event->approved)
+            <form action="{{ route('events.approve', $event->id) }}" method="POST">
+                @csrf
+                @method('PATCH')
+                <button type="submit" class="btn btn-primary">Approve Event</button>
+            </form>
+        @endif
         <a href="{{ route('events.index') }}" class="btn btn-secondary btn-lg">Torna indietro</a>
     </div>
 </section>
