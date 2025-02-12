@@ -19,7 +19,6 @@ Route::resource('events', EventController::class);
 Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
 Route::post('/events/{event}/participate', [EventController::class, 'participate'])->name('events.participate');
 Route::delete('/events/{event}/unparticipate', [EventController::class, 'unparticipate'])->name('events.unparticipate');
-<<<<<<< HEAD
 
 Route::get('/about', function () {
     return view('about');
