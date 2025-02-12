@@ -143,10 +143,10 @@
                             <a href="#" class="nav-link text-center">3</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-center">Chi Siamo?</a>
+                            <a href="{{ route('about') }}" class="nav-link text-center">Chi Siamo?</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-center">Contattaci</a>
+                            <a href="{{ route('contact') }}" class="nav-link text-center">Contattaci</a>
                         </li>
                     </ul>
 
