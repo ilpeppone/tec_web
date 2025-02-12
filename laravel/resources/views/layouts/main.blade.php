@@ -13,6 +13,9 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+
     <!-- Stili custom -->
     <style>
         /* Inserisci qui il tuo CSS personalizzato */
@@ -156,6 +159,9 @@
                             @auth
                                 <div class="nav-item dropdown">
                                     <a id="navbarDropdown" class="btn btn-custom-sec dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                        @if(Auth::user()->role === 'admin')
+                                            <i class="bi bi-shield-check" title="Admin"></i>
+                                        @endif
                                         {{ Auth::user()->name }}
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end">

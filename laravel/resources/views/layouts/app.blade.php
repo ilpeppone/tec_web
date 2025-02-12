@@ -75,7 +75,9 @@
                 overflow: hidden;
                 height: 100%;
             }
-            
+            .mt-navbar {
+                margin-top: 70px;
+            }
         </style>
 
     @yield('head')

@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -31,5 +32,7 @@ Route::get('/contattaci', function () {
 Route::post('/contattaci', [ContactController::class, 'submit'])->name('contact.submit');
 Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy');
 
-Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy');
 Route::patch('/events/{id}/approve', [EventController::class, 'approve'])->name('events.approve')->middleware('auth', 'admin');
+
+Route::get('/admin/promote', [AdminController::class, 'showPromoteForm'])->name('admin.promote.form')->middleware('auth');
+Route::post('/admin/promote', [AdminController::class, 'promote'])->name('admin.promote')->middleware('auth');
