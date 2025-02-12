@@ -109,4 +109,13 @@ class EventController extends Controller
 
         return redirect()->route('events.index')->with('success', 'Event deleted successfully.');
     }
+
+    public function approve($id)
+    {
+        $event = Event::findOrFail($id);
+        $event->approved = true;
+        $event->save();
+
+        return redirect()->route('events.index')->with('success', 'Event approved successfully.');
+    }
 }

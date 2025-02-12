@@ -31,3 +31,5 @@ Route::get('/contattaci', function () {
 Route::post('/contattaci', [ContactController::class, 'submit'])->name('contact.submit');
 Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy');
 
+Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy');
+Route::patch('/events/{id}/approve', [EventController::class, 'approve'])->name('events.approve')->middleware('auth', 'admin');
