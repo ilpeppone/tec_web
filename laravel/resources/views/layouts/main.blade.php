@@ -134,10 +134,10 @@
                     <!-- Links Centrali -->
                     <ul class="navbar-nav mx-auto my-auto">
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-center">1</a>
+                            <a href="{{ route('events.index') }}" class="nav-link text-center">Eventi</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-center">2</a>
+                            <a href="{{ route('events.create') }}" class="nav-link text-center">Crea</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link text-center">3</a>
