@@ -32,9 +32,12 @@ Route::get('/contattaci', function () {
 Route::post('/contattaci', [ContactController::class, 'submit'])->name('contact.submit');
 Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy');
 
-Route::get('/admin/pending', [EventController::class, 'pending'])->name('admin.pending');
-Route::patch('/admin/{id}/approve', [EventController::class, 'approve'])->name('admin.approve');
-Route::get('/admin/promote', [EventController::class, 'showPromoteForm'])->name('admin.promote.form');
-Route::post('/admin/promote', [EventController::class, 'promote'])->name('admin.promote');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/promote', [AdminController::class, 'showPromoteForm'])->name('admin.promote.form');
+    Route::post('/admin/promote', [AdminController::class, 'promote'])->name('admin.promote');
+    Route::get('/admin/pending', [EventController::class, 'pending'])->name('admin.pending');
+    Route::get('/admin/events/{id}', [EventController::class, 'adminShow'])->name('admin.events.show');
+    Route::patch('/events/{id}/approve', [EventController::class, 'approve'])->name('events.approve');
+});
 
 

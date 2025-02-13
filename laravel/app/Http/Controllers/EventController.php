@@ -16,18 +16,19 @@ class EventController extends Controller
 
     public function index()
     {
-        // Recupera gli eventi con più iscritti, ordinati per numero di partecipanti in ordine decrescente
         $mostSubscribedEvents = Event::withCount('participants')
+            ->where('approved', true)
             ->orderBy('participants_count', 'desc')
             ->take(6)
             ->get();
 
-        // Recupera gli eventi più recenti, ordinati per data dell'evento in ordine decrescente
-        $recentEvents = Event::orderBy('event_date', 'desc')
+        $recentEvents = Event::where('approved', true)
+            ->orderBy('event_date', 'desc')
             ->take(6)
             ->get();
 
-        $newlyCreatedEvents = Event::orderBy('created_at', 'desc')
+        $newlyCreatedEvents = Event::where('approved', true)
+            ->orderBy('created_at', 'desc')
             ->take(6)
             ->get();
 
@@ -77,7 +78,7 @@ class EventController extends Controller
 
     public function show($id)
     {
-        $event = Event::findOrFail($id);
+        $event = Event::where('id', $id)->where('approved', true)->firstOrFail();
         return view('events.show', compact('event'));
     }
 
@@ -124,5 +125,11 @@ class EventController extends Controller
     {
         $pendingEvents = Event::where('approved', false)->get();
         return view('admin.pending', compact('pendingEvents'));
+    }
+
+    public function adminShow($id)
+    {
+        $event = Event::findOrFail($id);
+        return view('admin.admin_show', compact('event'));
     }
 }
