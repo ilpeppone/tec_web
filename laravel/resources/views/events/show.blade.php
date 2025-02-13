@@ -41,22 +41,23 @@
             @else
                 <button class="btn btn-secondary btn-lg me-3" disabled>Numero massimo di partecipanti raggiunto</button>
             @endif
-        @endif
-        @if(auth()->user()->id === $event->user_id)
+            @if(auth()->user()->id === $event->user_id)
             <form action="{{ route('events.destroy', $event->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Delete Event</button>
             </form>
+            @endif
+            @if(auth()->user()->is_admin && !$event->approved)
+                <form action="{{ route('events.approve', $event->id) }}" method="POST">
+                    @csrf
+                    @method('PATCH')
+                    <button type="submit" class="btn btn-primary">Approve Event</button>
+                </form>
+            @endif
         @endif
-        @if(auth()->user()->is_admin && !$event->approved)
-            <form action="{{ route('events.approve', $event->id) }}" method="POST">
-                @csrf
-                @method('PATCH')
-                <button type="submit" class="btn btn-primary">Approve Event</button>
-            </form>
-        @endif
-        <a href="{{ route('events.index') }}" class="btn btn-secondary btn-lg">Torna indietro</a>
+        
+        <a href="{{ route('events.index') }}" class="btn btn-secondary btn-lg">Altri Eventi</a>
     </div>
 </section>
 @endsection

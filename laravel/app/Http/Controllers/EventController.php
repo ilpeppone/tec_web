@@ -116,6 +116,6 @@ class EventController extends Controller
         $event->approved = true;
         $event->save();
 
-        return redirect()->route('events.index')->with('success', 'Event approved successfully.');
+        return redirect()->route('events.show', $event->id)->with('success', 'Event approved successfully.');
     }
 }
