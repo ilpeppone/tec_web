@@ -98,12 +98,7 @@
         .event-card img {
             max-height: 200px;
             object-fit: cover;
-            filter: blur(5px); /* Aggiungi sfocatura */
             transition: filter 0.3s ease-in-out;
-        }
-
-        .event-card img:hover {
-            filter: blur(0); /* Rimuovi sfocatura al passaggio del mouse */
         }
 
         .event-card .card-body {
