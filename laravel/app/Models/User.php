@@ -29,7 +29,7 @@ class User extends Authenticatable
 
     public function events()
     {
-        return $this->belongsToMany(Event::class, 'participants');
+        return $this->belongsToMany(Event::class, 'participants', 'user_id', 'event_id');
     }
 
     public function isAdmin()

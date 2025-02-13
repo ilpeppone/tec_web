@@ -39,4 +39,17 @@ class HomeController extends Controller
     $user = Auth::user(); 
     return view('home', ['user' => $user]);
     }
+
+    public function home()
+    {
+        $user = Auth::user();
+
+        // Eventi creati dall'utente
+        $createdEvents = Event::where('user_id', $user->id)->get();
+
+        // Eventi a cui l'utente è iscritto
+        $subscribedEvents = $user->events;
+
+        return view('home', compact('user', 'createdEvents', 'subscribedEvents'));
+    }
 }
