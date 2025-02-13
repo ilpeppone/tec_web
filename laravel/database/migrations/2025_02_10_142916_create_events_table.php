@@ -21,7 +21,6 @@ return new class extends Migration
             $table->date('event_date'); 
             $table->integer('max_participants'); // Nuova colonna per il numero massimo di partecipanti
             $table->string('address'); // Nuova colonna per l'indirizzo
-            $table->boolean('approved')->default(false); // Nuova colonna per l'approvazione
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

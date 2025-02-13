@@ -11,16 +11,18 @@ class AdminMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request  $request
+     * @param \Closure  $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
     {
+        // Verifica se l'utente è loggato e ha il permesso di amministratore
         if (Auth::check() && Auth::user()->role === 'admin') {
             return $next($request);
         }
 
-        return redirect('/')->with('error', 'Unauthorized access.');
+        // Se non è un amministratore, redirige con un messaggio di errore
+        return redirect('/home')->with('error', 'Accesso negato.');
     }
 }

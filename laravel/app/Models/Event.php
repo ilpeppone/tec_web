@@ -10,7 +10,7 @@ class Event extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'description', 'event_date', 'is_outdoor', 'address', 'max_participants', 'image_path', 'user_id', 'approved'
+        'user_id', 'title', 'description', 'image_path', 'is_outdoor', 'event_date', 'max_participants', 'address', 'approved'
     ];
 
     public function organizer()

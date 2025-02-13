@@ -67,11 +67,12 @@ class EventController extends Controller
             'event_date' => $request->event_date,
             'max_participants' => $request->max_participants,
             'address' => $request->address,
+            'approved' => false,
         ]);
 
         Log::info('Event created successfully.');
 
-        return redirect()->route('events.index')->with('success', 'Evento creato con successo!');
+        return redirect()->route('events.index')->with('success', 'Evento creato con successo! In attesa di approvazione.');
     }
 
     public function show($id)
@@ -116,6 +117,12 @@ class EventController extends Controller
         $event->approved = true;
         $event->save();
 
-        return redirect()->route('events.show', $event->id)->with('success', 'Event approved successfully.');
+        return redirect()->route('admin.pending')->with('success', 'Evento approvato con successo.');
+    }
+
+    public function pending()
+    {
+        $pendingEvents = Event::where('approved', false)->get();
+        return view('admin.pending', compact('pendingEvents'));
     }
 }
