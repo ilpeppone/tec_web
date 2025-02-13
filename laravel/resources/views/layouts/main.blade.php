@@ -82,7 +82,13 @@
             background-color: rgba(188, 85, 17, 0.6);
             color: black;
         }
-
+        
+        .offcanvas-body {
+            background-color: rgba(188, 85, 17, 0.6); /* Colore di sfondo del menu a tendina */
+        }
+        .offcanvas-header {
+            background-color: rgba(52, 48, 45, 0.59); /* Colore di sfondo del menu a tendina */
+        }
         /* Aggiungi padding al contenuto principale per evitare che la navbar copra il contenuto */
         main {
             padding-top: 70px; /* Altezza della navbar */
@@ -107,9 +113,9 @@
 
     </style>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
+     <!-- Bootstrap JS and dependencies -->
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     @yield('head')
 </head>
 <body class="bg-dark text-white">
@@ -118,18 +124,17 @@
         <nav class="navbar navbar-expand-lg border-bottom py-2 navbar-custom fixed-top">
             <div class="container">
                 <!-- Logo -->
-                <a href="{{ url('/') }}" class="navbar-brand">
+                <a href="{{ url('/') }}" class="navbar-brand mx-auto">
                     <img src="{{ asset('images/logoExt.png') }}" width="144" height="34" alt="Logo">
                 </a>
 
                 <!-- Toggle per dispositivi mobili -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- Menu di navigazione -->
-                <div class="collapse navbar-collapse">
-                    <!-- Links Centrali -->
+                <!-- Menu di navigazione per dispositivi grandi -->
+                <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
                     <ul class="navbar-nav mx-auto my-auto">
                         <li class="nav-item mx-4">
                             <a href="{{ route('events.index') }}" class="nav-link text-center">Eventi</a>
@@ -147,55 +152,80 @@
                             <a href="{{ route('contact') }}" class="nav-link text-center">Contattaci</a>
                         </li>
                     </ul>
+                </div>
 
-                    <!-- Auth (Login, Register o Utente) -->
-                    <div class="ms-auto d-flex align-items-center">
-                        @if (Route::has('login'))
-                            @auth
-                                <div class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="btn btn-custom-sec dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                        @if(Auth::user()->role === 'admin')
-                                            <i class="bi bi-shield-check" title="Admin"></i>
-                                        @endif
-                                        {{ Auth::user()->name }}
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item" href="{{ route('home') }}"
-                                            onclick="event.preventDefault();
-                                                        document.getElementById('home-form').submit();">
-                                                {{ __('Home') }}
-                                            </a>
-                                            <form id="home-form" action="{{ route('home') }}" method="GET" class="d-none">
-                                                @csrf
-                                            </form>
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
+                <!-- Auth (Login, Register o Utente) -->
+                <div class="d-flex align-items-center ms-auto">
+                    @if (Route::has('login'))
+                        @auth
+                            <div class="nav-item dropdown">
+                                <a id="navbarDropdown" class="btn btn-custom-sec dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                    @if(Auth::user()->role === 'admin')
+                                        <i class="bi bi-shield-check" title="Admin"></i>
+                                    @endif
+                                    {{ Auth::user()->name }}
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <a class="dropdown-item" href="{{ route('home') }}"
+                                        onclick="event.preventDefault();
+                                                    document.getElementById('home-form').submit();">
+                                            {{ __('Home') }}
                                         </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        <form id="home-form" action="{{ route('home') }}" method="GET" class="d-none">
                                             @csrf
                                         </form>
-                                    </div>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
                                 </div>
-                            @else
-                                <div class="vr mx-3 d-none d-lg-block" style="height: 30px; background-color: rgba(255, 255, 255, 0.3);"></div>
-                                <a href="{{ route('login') }}" class="btn btn-custom-sec ms-3">Accedi</a>
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="btn btn-custom-pri ms-3">Registrati</a>
-                                @endif
-                            @endauth
-                        @endif
-                    </div>
+                            </div>
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-custom-sec ms-3">Accedi</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="btn btn-custom-pri ms-3">Registrati</a>
+                            @endif
+                        @endauth
+                    @endif
                 </div>
             </div>
         </nav>
+
+        <!-- Off-canvas menu per dispositivi mobili -->
+        <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('events.index') }}">Eventi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('events.create') }}">Crea</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">3ESEMPIO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('about') }}">Chi Siamo?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('contact') }}">Contattaci</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
         <!-- Qui verrà inserito il contenuto specifico della pagina -->
         <main>
             @yield('content')
         </main>
-    </div>
     </div>
      <!-- Footer -->
      <footer class="bg-dark text-white py-4">
@@ -207,7 +237,6 @@
             </p>
         </div>
     </footer>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </body>
 </html>
