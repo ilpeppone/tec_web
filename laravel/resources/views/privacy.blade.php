@@ -38,15 +38,13 @@
 
         <h2 class="mt-4">5. Diritti degli Utenti</h2>
         <p>
-            Hai il diritto di accedere, correggere o cancellare le tue informazioni personali in nostro possesso. Per esercitare questi diritti, ti preghiamo di contattarci all’indirizzo email <strong>[inserisci contatto]</strong>.
+            Hai il diritto di accedere, correggere o cancellare le tue informazioni personali in nostro possesso. Per esercitare questi diritti, ti preghiamo di contattarci all’indirizzo email <strong></strong>.
         </p>
 
         <h2 class="mt-4">6. Modifiche all’Informativa</h2>
         <p>
             Potremmo aggiornare questa informativa periodicamente. Le modifiche saranno pubblicate su questa pagina e, se rilevanti, comunicate via email. Ti invitiamo a controllare regolarmente questa pagina per essere sempre aggiornato.
         </p>
-
-        <p class="mt-4"><em>Data di entrata in vigore: [Inserire Data]</em></p>
     </div>
 </section>
 @endsection
