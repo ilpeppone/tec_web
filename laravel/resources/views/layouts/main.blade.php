@@ -128,15 +128,15 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg border-bottom py-2 navbar-custom fixed-top">
             <div class="container">
-                <!-- Logo -->
-                <a href="{{ url('/') }}" class="navbar-brand mx-auto">
-                    <img src="{{ asset('images/logoExt.png') }}" width="144" height="34" alt="Logo">
-                </a>
-
+                
                 <!-- Toggle per dispositivi mobili -->
                 <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <!-- Logo -->
+                <a href="{{ url('/') }}" class="navbar-brand mx-auto">
+                    <img src="{{ asset('images/logoExt.png') }}" width="144" height="34" alt="Logo">
+                </a>
 
                 <!-- Menu di navigazione per dispositivi grandi -->
                 <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
