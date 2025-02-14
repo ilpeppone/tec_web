@@ -123,6 +123,9 @@
                             <a href="{{ route('events.create') }}" class="nav-link text-center">Crea</a>
                         </li>
                         <li class="nav-item mx-4">
+                            <a href="#" class="nav-link text-center">Help</a>
+                        </li>
+                        <li class="nav-item mx-4">
                             <a href="{{ route('about') }}" class="nav-link text-center">Chi Siamo?</a>
                         </li>
                         <li class="nav-item mx-4">
