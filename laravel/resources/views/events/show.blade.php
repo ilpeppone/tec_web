@@ -27,37 +27,81 @@
         <p><strong>Numero massimo di partecipanti:</strong> {{ $event->max_participants }}</p>
         <p><strong>Partecipanti attuali:</strong> {{ $event->participants()->count() }}</p>
         @if (Auth::check())
-            @if ($event->participants->contains(Auth::user()))
-                <form action="{{ route('events.unparticipate', $event->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger btn-lg me-3">Disiscriviti</button>
-                </form>
-            @elseif ($event->participants()->count() < $event->max_participants)
-                <form action="{{ route('events.participate', $event->id) }}" method="POST">
-                    @csrf
-                    <button type="submit" class="btn btn-success btn-lg me-3">Partecipa</button>
-                </form>
-            @else
-                <button class="btn btn-secondary btn-lg me-3" disabled>Numero massimo di partecipanti raggiunto</button>
-            @endif
-            @if(auth()->user()->id === $event->user_id)
-            <form action="{{ route('events.destroy', $event->id) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">Delete Event</button>
-            </form>
-            @endif
-            @if(auth()->user()->is_admin && !$event->approved)
-                <form action="{{ route('events.approve', $event->id) }}" method="POST">
-                    @csrf
-                    @method('PATCH')
-                    <button type="submit" class="btn btn-primary">Approve Event</button>
-                </form>
-            @endif
+            <div class="d-flex flex-wrap justify-content-center gap-4">
+                @if ($event->participants->contains(Auth::user()))
+                    <form action="{{ route('events.unparticipate', $event->id) }}" method="POST" class="flex-fill" id="unparticipate-form">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" class="btn btn-danger btn-lg w-50" onclick="confirmUnparticipate()">Disiscriviti</button>
+                    </form>
+                @elseif ($event->participants()->count() < $event->max_participants)
+                    <form action="{{ route('events.participate', $event->id) }}" method="POST" class="flex-fill" id="participate-form">
+                        @csrf
+                        <button type="button" class="btn btn-success btn-lg w-50" onclick="confirmParticipate()">Partecipa</button>
+                    </form>
+                @else
+                    <button class="btn btn-secondary btn-lg w-50" disabled>Numero massimo di partecipanti raggiunto</button>
+                @endif
+                @if(auth()->user()->id === $event->user_id)
+                    <form action="{{ route('events.destroy', $event->id) }}" method="POST" class="flex-fill" id="delete-form">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" class="btn btn-danger btn-lg w-50" onclick="confirmDelete()">Delete Event</button>
+                    </form>
+                @endif
+            </div>
         @endif
         
-        <a href="{{ route('events.index') }}" class="btn btn-secondary btn-lg">Altri Eventi</a>
+        <div class="text-center mt-3">
+            <a href="{{ route('events.index') }}" class="btn btn-custom-sec btn-lg w-50">Altri Eventi</a>
+        </div>
     </div>
 </section>
+
+<script>
+    function confirmParticipate() {
+        Swal.fire({
+            title: 'Sei sicuro di voler partecipare a questo evento?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sì, partecipa!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('participate-form').submit();
+            }
+        });
+    }
+
+    function confirmUnparticipate() {
+        Swal.fire({
+            title: 'Sei sicuro di voler disiscriverti da questo evento?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sì, disiscriviti!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('unparticipate-form').submit();
+            }
+        });
+    }
+
+    function confirmDelete() {
+        Swal.fire({
+            title: 'Sei sicuro di voler cancellare questo evento?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sì, cancella!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('delete-form').submit();
+            }
+        });
+    }
+</script>
 @endsection
