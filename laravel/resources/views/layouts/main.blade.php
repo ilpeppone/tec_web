@@ -79,16 +79,18 @@
         }
 
         .dropdown-item:hover {
-            background-color: rgba(188, 85, 17, 0.6);
+            background-color: rgba(180, 83, 9, 0.6);
             color: black;
         }
-        
+
         .offcanvas-body {
-            background-color: rgba(188, 85, 17, 0.6); /* Colore di sfondo del menu a tendina */
+            background-color: rgba(180, 83, 9, 0.6); /* Colore di sfondo del menu a tendina */
         }
+
         .offcanvas-header {
             background-color: rgba(52, 48, 45, 0.59); /* Colore di sfondo del menu a tendina */
         }
+
         /* Aggiungi padding al contenuto principale per evitare che la navbar copra il contenuto */
         main {
             padding-top: 70px; /* Altezza della navbar */
@@ -182,6 +184,11 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+                                    @if(Auth::user()->role !== 'admin')
+                                        <a class="dropdown-item" href="{{ route('admin.promote.form') }}">
+                                            {{ __('Diventa Admin') }}
+                                        </a>
+                                    @endif
                                 </div>
                             </div>
                         @else
