@@ -18,15 +18,15 @@ class AdminController extends Controller
             'admin_code' => 'required|string',
         ]);
 
-        // codice amministratore sia 'SECRET_ADMIN_CODE'
+        // Verifica il codice admin (puoi sostituire 'your_admin_code' con il codice reale)
         if ($request->admin_code === 'SECRET_ADMIN_CODE') {
             $user = Auth::user();
             $user->role = 'admin';
             $user->save();
 
-            return redirect()->route('home')->with('success', 'You have been promoted to admin.');
+            return redirect()->route('home')->with('success', 'Sei diventato un amministratore.');
         }
 
-        return redirect()->route('admin.promote.form')->with('error', 'Invalid admin code.');
+        return redirect()->route('home')->with('error', 'Codice admin non valido.');
     }
 }
