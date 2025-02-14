@@ -55,19 +55,6 @@
             border-color: #B45309;
         }
 
-        .nav-link {
-            position: relative;
-        }
-
-        .nav-link:hover::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -3px;
-            width: 100%;
-            height: 2px;
-            background-color: rgba(180, 83, 9, 0.6);
-        }
 
         .dropdown-menu {
             background-color: rgba(52, 48, 45, 0.59);
@@ -94,21 +81,9 @@
             padding-top: 70px; /* Altezza della navbar */
         }
 
-        /* Stili per i riquadri degli eventi */
-        .event-card {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .event-card img {
-            max-height: 200px;
-            object-fit: cover;
-            transition: filter 0.3s ease-in-out;
-        }
-
-        .event-card .card-body {
-            flex: 1;
+        .password-help {
+            display: none;
+            color: #ffc107; /* Colore di testo giallo per distinguere dal background */
         }
 
     </style>

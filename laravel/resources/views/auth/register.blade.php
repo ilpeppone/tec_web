@@ -34,13 +34,13 @@
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" name="password" id="password" class="form-control bg-secondary text-white @error('password') is-invalid @enderror" placeholder="********" required>
+                        <input type="password" name="password" id="password" class="form-control bg-secondary text-white @error('password') is-invalid @enderror" placeholder="********" required onload="hidePasswordHelp()" onfocus="showPasswordHelp()" onblur="hidePasswordHelp()">
                         @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                        <small class="form-text text-muted">La password deve contenere almeno 8 caratteri, una lettera maiuscola, una lettera minuscola, un numero e un carattere speciale.</small>
+                        <small id="passwordHelp" class="form-text password-help">La password deve contenere almeno 8 caratteri, una lettera maiuscola, una lettera minuscola, un numero e un carattere speciale.</small>
                     </div>
                     <div class="mb-3">
                         <label for="password-confirm" class="form-label">Ripeti Password</label>
@@ -60,4 +60,14 @@
         </div>
     </div>
 </div>
+
+<script>
+    function showPasswordHelp() {
+        document.getElementById('passwordHelp').style.display = 'block';
+    }
+
+    function hidePasswordHelp() {
+        document.getElementById('passwordHelp').style.display = 'none';
+    }
+</script>
 @endsection
