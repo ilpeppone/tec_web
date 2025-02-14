@@ -28,6 +28,7 @@ class HomeController extends Controller
     {
         // Recupera gli eventi con più iscritti, ordinati per numero di partecipanti in ordine decrescente
         $featuredEvents = Event::withCount('participants')
+            ->where('approved', true)
             ->orderBy('participants_count', 'desc')
             ->take(3) // Limita a 3 eventi in evidenza
             ->get();
