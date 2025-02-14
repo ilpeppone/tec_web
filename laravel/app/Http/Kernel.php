@@ -7,6 +7,14 @@ use App\Http\Middleware\AdminMiddleware; // Importa il middleware
 
 class Kernel extends HttpKernel
 {
+
+
+    protected $middlewarePriority = [
+        \App\Http\Middleware\AdminMiddleware::class,
+        // other middlewares...
+    ];
+
+    
     /**
      * The application's global HTTP middleware stack.
      *

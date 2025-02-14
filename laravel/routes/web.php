@@ -6,6 +6,7 @@ use App\Http\Controllers\LegalController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
+use App\Http\Middleware\AdminMiddleware;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -35,9 +36,11 @@ Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin/promote', [AdminController::class, 'showPromoteForm'])->name('admin.promote.form');
     Route::post('/admin/promote', [AdminController::class, 'promote'])->name('admin.promote');
+});
+
+Route::middleware([\App\Http\Middleware\AdminMiddleware::class])->group(function () {
     Route::get('/admin/pending', [EventController::class, 'pending'])->name('admin.pending');
     Route::get('/admin/events/{id}', [EventController::class, 'adminShow'])->name('admin.events.show');
     Route::patch('/events/{id}/approve', [EventController::class, 'approve'])->name('events.approve');
 });
-
 
