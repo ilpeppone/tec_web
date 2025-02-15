@@ -14,19 +14,19 @@
         </div>
         <div class="col-md-6">
             <h2>Modulo di Contatto</h2>
-            <form action="{{ route('contact.submit') }}" method="POST">
+            <form action="{{ route('contact.submit') }}" method="POST" class="needs-validation" novalidate>
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
+                    <input type="text" id="name" name="name" class="form-control bg-secondary text-white @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Mario Rossi" required autofocus>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <input type="email" id="email" name="email" class="form-control bg-secondary text-white @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="mario.rossi@example.com" required>
                 </div>
                 <div class="mb-3">
                     <label for="message" class="form-label">Messaggio</label>
-                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    <textarea id="message" name="message" rows="5" class="form-control bg-secondary text-white @error('message') is-invalid @enderror" value="{{ old('message') }}" placeholder="Vorrei contattarvi per ..." required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Invia</button>
             </form>

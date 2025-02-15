@@ -1,17 +1,17 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="container">
+<div class="container text-center py-5">
     <h1>Chi Siamo</h1>
-    <p>Benvenuti nel nostro sito! Siamo una comunità dedicata a [descrizione del sito].</p>
+    <p>Benvenuti nel nostro sito! Siamo una comunità dedicata a condividere eventi organizzati a Ferrara e dintorni, grandi o piccoli che siano.</p>
     
-    <h2>La Nostra Missione</h2>
-    <p>La nostra missione è [descrizione della missione].</p>
+    <h4>La Nostra Missione</h4>
+    <p>La nostra missione è quella di creare nuove amicizie e far passare momenti di qualità ai nostri iscritti.</p>
     
-    <h2>Il Nostro Team</h2>
-    <p>Il nostro team è composto da [descrizione del team].</p>
+    <h4>Il Nostro Team</h4>
+    <p>Il nostro team è composto dai curatori del sito Riccardo Augusto Chira, Giuseppe Viggiano e gli admin che approvano gli eventi.</p>
     
-    <h2>Contattaci</h2>
+    <h4>Contattaci</h4>
     <p>Per qualsiasi domanda o informazione, non esitare a <a href="{{ route('contact') }}">contattarci</a>.</p>
 </div>
 @endsection

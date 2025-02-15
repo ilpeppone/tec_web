@@ -29,6 +29,10 @@ Route::get('/contattaci', function () {
     return view('contacts');
 })->name('contact');
 
+Route::get('/help', function () {
+    return view('help');
+})->name('help');
+
 Route::post('/contattaci', [ContactController::class, 'submit'])->name('contact.submit');
 Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy');
 
