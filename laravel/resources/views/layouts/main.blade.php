@@ -140,7 +140,7 @@
 
                 <!-- Menu di navigazione per dispositivi grandi -->
                 <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
-                    <ul class="navbar-nav mx-auto my-auto">
+                    <ul class="navbar-nav mx-5 my-auto">
                         <li class="nav-item mx-4">
                             <a href="{{ route('events.index') }}" class="nav-link text-center">Eventi</a>
                         </li>

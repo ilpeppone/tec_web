@@ -86,6 +86,10 @@
             color: #ffc107; /* Colore di testo giallo per distinguere dal background */
         }
 
+        .no-scroll {
+            overflow: hidden;
+        }
+
     </style>
 
      <!-- Bootstrap JS and dependencies -->
@@ -98,24 +102,19 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg border-bottom py-2 navbar-custom fixed-top">
             <div class="container">
-                <!-- Logo -->
-                <a href="{{ url('/') }}" class="navbar-brand">
-                    <img src="{{ asset('images/logoExt.png') }}" width="144" height="34" alt="Logo">
-                </a>
-
+                
                 <!-- Toggle per dispositivi mobili -->
                 <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
                 <!-- Logo -->
-                <a href="{{ url('/') }}" class="navbar-brand">
+                <a href="{{ url('/') }}" class="navbar-brand mx-auto">
                     <img src="{{ asset('images/logoExt.png') }}" width="144" height="34" alt="Logo">
                 </a>
 
                 <!-- Menu di navigazione per dispositivi grandi -->
                 <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
-                    <ul class="navbar-nav mx-auto my-auto">
+                    <ul class="navbar-nav mx-5 my-auto">
                         <li class="nav-item mx-4">
                             <a href="{{ route('events.index') }}" class="nav-link text-center">Eventi</a>
                         </li>
@@ -168,16 +167,8 @@
             @yield('content')
         </main>
     </div>
-     <!-- Footer -->
-     <footer class="bg-dark text-white py-4">
-        <div class="container text-center">
-            <p>&copy; {{ date('Y') }} Torbit. Tutti i diritti riservati.</p>
-            <p>
-                <a href="{{ url('/privacy') }}" class="text-white me-3">Privacy Policy</a>
-                <a href="{{ url('/terms') }}" class="text-white">Termini di Utilizzo</a>
-            </p>
-        </div>
-    </footer>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
