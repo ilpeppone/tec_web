@@ -146,9 +146,13 @@ class EventController extends Controller
         $query = Event::query();
 
         if ($request->filled('query')) {
-            $searchTerm = $request->input('query'); // oppure $request->query('query')
-            $query->where('description', 'like', '%' . $searchTerm . '%');
+            $searchTerm = $request->input('query'); // Definizione della variabile
+            $query->where(function($q) use ($searchTerm) {
+                 $q->where('description', 'like', '%' . $searchTerm . '%')
+                   ->orWhere('title', 'like', '%' . $searchTerm . '%');
+            });
         }
+        
 
         if ($request->filled('date')) {
             $query->whereDate('event_date', $request->date);
