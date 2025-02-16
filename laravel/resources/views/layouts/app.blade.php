@@ -59,7 +59,7 @@
             position: relative;
             color: white;
         }
-
+        
         .nav-link:hover::after {
             content: "";
             position: absolute;
