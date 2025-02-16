@@ -11,14 +11,18 @@ class Event extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'title', 'description', 'image_path', 'is_outdoor', 'event_date', 'max_participants', 'address', 'approved'
+        'user_id', 'title', 'description', 'image_path', 'is_outdoor', 'event_date', 'max_participants', 'address', 'approved', 'price'
     ];
 
     protected $dates = ['event_date'];
 
     public function setEventDateAttribute($value)
     {
-        $this->attributes['event_date'] = Carbon::createFromFormat('Y-m-d', $value)->format('Y-m-d');
+        if ($value instanceof \DateTime) {
+            $this->attributes['event_date'] = $value->format('Y-m-d');
+        } else {
+            $this->attributes['event_date'] = Carbon::createFromFormat('Y-m-d', $value)->format('Y-m-d');
+        }
     }
 
     public function getEventDateAttribute($value)

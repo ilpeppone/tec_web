@@ -16,7 +16,7 @@
                     @if ($event->image_path)
                         <img src="{{ asset('storage/' . $event->image_path) }}" class="img-fluid" alt="{{ $event->title }}" loading="lazy">
                     @else
-                        <img src="{{ asset('images/ferrara.png') }}" class="img-fluid" alt="Evento" loading="lazy">
+                        <div class="no-image">No Image Available</div>
                     @endif
                     <div class="card-body p-3">
                         <h4>{{ $event->title }}</h4>
@@ -38,7 +38,7 @@
                     @if ($event->image_path)
                         <img src="{{ asset('storage/' . $event->image_path) }}" class="img-fluid" alt="{{ $event->title }}" loading="lazy">
                     @else
-                        <img src="{{ asset('images/ferrara.png') }}" class="img-fluid" alt="Evento" loading="lazy">
+                        <div class="no-image">No Image Available</div>
                     @endif
                     <div class="card-body p-3">
                         <h4>{{ $event->title }}</h4>
@@ -60,7 +60,7 @@
                     @if ($event->image_path)
                         <img src="{{ asset('storage/' . $event->image_path) }}" class="img-fluid" alt="{{ $event->title }}" loading="lazy">
                     @else
-                        <img src="{{ asset('images/ferrara.png') }}" class="img-fluid" alt="Evento" loading="lazy">
+                        <div class="no-image">No Image Available</div>
                     @endif
                     <div class="card-body p-3">
                         <h4>{{ $event->title }}</h4>
@@ -74,3 +74,16 @@
     </div>
 </div>
 @endsection
+
+<style>
+.no-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Altezza del riquadro dell'immagine */
+    background-color: #212529; /* Colore di sfondo */
+    color: #888; /* Colore del testo */
+    font-size: 16px; /* Dimensione del testo */
+    text-align: center;
+}
+</style>

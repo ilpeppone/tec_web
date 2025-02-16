@@ -18,9 +18,13 @@
         @endif
         <h1 class="display-4">{{ $event->title }}</h1>
         <p class="lead">{{ $event->description }}</p>
-        @if ($event->image_path)
-            <img src="{{ asset('storage/' . $event->image_path) }}" alt="{{ $event->title }}" class="img-fluid mb-3">
-        @endif
+        <div class="event-image">
+            @if($event->image_path)
+                <img src="{{ asset('storage/' . $event->image_path) }}" alt="{{ $event->title }}">
+            @else
+                <div class="no-image">No Image Available</div>
+            @endif
+        </div>
         <p><strong>Data:</strong> {{ $event->event_date }}</p>
         <p><strong>Luogo:</strong> {{ $event->is_outdoor ? 'All\'aperto' : 'Al chiuso' }}</p>
         <p><strong>Indirizzo:</strong> {{ $event->address }}</p>

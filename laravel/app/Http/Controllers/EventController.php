@@ -52,6 +52,7 @@ class EventController extends Controller
             'is_outdoor' => 'required|boolean',
             'max_participants' => 'required|integer|min:1',
             'address' => 'required|string|max:255',
+            'price' => 'required|numeric',
         ]);
 
         $imagePath = null;
@@ -69,6 +70,7 @@ class EventController extends Controller
             'max_participants' => $request->max_participants,
             'address' => $request->address,
             'approved' => false,
+            'price' => $request->price,
         ]);
 
         Log::info('Event created successfully.');
