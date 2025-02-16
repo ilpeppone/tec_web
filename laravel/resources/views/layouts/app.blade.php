@@ -119,7 +119,7 @@
                             <a href="{{ route('help') }}" class="nav-link text-center">Help</a>
                         </li>
                         <li class="nav-item mx-4">
-                            <a href="{{ route('about') }}" class="nav-link text-center">Chi Siamo?</a>
+                            <a href="{{ route('about') }}" class="nav-link text-center">About</a>
                         </li>
                         <li class="nav-item mx-4">
                             <a href="{{ route('contact') }}" class="nav-link text-center">Contattaci</a>
@@ -147,7 +147,7 @@
                         <a class="nav-link" href="{{ route('help') }}">Help</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('about') }}">Chi Siamo?</a>
+                        <a class="nav-link" href="{{ route('about') }}">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('contact') }}">Contattaci</a>

@@ -6,7 +6,7 @@
 <div class="container-fluid vh-100 d-flex justify-content-center align-items-start p-0">
     <div class="row w-100 h-100 m-0">
         <div class="col-md-6 d-none d-md-block p-0 h-100">
-            <img src="{{ asset('images/ferrara.png') }}" alt="Register Image" class="img-fluid h-100 w-100" style="border-radius: 0 0px 0px 0; object-fit: cover;">
+            <img src="{{ asset('images/log_background.jpeg') }}" alt="Register Image" class="img-fluid h-100 w-100" style="border-radius: 0 0px 0px 0; object-fit: cover; filter:blur(10px);">
         </div>
         <div class="col-md-6 d-flex align-items-center justify-content-center bg-dark text-white p-5" style="border-radius: 0 10px 10px 0;">
             <div class="w-75">

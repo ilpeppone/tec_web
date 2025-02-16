@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="col-md-6 d-none d-md-block p-0 h-100">
-            <img src="{{ asset('images/ferrara.png') }}" alt="Login Image" class="img-fluid h-100 w-100" style="border-radius: 0 10px 10px 0; object-fit: cover;">
+            <img src="{{ asset('images/log_background.jpeg') }}" alt="Login Image" class="img-fluid h-100 w-100" style="border-radius: 0 10px 10px 0; object-fit: cover; filter:blur(10px);">
         </div>
     </div>
 </div>
