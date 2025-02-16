@@ -27,19 +27,31 @@
             color: #f1f1f1;
         }
 
-        .card-body,
-        .card {
+        .card-body {
             background-color: #6c757d; /* Stesso background della navbar */
             color: black; /* Testo in nero */
         }
 
         .navbar {
             min-height: 50px;
-        }
-
-        .navbar-custom {
             background-color: #6c757d; /* Grigio */
         }
+
+        .nav-link {
+            position: relative;
+            color: white;
+        }
+
+        .nav-link:hover::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 2px;
+            background-color: rgba(180, 83, 9, 0.6);
+        }
+
 
         .btn-custom-pri {
             background-color: rgb(255, 136, 0);
@@ -58,27 +70,20 @@
             border-color: #B45309;
         }
 
-        .nav-link {
-            position: relative;
-            color: white;
+        .offcanvas-header {
+            background-color: #6c757d81; /* Colore di sfondo del menu a tendina */
         }
 
-        .nav-link:hover::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -3px;
-            width: 100%;
-            height: 2px;
-            background-color: rgba(180, 83, 9, 0.6);
+        .offcanvas-body {
+            background-color: #6c757d; /* Colore di sfondo del menu a tendina */
         }
 
         .dropdown-menu {
-            background-color: rgba(52, 48, 45, 0.59);
+            background-color: rgb(52, 48, 45);
+            color: white;
         }
 
         .dropdown-item {
-            background-color: rgba(52, 48, 45, 0.59);
             color: white;
         }
 
@@ -86,20 +91,7 @@
             background-color: rgba(180, 83, 9, 0.6);
             color: black;
         }
-
-        .offcanvas-body {
-            background-color: rgba(180, 83, 9, 0.6); /* Colore di sfondo del menu a tendina */
-        }
-
-        .offcanvas-header {
-            background-color: rgba(52, 48, 45, 0.59); /* Colore di sfondo del menu a tendina */
-        }
-
-        /* Aggiungi padding al contenuto principale per evitare che la navbar copra il contenuto */
-        main {
-            padding-top: 70px; /* Altezza della navbar */
-        }
-
+    
         /* Stili per i riquadri degli eventi */
         .event-card {
             height: 100%;
@@ -113,10 +105,6 @@
             transition: filter 0.3s ease-in-out;
         }
 
-        .event-card .card-body {
-            flex: 1;
-        }
-
     </style>
 
      <!-- Bootstrap JS and dependencies -->
@@ -127,7 +115,7 @@
 <body class="bg-dark text-white">
     <div id="app">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg border-bottom py-2 navbar-custom fixed-top">
+        <nav class="navbar navbar-expand-lg py-2 fixed-top">
             <div class="container">
                 
                 <!-- Toggle per dispositivi mobili -->
@@ -234,7 +222,7 @@
         </div>
 
         <!-- Qui verrà inserito il contenuto specifico della pagina -->
-        <main>
+        <main style="padding-top: 60px">
             @yield('content')
         </main>
     </div>
