@@ -146,7 +146,8 @@ class EventController extends Controller
         $query = Event::query();
 
         if ($request->filled('query')) {
-            $query->where('title', 'like', '%' . $request->query . '%');
+            $searchTerm = $request->input('query'); // oppure $request->query('query')
+            $query->where('description', 'like', '%' . $searchTerm . '%');
         }
 
         if ($request->filled('date')) {

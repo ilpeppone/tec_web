@@ -23,7 +23,7 @@
         <!-- Search Bar -->
         <div class="mt-5">
             <form action="{{ route('events.search') }}" method="GET" class="d-flex justify-content-center">
-                <input type="text" name="query" class="form-control form-control-lg me-2" placeholder="Nome evento">
+                <input type="text" name="query" class="form-control form-control-lg me-2" placeholder="Termine nella descrizione">
                 <input type="date" name="date" class="form-control form-control-lg me-2">
                 <select name="location" class="form-control form-control-lg me-2">
                     <option value="">Tutti i luoghi</option>
