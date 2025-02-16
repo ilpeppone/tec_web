@@ -32,7 +32,9 @@ class EventController extends Controller
             ->take(18)
             ->get();
 
-        return view('events.index', compact('mostSubscribedEvents', 'recentEvents', 'newlyCreatedEvents'));
+        $allEvents = Event::where('approved', true)->get();
+
+        return view('events.index', compact('mostSubscribedEvents', 'recentEvents', 'newlyCreatedEvents', 'allEvents'));
     }
 
     public function create()

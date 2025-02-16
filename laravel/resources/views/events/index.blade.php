@@ -138,6 +138,28 @@
             @endforeach
         </div>
     </div>
+
+    <!-- Tutti gli eventi -->
+    <h2 class="mb-4">Tutti gli eventi</h2>
+    <div class="row">
+        @foreach ($allEvents as $event)
+            <div class="col-md-3 mb-4">
+                <div class="event-card border">
+                    @if ($event->image_path)
+                        <img src="{{ asset('storage/' . $event->image_path) }}" class="img-fluid" alt="{{ $event->title }}" loading="lazy">
+                    @else
+                        <div class="no-image">No Image Available</div>
+                    @endif
+                    <div class="card-body p-3">
+                        <h4>{{ $event->title }}</h4>
+                        <p class="text-muted"><i class="fa fa-calendar"></i> {{ \Carbon\Carbon::parse($event->event_date)->format('d-m-Y') }}</p>
+                        <p class="text-muted"><i class="fa fa-users"></i> Partecipanti: {{ $event->participants_count }}</p>
+                        <a href="{{ route('events.show', $event->id) }}" class="btn btn-custom-pri">Scopri di più</a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
 </div>
 @endsection
 
