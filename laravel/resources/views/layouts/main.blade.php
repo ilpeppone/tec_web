@@ -60,6 +60,7 @@
 
         .nav-link {
             position: relative;
+            color: white;
         }
 
         .nav-link:hover::after {
