@@ -5,7 +5,7 @@
 @section('content')
    <!-- Hero Section -->
 <section class="hero-section text-center text-white" style="position: relative; padding: 100px 0;">
-    <img src="{{ asset('images/ferrara.png') }}" alt="Hero Background" class="img-fluid w-100" style="position: absolute; top: 0px; left: 0; width: 100%; height: 100%; object-fit: cover; ">
+    <img src="{{ asset('images/ferrara.png') }}" alt="Hero Background" class="img-fluid w-100" style="position: absolute; top: 0px; left: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(6px);">
     <div class="container" style="position: relative; z-index: 1; color: black; background-color: rgba(255, 255, 255, 0.8); border-radius: 10px; padding: 20px;">
         <h1 class="display-4">Benvenuto su Torbit</h1>
         <p class="lead">Scopri gli eventi più interessanti a Ferrara, organizzati sia da te che dagli altri utenti!</p>

@@ -4,10 +4,10 @@
 
 @section('content')
 <section class="py-5">
-    <div class="container">
+    <div class="container text-center col-md-6 mx-auto">
         <h1 class="mb-4">Politica sulla Privacy</h1>
         <p>
-            La presente informativa sulla privacy descrive come Torbit ("noi", "nostro") raccoglie, utilizza e protegge le informazioni personali degli utenti ("tu", "tuo") del nostro sito.
+            La presente informativa sulla privacy descrive come Torbit  raccoglie, utilizza e protegge le informazioni personali degli utenti del nostro sito.
         </p>
 
         <h4 class="mt-4">1. Raccolta delle Informazioni</h4>
@@ -19,7 +19,7 @@
         <p>
             Le informazioni raccolte vengono utilizzate per:
         </p>
-        <ul>
+        <ul style="list-style-type: none;">
             <li>Migliorare e personalizzare l'esperienza utente;</li>
             <li>Fornire assistenza e supporto;</li>
             <li>Inviare comunicazioni relative a novità, aggiornamenti e offerte;</li>
