@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('event_date'); 
             $table->integer('max_participants'); // Nuova colonna per il numero massimo di partecipanti
             $table->string('address'); // Nuova colonna per l'indirizzo
-            $table->decimal('price', 8, 2);
+            $table->decimal('price', 8, 2)->default(0.00); // Nuova colonna per il prezzo dell'evento con valore predefinito
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
