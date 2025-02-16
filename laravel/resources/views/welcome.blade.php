@@ -22,17 +22,19 @@
 
         <!-- Search Bar -->
         <div class="mt-5">
-            <form action="#" method="GET" class="d-flex justify-content-center">
+            <form action="{{ route('events.search') }}" method="GET" class="d-flex justify-content-center">
                 <input type="text" name="query" class="form-control form-control-lg me-2" placeholder="Nome evento">
-                <select name="category" class="form-control form-control-lg me-2">
-                    <option value="">Tutte le categorie</option>
-                    <!-- Aggiungi qui altre categorie -->
-                </select>
+                <input type="date" name="date" class="form-control form-control-lg me-2">
                 <select name="location" class="form-control form-control-lg me-2">
-                    <option value="">All'aperto</option>
-                    <option value="">Al chiuso</option>
-                    <!-- Aggiungi qui altre categorie -->
+                    <option value="">Tutti i luoghi</option>
+                    <option value="outdoor">All'aperto</option>
+                    <option value="indoor">Al chiuso</option>
                 </select>
+                <!-- <select name="cost" class="form-control form-control-lg me-2">
+                    <option value="">Tutti i costi</option>
+                    <option value="free">Gratis</option>
+                    <option value="paid">A pagamento</option>
+                </select> -->
                 <button type="submit" class="btn btn-custom-pri btn-lg ms-2">Cerca</button>
             </form>
         </div>

@@ -140,4 +140,37 @@ class EventController extends Controller
 
         return redirect()->route('admin.pending')->with('warning', 'Evento eliminato con successo.');
     }
+
+    public function search(Request $request)
+    {
+        $query = Event::query();
+
+        if ($request->filled('query')) {
+            $query->where('title', 'like', '%' . $request->query . '%');
+        }
+
+        if ($request->filled('date')) {
+            $query->whereDate('event_date', $request->date);
+        }
+
+        if ($request->filled('location')) {
+            if ($request->location == 'outdoor') {
+                $query->where('is_outdoor', true);
+            } elseif ($request->location == 'indoor') {
+                $query->where('is_outdoor', false);
+            }
+        }
+
+        if ($request->filled('cost')) {
+            if ($request->cost == 'free') {
+                $query->where('cost', 0);
+            } elseif ($request->cost == 'paid') {
+                $query->where('cost', '>', 0);
+            }
+        }
+
+        $events = $query->get();
+
+        return view('events.search_results', compact('events'));
+    }
 }
