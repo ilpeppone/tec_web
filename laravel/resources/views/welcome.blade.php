@@ -30,11 +30,11 @@
                     <option value="outdoor">All'aperto</option>
                     <option value="indoor">Al chiuso</option>
                 </select>
-                <!-- <select name="cost" class="form-control form-control-lg me-2">
+                <select name="cost" class="form-control form-control-lg me-2">
                     <option value="">Tutti i costi</option>
                     <option value="free">Gratis</option>
                     <option value="paid">A pagamento</option>
-                </select> -->
+                </select>
                 <button type="submit" class="btn btn-custom-pri btn-lg ms-2">Cerca</button>
             </form>
         </div>
@@ -57,7 +57,7 @@
                         <div class="card-body p-3">
                             <h4>{{ $event->title }}</h4>
                             <p class="text-muted">{{ Str::limit($event->description, 100) }}</p>
-                            <p class="text-muted"><i class="fa fa-calendar"></i> {{ $event->event_date }}</p>
+                            <p class="text-muted"><i class="fa fa-calendar"></i> {{ \Carbon\Carbon::parse($event->event_date)->format('d-m-Y') }}</p>
                             <a href="{{ route('events.show', $event->id) }}" class="btn btn-custom-pri">Scopri di più</a>
                         </div>
                     </div>
