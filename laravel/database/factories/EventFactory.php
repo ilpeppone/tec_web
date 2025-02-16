@@ -20,10 +20,11 @@ class EventFactory extends Factory
      */
     public function definition(): array
     {
+        $this->faker = \Faker\Factory::create('it_IT');
         return [
             'user_id' => \App\Models\User::factory(),
-            'title' => $this->faker->sentence,
-            'description' => $this->faker->paragraph,
+            'title' => $this->faker->realText(20),
+            'description' => $this->faker->realText(400),
             'image_path' => $this->faker->imageUrl(640, 480, 'events', true),
             'is_outdoor' => $this->faker->boolean,
             'event_date' => $this->faker->dateTimeBetween('+1 week', '+1 year'),
