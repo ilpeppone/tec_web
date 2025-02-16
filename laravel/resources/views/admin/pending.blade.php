@@ -7,6 +7,11 @@
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
+    @endif   
+    @if (session('warning'))
+        <div class="alert alert-warning">
+            {{ session('warning') }}
+        </div>
     @endif
     @foreach($pendingEvents as $event)
         <div class="card mb-3">
@@ -18,6 +23,11 @@
                     @csrf
                     @method('PATCH')
                     <button type="submit" class="btn btn-success">Approva</button>
+                </form>
+                <form action="{{ route('admin.events.destroy', $event->id) }}" method="POST" class="d-inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Elimina</button>
                 </form>
             </div>
         </div>

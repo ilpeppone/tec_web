@@ -45,5 +45,6 @@ Route::middleware([\App\Http\Middleware\AdminMiddleware::class])->group(function
     Route::get('/admin/pending', [EventController::class, 'pending'])->name('admin.pending');
     Route::get('/admin/events/{id}', [EventController::class, 'adminShow'])->name('admin.events.show');
     Route::patch('/events/{id}/approve', [EventController::class, 'approve'])->name('events.approve');
+    Route::delete('/admin/events/{id}', [EventController::class, 'adminDestroy'])->name('admin.events.destroy');
 });
 

@@ -23,7 +23,7 @@
             @method('PATCH')
             <button type="button" class="btn btn-success" onclick="confirmApprove()">Approva</button>
         </form>
-        <form action="{{ route('events.destroy', $event->id) }}" method="POST" id="delete-form" class="mt-2">
+        <form action="{{ route('admin.events.destroy', $event->id) }}" method="POST" id="delete-form" class="mt-2">
             @csrf
             @method('DELETE')
             <button type="button" class="btn btn-danger" onclick="confirmDelete()">Cancella</button>

@@ -132,4 +132,12 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
         return view('admin.admin_show', compact('event'));
     }
+
+    public function adminDestroy($id)
+    {
+        $event = Event::findOrFail($id);
+        $event->delete();
+
+        return redirect()->route('admin.pending')->with('warning', 'Evento eliminato con successo.');
+    }
 }
