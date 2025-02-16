@@ -46,11 +46,11 @@
                 @else
                     <button class="btn btn-secondary btn-lg w-50" disabled>Numero massimo di partecipanti raggiunto</button>
                 @endif
-                @if(auth()->user()->id === $event->user_id)
+                @if(auth()->user()->id === $event->user_id || Auth::user()->role === 'admin')
                     <form action="{{ route('events.destroy', $event->id) }}" method="POST" class="flex-fill" id="delete-form">
                         @csrf
                         @method('DELETE')
-                        <button type="button" class="btn btn-danger btn-lg w-50" onclick="confirmDelete()">Delete Event</button>
+                        <button type="button" class="btn btn-danger btn-lg w-50" onclick="confirmDelete()">Elimina</button>
                     </form>
                 @endif
             </div>
