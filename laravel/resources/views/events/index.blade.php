@@ -140,3 +140,12 @@
     </div>
 </div>
 @endsection
+
+<style>
+/* Selettore più specifico per l'indicatore attivo */
+#mostSubscribedEventsCarousel .carousel-indicators .active,
+#recentEventsCarousel .carousel-indicators .active,
+#newlyCreatedEventsCarousel .carousel-indicators .active {
+    background-color: #B45309 !important; /* Arancione con !important per sovrascrivere */
+}
+</style>
