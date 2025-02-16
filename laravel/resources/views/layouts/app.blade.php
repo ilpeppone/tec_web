@@ -55,6 +55,19 @@
             border-color: #B45309;
         }
 
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link:hover::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 2px;
+            background-color: rgba(180, 83, 9, 0.6);
+        }
 
         .dropdown-menu {
             background-color: rgba(52, 48, 45, 0.59);
@@ -66,16 +79,18 @@
         }
 
         .dropdown-item:hover {
-            background-color: rgba(188, 85, 17, 0.6);
+            background-color: rgba(180, 83, 9, 0.6);
             color: black;
         }
-        
+
         .offcanvas-body {
-            background-color: rgba(188, 85, 17, 0.6); /* Colore di sfondo del menu a tendina */
+            background-color: rgba(180, 83, 9, 0.6); /* Colore di sfondo del menu a tendina */
         }
+
         .offcanvas-header {
             background-color: rgba(52, 48, 45, 0.59); /* Colore di sfondo del menu a tendina */
         }
+
         /* Aggiungi padding al contenuto principale per evitare che la navbar copra il contenuto */
         main {
             padding-top: 70px; /* Altezza della navbar */
