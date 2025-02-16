@@ -61,6 +61,13 @@
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Prezzo</label>
+                <input type="number" step="0.01" name="price" id="price" class="form-control bg-secondary text-white" required>
+                @error('price')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
             <button type="submit" class="btn btn-custom-pri w-100">Crea</button>
         </form>
     </div>
