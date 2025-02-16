@@ -46,7 +46,6 @@
         <div class="carousel-indicators">
             @foreach ($mostSubscribedEvents->chunk(3) as $index => $chunk)
                 <button type="button" data-bs-target="#mostSubscribedEventsCarousel" data-bs-slide-to="{{ $index }}" class="@if ($loop->first) active @endif" aria-current="true" aria-label="Slide {{ $index + 1 }}">
-                    <img src="{{ asset('storage/' . $chunk->first()->image_path) }}" class="d-block w-100 img-thumbnail" alt="Event {{ $index + 1 }}">
                 </button>
             @endforeach
         </div>
@@ -91,7 +90,6 @@
         <div class="carousel-indicators">
             @foreach ($recentEvents->chunk(3) as $index => $chunk)
                 <button type="button" data-bs-target="#recentEventsCarousel" data-bs-slide-to="{{ $index }}" class="@if ($loop->first) active @endif" aria-current="true" aria-label="Slide {{ $index + 1 }}">
-                    <img src="{{ asset('storage/' . $chunk->first()->image_path) }}" class="d-block w-100 img-thumbnail" alt="Event {{ $index + 1 }}">
                 </button>
             @endforeach
         </div>
@@ -136,39 +134,9 @@
         <div class="carousel-indicators">
             @foreach ($newlyCreatedEvents->chunk(3) as $index => $chunk)
                 <button type="button" data-bs-target="#newlyCreatedEventsCarousel" data-bs-slide-to="{{ $index }}" class="@if ($loop->first) active @endif" aria-current="true" aria-label="Slide {{ $index + 1 }}">
-                    <img src="{{ asset('storage/' . $chunk->first()->image_path) }}" class="d-block w-100 img-thumbnail" alt="Event {{ $index + 1 }}">
                 </button>
             @endforeach
         </div>
     </div>
 </div>
 @endsection
-
-<style>
-.no-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px; /* Altezza del riquadro dell'immagine */
-    background-color: #212529; /* Colore di sfondo */
-    color: #888; /* Colore del testo */
-    font-size: 16px; /* Dimensione del testo */
-    text-align: center;
-}
-
-/* Separazione tra gli indicatori e le card */
-.carousel-indicators {
-    margin-top: 20px; /* Aggiungi margine sopra gli indicatori */
-}
-
-/* Aggiungi margine tra gli items per un po' di spazio */
-.carousel-inner {
-    padding-bottom: 20px; /* Puoi aumentare o diminuire questo valore */
-}
-
-/* Margine extra tra le card se necessario */
-.carousel-item {
-    padding-bottom: 20px; /* Aggiungi margine tra la sezione delle card e gli indicatori */
-}
-
-</style>

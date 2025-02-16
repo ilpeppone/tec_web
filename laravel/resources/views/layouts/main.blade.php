@@ -116,6 +116,22 @@
             text-align: center;
         }
 
+        /* Separazione tra gli indicatori e le card */
+        .carousel-indicators {
+            margin-top: 20px; /* Aggiungi margine sopra gli indicatori */
+        }
+
+        /* Aggiungi margine tra gli items per un po' di spazio */
+        .carousel-inner {
+            padding-bottom: 20px; /* Puoi aumentare o diminuire questo valore */
+        }
+
+        /* Margine extra tra le card se necessario */
+        .carousel-item {
+            padding-bottom: 20px; /* Aggiungi margine tra la sezione delle card e gli indicatori */
+        }
+
+
     </style>
 
      <!-- Bootstrap JS and dependencies -->
