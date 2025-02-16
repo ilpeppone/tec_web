@@ -30,6 +30,8 @@ class EventFactory extends Factory
             'event_date' => $this->faker->dateTimeBetween('+1 week', '+1 year'),
             'max_participants' => $this->faker->numberBetween(10, 100),
             'address' => $this->faker->address,
+            'price' => $this->faker->randomFloat(2, 0, 10),
+            'approved' => $this->faker->boolean(90),
         ];
     }
 }
