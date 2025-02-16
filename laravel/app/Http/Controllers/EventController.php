@@ -19,17 +19,17 @@ class EventController extends Controller
         $mostSubscribedEvents = Event::withCount('participants')
             ->where('approved', true)
             ->orderBy('participants_count', 'desc')
-            ->take(6)
+            ->take(18)
             ->get();
 
         $recentEvents = Event::where('approved', true)
             ->orderBy('event_date', 'desc')
-            ->take(6)
+            ->take(18)
             ->get();
 
         $newlyCreatedEvents = Event::where('approved', true)
             ->orderBy('created_at', 'desc')
-            ->take(6)
+            ->take(18)
             ->get();
 
         return view('events.index', compact('mostSubscribedEvents', 'recentEvents', 'newlyCreatedEvents'));
