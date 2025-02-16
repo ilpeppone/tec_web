@@ -45,14 +45,14 @@
 <section class="featured-events py-5">
     <div class="container">
         <h2 class="mb-4 text-center">Eventi in Evidenza</h2>
-        <div class="row">
+        <div class="row mb-5">
             @foreach ($featuredEvents as $event)
                 <div class="col-md-4 mb-4">
                     <div class="event-card border">
                         @if ($event->image_path)
                             <img src="{{ asset('storage/' . $event->image_path) }}" class="img-fluid" alt="{{ $event->title }}" loading="lazy">
                         @else
-                            <img src="{{ asset('images/ferrara.png') }}" class="img-fluid" alt="Evento" loading="lazy">
+                            <div class="no-image">No Image Available</div>
                         @endif
                         <div class="card-body p-3">
                             <h4>{{ $event->title }}</h4>

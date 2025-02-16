@@ -104,6 +104,17 @@
             object-fit: cover;
             transition: filter 0.3s ease-in-out;
         }
+        
+        .no-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px; /* Altezza del riquadro dell'immagine */
+            background-color: #212529; /* Colore di sfondo */
+            color: #888; /* Colore del testo */
+            font-size: 16px; /* Dimensione del testo */
+            text-align: center;
+        }
 
     </style>
 

@@ -91,7 +91,7 @@
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     @yield('head')
 </head>
-<body class="bg-dark text-white">
+<body class="bg-dark text-white no-scroll">
     <div id="app">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg py-2 navbar-custom fixed-top">
