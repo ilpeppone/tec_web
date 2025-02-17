@@ -34,7 +34,7 @@
 
         .navbar {
             min-height: 50px;
-            background-color: #6c757d; /* Grigio */
+            background-color: #4e5051; /* Grigio */
         }
 
         .nav-link {
@@ -53,21 +53,17 @@
         }
 
 
-        .btn-custom-pri {
+        .btn-custom-pri{
             background-color: rgb(255, 136, 0);
-            border-color: #D97706;
+            border-color: #f6f6f6;
+            border-width: 2px;
             color: white;
         }
 
-        .btn-custom-sec {
-            background-color: rgb(189, 101, 0);
-            border-color: rgba(255, 136, 1, 0.73);
-            color: white;
-        }
-
-        .btn-custom-pri:hover, .btn-custom-sec:hover {
-            background-color: rgba(180, 83, 9, 0);
-            border-color: #B45309;
+        .btn-custom-pri:hover {
+            background-color: rgb(255, 154, 40);
+            border-color: #000000;
+            color: black;
         }
 
         .offcanvas-header {
@@ -131,6 +127,18 @@
             padding-bottom: 20px; /* Aggiungi margine tra la sezione delle card e gli indicatori */
         }
 
+        .form-control {
+            background-color: #323406b1;/* Grigio */
+            color: white; /* Testo in bianco */
+        }
+        .form-control:focus{
+            background-color: #323406b1; /* Grigio */
+            color: white; /* Testo in bianco */
+        }
+
+        .form-control::placeholder {
+            color: white; /* Testo in bianco */
+        }
 
     </style>
 
@@ -180,7 +188,7 @@
                     @if (Route::has('login'))
                         @auth
                             <div class="nav-item dropdown">
-                                <a id="navbarDropdown" class="btn btn-custom-sec dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                <a id="navbarDropdown" class="btn btn-custom-pri dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                                     @if(Auth::user()->role === 'admin')
                                         <i class="bi bi-shield-check" title="Admin"></i>
                                     @endif
@@ -211,7 +219,7 @@
                                 </div>
                             </div>
                         @else
-                            <a href="{{ route('login') }}" class="btn btn-custom-sec ms-3">Accedi</a>
+                            <a href="{{ route('login') }}" class="btn btn-custom-pri ms-3">Accedi</a>
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}" class="btn btn-custom-pri ms-3">Registrati</a>
                             @endif

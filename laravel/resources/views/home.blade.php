@@ -4,8 +4,7 @@
 
 @section('content')
 <section class="hero-section text-center text-white" style="position: relative; padding: 100px 0;">
-    <img src="{{ asset('images/ferrara.png') }}" alt="Hero Background" class="img-fluid w-100" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: blur(5px);">
-    <div class="container" style="position: relative; z-index: 1; color: black; background-color: rgba(255, 255, 255, 0.8); border-radius: 10px; padding: 20px;">
+    <div class="container" style="position: relative; z-index: 1; background-color: rgba(109, 109, 109, 0.605); border-radius: 10px; padding: 20px;">
         <h1>Benvenuto, {{ Auth::user()->name }}</h1>
         @if(Auth::user()->role === 'admin')
             <a href="{{ route('admin.pending') }}" class="btn btn-primary">Eventi in attesa di approvazione</a>

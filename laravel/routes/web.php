@@ -1,11 +1,13 @@
 <?php
-
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
+use App\Mail\HelloMail;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -50,3 +52,15 @@ Route::middleware([\App\Http\Middleware\AdminMiddleware::class])->group(function
     Route::delete('/admin/events/{id}', [EventController::class, 'adminDestroy'])->name('admin.events.destroy');
 });
 
+
+Route::post('/mail/hello', function (Illuminate\Http\Request $request) {
+    $request->validate([
+        'email' => 'required|email',
+    ]);
+
+    $email = $request->input('email');
+
+    Mail::to($email)->send(new HelloMail());
+
+    return redirect()->back()->with('success', 'Email di benvenuto inviata con successo!');
+})->name('mail.hello');
