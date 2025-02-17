@@ -287,4 +287,8 @@
             .breadcrumb-item.active {
                 color:  rgb(255, 136, 0);
             }
+
+            .breadcrumb-item.active::before {
+                color:  rgb(255, 255, 255);
+            }
         }
