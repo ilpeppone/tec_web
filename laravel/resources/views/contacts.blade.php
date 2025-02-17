@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="container my-5">
+<div class="container py-5 text-center col-md-6 mx-auto" style="position: relative; z-index: 1; color: white; background-color: #6d6d6d; border-radius: 10px; padding: 20px;">
     <h1 class="text-center mb-4">Contattaci</h1>
     <p class="text-center mb-5">Siamo qui per aiutarti. Contattaci per qualsiasi domanda o informazione.</p>
     

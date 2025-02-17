@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="container text-center py-5">
+<div class="container py-5 text-center col-md-6 mx-auto" style="position: relative; z-index: 1; color: white; background-color: #6d6d6d; border-radius: 10px; padding: 20px;">
     <h1>Chi Siamo</h1>
     <p>Benvenuti nel nostro sito! Siamo una comunità dedicata a condividere eventi organizzati a Ferrara e dintorni, grandi o piccoli che siano.</p>
     
@@ -12,6 +12,6 @@
     <p>Il nostro team è composto dai curatori del sito Riccardo Augusto Chira, Giuseppe Viggiano e gli admin che approvano gli eventi.</p>
     
     <h4>Contattaci</h4>
-    <p>Per qualsiasi domanda o informazione, non esitare a <a href="{{ route('contact') }}">contattarci</a>.</p>
+    <p>Per qualsiasi domanda o informazione, non esitare a <a href="{{ route('contact') }}" style="color:#212529">contattarci</a>.</p>
 </div>
 @endsection
