@@ -2,6 +2,10 @@
 
 @section('title', $event->title . ' - Torbit')
 
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('events.show', $event) }}
+@endsection
+
 @section('content')
 <section class="hero-section text-center text-white" style="position: relative; padding: 100px 0;">
     <img src="{{ asset('images/ferrara.png') }}" alt="Hero Background" class="img-fluid w-100" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: blur(5px);">

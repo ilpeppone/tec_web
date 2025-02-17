@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('events.show', $event) }}
+@endsection
+
 @section('content')
 <div class="container">
     <h1>{{ $event->title }}</h1>

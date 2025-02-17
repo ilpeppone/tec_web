@@ -81,7 +81,7 @@ Breadcrumbs::for('admin.pending', function ($trail) {
 });
 
 // Home > ProfileAdmin > EventDetail
-Breadcrumbs::for('admin.events.show', function ($trail) {
-    $trail->parent('home');
-    $trail->push($event->title, route('admin.events.show'));
+Breadcrumbs::for('admin.events.show', function ($trail, $event) {
+    $trail->parent('admin.pending');
+    $trail->push($event->title, route('admin.events.show', $event->id));
 });
