@@ -6,7 +6,6 @@ use App\Models\Event;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
-
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Event>
  */
@@ -20,8 +19,8 @@ class EventFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
-{
-    $this->faker = \Faker\Factory::create('it_IT');
+    {
+        $this->faker = \Faker\Factory::create('it_IT');
 
     // Ottieni tutti i file dalla cartella public/images/events
     $imageFiles = Storage::disk('public')->files('images/events');
@@ -41,5 +40,5 @@ class EventFactory extends Factory
         'price' => $this->faker->randomFloat(2, 0, 10),
         'approved' => $this->faker->boolean(90),
     ];
-}  
+    }
 }
