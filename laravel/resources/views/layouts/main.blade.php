@@ -141,15 +141,10 @@
         <div class="breadcrumb-container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    @hasSection('breadcrumbs')
-                        @yield('breadcrumbs')
-                    @else
-                        {{ Breadcrumbs::render() }}
-                    @endif
+                    {{ Breadcrumbs::render() }}
                 </ol>
             </nav>
         </div>
-
 
         <!-- Qui verrà inserito il contenuto specifico della pagina -->
         <main style="padding-top: 110px"> <!-- Aggiungi padding-top per compensare l'altezza della navbar e dei breadcrumbs -->
