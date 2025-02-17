@@ -168,8 +168,21 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        window.onload = function() {
+            let screenWidth = window.innerWidth;
+            let isMobile = screenWidth < 768;  // Considera mobile quando la larghezza è inferiore a 768px
+
+            // Imposta il cookie is_mobile per passare l'informazione al server
+            document.cookie = "is_mobile=" + (isMobile ? "1" : "0");
+        }
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
     <!-- SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 </html>
