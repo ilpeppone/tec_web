@@ -30,7 +30,7 @@ class HomeController extends Controller
         $featuredEvents = Event::withCount('participants')
             ->where('approved', true)
             ->orderBy('participants_count', 'desc')
-            ->take(3) // Limita a 3 eventi in evidenza
+            ->take(9) 
             ->get();
 
         return view('welcome', compact('featuredEvents'));

@@ -46,29 +46,14 @@
     </div>
 </section>
 
-<!-- Sezione: Eventi in Evidenza -->
+<!-- Sezione: Eventi in Evidenza (visualizzati come carosello) -->
 <section class="featured-events py-5">
     <div class="container">
-        <h2 class="mb-4 text-center">Eventi in Evidenza</h2>
-        <div class="row mb-5">
-            @foreach ($featuredEvents as $event)
-                <div class="col-md-4 mb-4">
-                    <div class="event-card border">
-                        @if ($event->image_path)
-                            <img src="{{ asset('storage/' . $event->image_path) }}" class="img-fluid" alt="{{ $event->title }}" loading="lazy">
-                        @else
-                            <div class="no-image">No Image Available</div>
-                        @endif
-                        <div class="card-body p-3">
-                            <h4>{{ $event->title }}</h4>
-                            <p class="text-muted">{{ Str::limit($event->description, 100) }}</p>
-                            <p class="text-muted"><i class="fa fa-calendar"></i> {{ \Carbon\Carbon::parse($event->event_date)->format('d-m-Y') }}</p>
-                            <a href="{{ route('events.show', $event->id) }}" class="btn btn-custom-pri">Scopri di più</a>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
+        <x-event-carousel 
+            :events="$featuredEvents" 
+            carouselId="featuredEventsCarousel" 
+            title="Eventi in Evidenza" 
+        />
     </div>
 </section>
 
