@@ -31,84 +31,99 @@
 <body class="bg-dark text-white">
     <div id="app">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg py-2 fixed-top">
-            <div class="container">
-                
-                <!-- Toggle per dispositivi mobili -->
-                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!-- Logo -->
-                <a href="{{ url('/') }}" class="navbar-brand mx-auto">
-                    <img src="{{ asset('images/logoExt.png') }}" width="144" height="34" alt="Logo">
-                </a>
+            <nav class="navbar navbar-expand-lg py-2 fixed-top">
+                <div class="container">
+                    
+                    <!-- Toggle per dispositivi mobili -->
+                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- Logo -->
+                    <a href="{{ url('/') }}" class="navbar-brand mx-auto">
+                        <img src="{{ asset('images/logoExt.png') }}" width="144" height="34" alt="Logo">
+                    </a>
 
-                <!-- Menu di navigazione per dispositivi grandi -->
-                <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
-                    <ul class="navbar-nav mx-5 my-auto">
-                        <li class="nav-item mx-4">
-                            <a href="{{ route('events.index') }}" class="nav-link text-center">Eventi</a>
-                        </li>
-                        <li class="nav-item mx-4">
-                            <a href="{{ route('events.create') }}" class="nav-link text-center">Crea</a>
-                        </li>
-                        <li class="nav-item mx-4">
-                            <a href="{{ route('help') }}" class="nav-link text-center">Help</a>
-                        </li>
-                        <li class="nav-item mx-4">
-                            <a href="{{ route('about') }}" class="nav-link text-center">About</a>
-                        </li>
-                        <li class="nav-item mx-4">
-                            <a href="{{ route('contact') }}" class="nav-link text-center">Contattaci</a>
-                        </li>
-                    </ul>
-                </div>
+                    <!-- Menu di navigazione per dispositivi grandi -->
+                    <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                        <ul class="navbar-nav mx-5 my-auto">
+                            <li class="nav-item mx-4">
+                                <a href="{{ route('events.index') }}" class="nav-link text-center">Eventi</a>
+                            </li>
+                            <li class="nav-item mx-4">
+                                <a href="{{ route('events.create') }}" class="nav-link text-center">Crea</a>
+                            </li>
+                            <li class="nav-item mx-4">
+                                <a href="{{ route('help') }}" class="nav-link text-center">Help</a>
+                            </li>
+                            <li class="nav-item mx-4">
+                                <a href="{{ route('about') }}" class="nav-link text-center">About</a>
+                            </li>
+                            <li class="nav-item mx-4">
+                                <a href="{{ route('contact') }}" class="nav-link text-center">Contattaci</a>
+                            </li>
+                        </ul>
+                    </div>
 
-                <!-- Auth (Login, Register o Utente) -->
-                <div class="d-flex align-items-center ms-auto">
-                    @if (Route::has('login'))
-                        @auth
-                            <div class="nav-item dropdown">
-                                <a id="navbarDropdown" class="btn btn-custom-pri dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                    @if(Auth::user()->role === 'admin')
-                                        <i class="bi bi-shield-check" title="Admin"></i>
-                                    @endif
-                                    {{ Auth::user()->name }}
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end">
-                                    <a class="dropdown-item" href="{{ route('home') }}"
+                    <!-- Auth (Login, Register o Utente) -->
+                    <div class="d-flex align-items-center ms-auto">
+                        @if (Route::has('login'))
+                            @auth
+                                <div class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="btn btn-custom-pri dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                        @if(Auth::user()->role === 'admin')
+                                            <i class="bi bi-shield-check" title="Admin"></i>
+                                        @endif
+                                        {{ Auth::user()->name }}
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <a class="dropdown-item" href="{{ route('home') }}"
+                                            onclick="event.preventDefault();
+                                                        document.getElementById('home-form').submit();">
+                                                {{ __('Home') }}
+                                            </a>
+                                            <form id="home-form" action="{{ route('home') }}" method="GET" class="d-none">
+                                                @csrf
+                                            </form>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                    document.getElementById('home-form').submit();">
-                                            {{ __('Home') }}
+                                                    document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
                                         </a>
-                                        <form id="home-form" action="{{ route('home') }}" method="GET" class="d-none">
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf
                                         </form>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                    @if(Auth::user()->role !== 'admin')
-                                        <a class="dropdown-item" href="{{ route('admin.promote.form') }}">
-                                            {{ __('Diventa Admin') }}
-                                        </a>
-                                    @endif
+                                        @if(Auth::user()->role !== 'admin')
+                                            <a class="dropdown-item" href="{{ route('admin.promote.form') }}">
+                                                {{ __('Diventa Admin') }}
+                                            </a>
+                                        @endif
+                                    </div>
                                 </div>
-                            </div>
-                        @else
-                            <a href="{{ route('login') }}" class="btn btn-custom-pri ms-3">Accedi</a>
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="btn btn-custom-pri ms-3">Registrati</a>
-                            @endif
-                        @endauth
-                    @endif
+                            @else
+                                <a href="{{ route('login') }}" class="btn btn-custom-pri ms-3">Accedi</a>
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" class="btn btn-custom-pri ms-3">Registrati</a>
+                                @endif
+                            @endauth
+                        @endif
+                    </div>
                 </div>
+                
+            </nav>
+
+            <!-- Breadcrumbs: sarà visibile in ogni pagina se definito -->
+            <div class="breadcrumb-container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        @hasSection('breadcrumbs')
+                            @yield('breadcrumbs')
+                        @else                                
+                            {{ Breadcrumbs::render() }}
+                        @endif
+                    </ol>
+                </nav>
             </div>
-        </nav>
+
 
         <!-- Off-canvas menu per dispositivi mobili -->
         <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -137,22 +152,9 @@
             </div>
         </div>
 
-        <!-- Breadcrumbs: sarà visibile in ogni pagina se definito -->
-        <div class="breadcrumb-container">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    @hasSection('breadcrumbs')
-                        @yield('breadcrumbs')
-                    @else
-                        {{ Breadcrumbs::render() }}
-                    @endif
-                </ol>
-            </nav>
-        </div>
-
 
         <!-- Qui verrà inserito il contenuto specifico della pagina -->
-        <main style="padding-top: 110px"> <!-- Aggiungi padding-top per compensare l'altezza della navbar e dei breadcrumbs -->
+        <main> <!-- Aggiungi padding-top per compensare l'altezza della navbar e dei breadcrumbs -->
             @yield('content')
         </main>
     </div>

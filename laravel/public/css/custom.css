@@ -3,7 +3,7 @@
         /* Inserisci qui il tuo CSS personalizzato */
         
         .navbar {
-            min-height: 50px;
+            height: 60px;
             background-color: #4e5051; /* Grigio */
         }
 
@@ -47,6 +47,7 @@
         .dropdown-menu {
             background-color: rgb(52, 48, 45);
             color: white;
+            z-index: 1100 !important;
         }
 
         .dropdown-item {
@@ -118,6 +119,7 @@
 
         body {
         font-family: var(--font-sans);
+        padding-top: 60px;
         }
 
         /* Impostazioni base della card */
@@ -271,17 +273,11 @@
                 transition-duration: 0s;
             }
 
-            .breadcrumb-container {
-                position: fixed;
-                top: 50px; /* Altezza della navbar */
-                width: 100%;
-                z-index: 1030; /* Assicurati che sia sopra altri elementi */
-            }
-
             .breadcrumb {
                 background:rgb(95, 98, 99);
-                padding: 1px 15px;
-                border-radius: 3px;
+                border-radius: 2px;
+                margin: 0 0 0;
+                padding-left: 30;
             }
 
             .breadcrumb-item a {
