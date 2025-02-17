@@ -23,6 +23,30 @@
         }
 
 
+        .breadcrumb {
+            border-radius: 2px;
+            margin: 0 0 0;
+            padding: 0 60px;
+        }
+
+        .breadcrumb-item a {
+            color: white; /* Arancione come i bottoni */
+            text-decoration: none;
+        }
+
+        .breadcrumb-item+.breadcrumb-item::before  {
+            color:  rgb(255, 255, 255);
+        }
+
+        .breadcrumb-item.active {
+            color:  rgb(255, 136, 0);
+        }
+
+        .breadcrumb-item.active::before {
+            color:  rgb(255, 255, 255);
+        }
+
+
         .btn-custom-pri{
             background-color: rgb(255, 136, 0);
             border-color: #f6f6f6;
@@ -255,26 +279,10 @@
                 transition-duration: 0s;
             }
 
-            .breadcrumb {
-                border-radius: 2px;
-                margin: 0 0 0;
-                padding: 0 60px;
-            }
+           
+        }
 
-            .breadcrumb-item a {
-                color: white; /* Arancione come i bottoni */
-                text-decoration: none;
-            }
-
-            .breadcrumb-item+.breadcrumb-item::before  {
-                color:  rgb(255, 255, 255);
-            }
-
-            .breadcrumb-item.active {
-                color:  rgb(255, 136, 0);
-            }
-
-            .breadcrumb-item.active::before {
-                color:  rgb(255, 255, 255);
-            }
+        .btn{
+            background-color: #000000; /* Grigio */
+            color: white;
         }
