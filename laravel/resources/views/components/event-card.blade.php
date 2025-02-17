@@ -9,7 +9,7 @@
             @if(!empty($event->description))
                 <p class="description">{{ \Illuminate\Support\Str::limit($event->description, 100) }}</p>
             @endif
-            <button class="btn" onclick="window.location.href='{{ route('events.show', $event->id) }}'">Scopri di più</button>
+            <button class="btn btn-custom-pri" onclick="window.location.href='{{ route('events.show', $event->id) }}'">Scopri di più</button>
         </div>
     </div>
 </div>
