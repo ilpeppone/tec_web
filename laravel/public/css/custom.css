@@ -277,7 +277,7 @@
                 background:rgb(95, 98, 99);
                 border-radius: 2px;
                 margin: 0 0 0;
-                padding-left: 30;
+                padding: 0 30px;
             }
 
             .breadcrumb-item a {
