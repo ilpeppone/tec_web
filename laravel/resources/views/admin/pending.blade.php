@@ -1,7 +1,10 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="container">
+<div class="container text-center">
+    @if($pendingEvents->isEmpty())
+        <h1 style="padding:200px">Non ci sono eventi in attesa di approvazione</h1>
+    @else
     <h1>Eventi in attesa di approvazione</h1>
     @if (session('success'))
         <div class="alert alert-success">
@@ -32,6 +35,7 @@
             </div>
         </div>
     @endforeach
+    @endif
 </div>
 
 <script>

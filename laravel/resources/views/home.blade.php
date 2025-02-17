@@ -7,7 +7,7 @@
     <div class="container" style="position: relative; z-index: 1; background-color: rgba(109, 109, 109, 0.605); border-radius: 10px; padding: 20px;">
         <h1>Benvenuto, {{ Auth::user()->name }}</h1>
         @if(Auth::user()->role === 'admin')
-            <a href="{{ route('admin.pending') }}" class="btn btn-primary">Eventi in attesa di approvazione</a>
+            <a href="{{ route('admin.pending') }}" class="btn btn-info" style="padding:5px; margin:10px">Eventi in attesa di approvazione</a>
         @endif
       
         <!-- Sezione eventi creati dall'utente -->
