@@ -141,7 +141,11 @@
         <div class="breadcrumb-container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    {{ Breadcrumbs::render() }}
+                    @hasSection('breadcrumbs')
+                        @yield('breadcrumbs')
+                    @else
+                        {{ Breadcrumbs::render() }}
+                    @endif
                 </ol>
             </nav>
         </div>
