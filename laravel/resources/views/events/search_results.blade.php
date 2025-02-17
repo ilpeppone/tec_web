@@ -21,24 +21,12 @@
             <p>Nessun evento trovato.</p>
         @else
             <div class="row">
-                @foreach ($events as $event)
-                    <div class="col-md-4 mb-4">
-                        <div class="event-card border">
-                            @if ($event->image_path)
-                                <img src="{{ asset('storage/' . $event->image_path) }}" class="img-fluid" alt="{{ $event->title }}" loading="lazy">
-                            @else
-                                <img src="{{ asset('images/ferrara.png') }}" class="img-fluid" alt="Evento" loading="lazy">
-                            @endif
-                            <div class="card-body p-3">
-                                <h4>{{ $event->title }}</h4>
-                                <p class="text-muted">{{ Str::limit($event->description, 100) }}</p>
-                                <p class="text-muted"><i class="fa fa-calendar"></i> {{ \Carbon\Carbon::parse($event->event_date)->format('d-m-Y') }}</p>
-                                <a href="{{ route('events.show', $event->id) }}" class="btn btn-custom-pri">Scopri di più</a>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+            <div class="row">
+            @foreach ($events as $event)
+                <x-event-card :event="$event" />
+            @endforeach
+        </div>
+
         @endif
     </div>
 @endsection

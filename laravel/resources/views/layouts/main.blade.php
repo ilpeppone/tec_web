@@ -313,7 +313,26 @@
         .card:focus-within .content > *:not(.title) {
             transition-duration: 0s;
         }
-}
+
+        .breadcrumb-container {
+            padding-top: 60px; /* Assicura che il breadcrumb non sia coperto dalla navbar */
+        }
+
+        .breadcrumb {
+            background: grey;
+            padding: 1px 15px;
+            border-radius: 3px;
+        }
+
+        .breadcrumb-item a {
+            color: white; /* Arancione come i bottoni */
+            text-decoration: none;
+        }
+
+        .breadcrumb-item.active {
+            color:  rgb(255, 136, 0);
+        }
+    }
 
     </style>
 
@@ -322,6 +341,7 @@
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     @yield('head')
 </head>
+
 <body class="bg-dark text-white">
     <div id="app">
         <!-- Navbar -->
@@ -429,6 +449,15 @@
                     </li>
                 </ul>
             </div>
+        </div>
+
+        <!-- Breadcrumbs: sarà visibile in ogni pagina se definito -->
+        <div class="breadcrumb-container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    {{ Breadcrumbs::render() }}
+                </ol>
+            </nav>
         </div>
 
         <!-- Qui verrà inserito il contenuto specifico della pagina -->
