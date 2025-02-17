@@ -284,6 +284,10 @@
                 text-decoration: none;
             }
 
+            .breadcrumb-item+.breadcrumb-item::before  {
+                color:  rgb(255, 255, 255);
+            }
+
             .breadcrumb-item.active {
                 color:  rgb(255, 136, 0);
             }
