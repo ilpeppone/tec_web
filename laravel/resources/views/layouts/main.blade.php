@@ -315,11 +315,14 @@
         }
 
         .breadcrumb-container {
-            padding-top: 60px; /* Assicura che il breadcrumb non sia coperto dalla navbar */
+            position: fixed;
+            top: 50px; /* Altezza della navbar */
+            width: 100%;
+            z-index: 1030; /* Assicurati che sia sopra altri elementi */
         }
 
         .breadcrumb {
-            background: grey;
+            background:rgb(95, 98, 99);
             padding: 1px 15px;
             border-radius: 3px;
         }
@@ -461,7 +464,7 @@
         </div>
 
         <!-- Qui verrà inserito il contenuto specifico della pagina -->
-        <main style="padding-top: 60px">
+        <main style="padding-top: 110px"> <!-- Aggiungi padding-top per compensare l'altezza della navbar e dei breadcrumbs -->
             @yield('content')
         </main>
     </div>

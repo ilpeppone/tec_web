@@ -31,7 +31,7 @@
 
         .navbar {
             min-height: 50px;
-            background-color: #6c757d; /* Grigio */
+            background-color: #4e5051; /* Grigio */
         }
 
         .nav-link {
