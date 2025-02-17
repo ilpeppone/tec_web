@@ -48,7 +48,7 @@
 
 <!-- Sezione: Eventi in Evidenza (visualizzati come carosello) -->
 <section class="featured-events py-5">
-    <div class="container">
+    <div class="container text-center">
         <x-event-carousel 
             :events="$featuredEvents" 
             carouselId="featuredEventsCarousel" 
