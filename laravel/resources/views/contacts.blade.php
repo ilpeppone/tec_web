@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="container py-5 text-center col-md-6 mx-auto" style="position: relative; z-index: 1; color: white; background-color: #6d6d6d; border-radius: 10px; padding: 20px;">
+<div class="container py-5 text-center col-md-8 mx-auto" style="position: relative; z-index: 1; color: white; background-color: #6d6d6d; border-radius: 10px; padding: 20px;">
     <h1 class="text-center mb-4">Contattaci</h1>
     <p class="text-center mb-5">Siamo qui per aiutarti. Contattaci per qualsiasi domanda o informazione.</p>
     
@@ -18,7 +18,7 @@
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Nome</label>
-                    <input type="text" id="name" name="name" class="form-control bg-secondary text-white @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Mario Rossi" required autofocus>
+                    <input type="text" id="name" name="name" class="form-control form-control-lg text-white @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Mario Rossi" required autofocus>
                     @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" id="email" name="email" class="form-control bg-secondary text-white @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="mario.rossi@example.com" required>
+                    <input type="email" id="email" name="email" class="form-control form-control-lg text-white @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="mario.rossi@example.com" required>
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -36,14 +36,14 @@
                 </div>
                 <div class="mb-3">
                     <label for="message" class="form-label">Messaggio</label>
-                    <textarea id="message" name="message" rows="5" class="form-control bg-secondary text-white @error('message') is-invalid @enderror" value="{{ old('message') }}" placeholder="Vorrei contattarvi per ..." required></textarea>
+                    <textarea id="message" name="message" rows="5" class="form-control form-control-lg text-white @error('message') is-invalid @enderror" value="{{ old('message') }}" placeholder="Vorrei contattarvi per ..." required></textarea>
                     @error('message')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-primary">Invia</button>
+                <button type="submit" class="btn btn-info">Invia</button>
             </form>
         </div>
     </div>
