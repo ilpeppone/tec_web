@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="it">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@yield('title', config('app.name', 'Torbit'))</title>
+    <title>@yield('title', config('app.name', 'E-vents'))</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -214,7 +214,7 @@
      <!-- Footer -->
      <footer class="bg-dark text-white py-4">
         <div class="container text-center">
-            <p>&copy; {{ date('Y') }} Torbit. Tutti i diritti riservati.</p>
+            <p>&copy; {{ date('Y') }} E-vents. Tutti i diritti riservati.</p>
             <p>
                 <a href="{{ url('/privacy') }}" class="text-white me-3">Privacy Policy</a>
                 <a href="{{ url('/terms') }}" class="text-white">Termini di Utilizzo</a>
