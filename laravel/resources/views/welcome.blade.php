@@ -57,19 +57,5 @@
     </div>
 </section>
 
-<!-- Sezione: Newsletter -->
-<section class="newsletter py-5 bg-dark text-white">
-    <div class="container" style="position: relative; z-index: 1; background-color: #6d6d6d; border-radius: 10px; padding: 20px;">
-        <h2 class="mb-4 text-center">Resta Aggiornato</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <form action="{{ route('mail.hello') }}" method="POST" class="d-flex justify-content-center">
-                    @csrf
-                    <input type="email" name="email" class="form-control form-control-lg w-100" placeholder="Inserisci la tua email" required>
-                    <button type="submit" class="btn btn-custom-pri btn-lg ms-2">Iscriviti</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
+
 @endsection

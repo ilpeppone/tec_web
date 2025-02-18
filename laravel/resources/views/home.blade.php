@@ -5,14 +5,19 @@
 @section('content')
 <section class="hero-section text-center text-white" style="position: relative; padding: 100px 0;">
     <div class="container" style="position: relative; z-index: 1; background-color: rgba(109, 109, 109, 0.605); border-radius: 10px; padding: 20px;">
-        <h1>Benvenuto, {{ Auth::user()->name }}</h1>
+        <h1 style="margin-bottom: 30px">Benvenuto, {{ Auth::user()->name }}</h1>
         @if(Auth::user()->role === 'admin')
             <a href="{{ route('admin.pending') }}" class="btn btn-info" style="padding:5px; margin:10px">Eventi in attesa di approvazione</a>
         @endif
       
         <!-- Sezione eventi creati dall'utente -->
         <div id="createdEventsSection">
-            <h2 class="mb-4">Eventi creati da me</h2>
+            
+            <h2 class="mb-4 " >Eventi creati da me</h2>
+            <div class="col-md-12">
+            @if ($subscribedEvents->isEmpty())
+                <p class="text-muted">Non hai creatp nessun evento.</p>
+            @else
             <div class="row">
                 @foreach ($createdEvents as $event)
                     <div class="col-md-4 mb-4">
@@ -31,16 +36,17 @@
                         </div>
                     </div>
                 @endforeach
+                @endif
             </div>
         </div>
 
         <!-- Sezione eventi a cui l'utente è iscritto -->
         <div id="subscribedEventsSection">
+            <h2 class="mb-4">Eventi a cui sono iscritto</h2>
             @if ($subscribedEvents->isEmpty())
                     <div class="col-md-12">
                         <p class="text-muted">Non sei iscritto a nessun evento.</p>
             @else
-            <h2 class="mb-4">Eventi a cui sono iscritto</h2>
             <div class="row">
                 
                 @foreach ($subscribedEvents as $event)
