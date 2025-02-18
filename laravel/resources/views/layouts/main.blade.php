@@ -211,8 +211,9 @@
             @yield('content')
         </main>
     </div>
-     <!-- Footer -->
-     <footer class="bg-dark text-white py-4">
+    
+    <!-- Footer -->
+    <footer class="text-white py-4" style="margin-top: 10px; background-color: #4E5051;">
         <div class="container text-center">
             <p>&copy; {{ date('Y') }} E-vents. Tutti i diritti riservati.</p>
             <p>
