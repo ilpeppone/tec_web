@@ -44,7 +44,7 @@ class LoginController extends Controller
 
     protected function attemptLogin(Request $request)
     {
-    $credentials = $this->credentials($request);
+        $credentials = $this->credentials($request);
 
     $user = User::where('email', $credentials['email'])->first();
 
@@ -52,7 +52,7 @@ class LoginController extends Controller
         return Redirect::route('verification.notice')->with('error', 'Per favore verifica la tua email per accedere.');
     }
 
-    return Auth::attempt($credentials, $request->filled('remember'));
+        return Auth::attempt($credentials, $request->filled('remember'));
     }
 
     
