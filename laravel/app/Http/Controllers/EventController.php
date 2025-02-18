@@ -37,6 +37,41 @@ class EventController extends Controller
         return view('events.index', compact('mostSubscribedEvents', 'recentEvents', 'newlyCreatedEvents', 'allEvents'));
     }
 
+    public function filter(Request $request)
+{
+    $query = Event::query();
+
+    // Ordinamento
+    switch ($request->sortBy) {
+        case 'title':
+            $query->orderBy('title');
+            break;
+        case 'date_asc':
+            $query->orderBy('event_date', 'asc');
+            break;
+        case 'date_desc':
+            $query->orderBy('event_date', 'desc');
+            break;
+        case 'price_asc':
+            $query->orderBy('price', 'asc');
+            break;
+        case 'price_desc':
+            $query->orderBy('price', 'desc');
+            break;
+    }
+
+    // Mostra/nascondi eventi pieni
+    if ($request->maxParticipants == "hide") {
+        $query->whereRaw('(SELECT COUNT(*) FROM event_participants WHERE event_participants.event_id = events.id) < max_participants');
+    }
+
+    $events = $query->get();
+
+    // Restituiamo la vista parziale con gli eventi filtrati
+    return view('partials.event-list', compact('events'))->render();
+}
+
+
     public function create()
     {
         return view('events.create');
