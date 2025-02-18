@@ -24,8 +24,6 @@
                 <div class="admin_card_body flex-grow-1 d-flex flex-column">
                     <h5 class="admin_card_title">{{ $event->title }}</h5>
                     <p class="admin_card_description">
-                        {{ Str::limit($event->description, 100, '...') }} 
-                        {{-- Limita la descrizione a 100 caratteri con i "..." --}}
                     </p>
                     <div class="mt-auto">
                         <div class="mb-2 d-flex">
