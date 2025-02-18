@@ -35,7 +35,7 @@
                 <div class="container">
                     
                     <!-- Toggle per dispositivi mobili -->
-                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <button class="navbar-toggler d-lg-none" style="background-color:#6d6d6d;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <!-- Logo -->
@@ -65,7 +65,7 @@
                     </div>
 
                     <!-- Auth (Login, Register o Utente) -->
-                    <div class="d-flex align-items-center ms-auto">
+                    <div class="collapse navbar-collapse d-none d-lg-flex">
                         @if (Route::has('login'))
                             @auth
                                 <div class="nav-item dropdown">
@@ -148,8 +148,61 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('contact') }}">Contattaci</a>
                     </li>
+                    
+                    <!-- Auth (Login, Register o Utente) -->
+                    @if (Route::has('login'))
+                        @auth
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="mobileAuthDropdown" role="button" data-bs-toggle="dropdown">
+                                    @if(Auth::user()->role === 'admin')
+                                        <i class="bi bi-shield-check" title="Admin"></i>
+                                    @endif
+                                    {{ Auth::user()->name }}
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('home') }}"
+                                           onclick="event.preventDefault();
+                                                   document.getElementById('home-form').submit();">
+                                            {{ __('Home') }}
+                                        </a>
+                                        <form id="home-form" action="{{ route('home') }}" method="GET" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                   document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                    @if(Auth::user()->role !== 'admin')
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('admin.promote.form') }}">
+                                                {{ __('Diventa Admin') }}
+                                            </a>
+                                        </li>
+                                    @endif
+                                </ul>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a href="{{ route('login') }}" class="nav-link">Accedi</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a href="{{ route('register') }}" class="nav-link">Registrati</a>
+                                </li>
+                            @endif
+                        @endauth
+                    @endif
                 </ul>
             </div>
+            
         </div>
 
 
