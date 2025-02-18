@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
 
     <!-- Stili custom -->
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <style>
         /* Inserisci qui il tuo CSS personalizzato */
         .card-header {
@@ -94,17 +95,18 @@
 <body class="bg-dark text-white no-scroll">
     <div id="app">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg py-2 navbar-custom fixed-top">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg py-2 fixed-top">
             <div class="container">
-                
-                <!-- Toggle per dispositivi mobili -->
-                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!-- Logo -->
-                <a href="{{ url('/') }}" class="navbar-brand mx-auto">
-                    <img src="{{ asset('images/logoExt.png') }}" width="144" height="34" alt="Logo">
-                </a>
+                    
+                    <!-- Toggle per dispositivi mobili -->
+                    <button class="navbar-toggler d-lg-none" style="background-color:#6d6d6d;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- Logo -->
+                    <a href="{{ url('/') }}" class="navbar-brand mx-auto">
+                        <img src="{{ asset('images/logoExt.png') }}" width="144" height="34" alt="Logo">
+                    </a>
 
                 <!-- Menu di navigazione per dispositivi grandi -->
                 <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
