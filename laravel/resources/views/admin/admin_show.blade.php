@@ -55,7 +55,7 @@
                 </form>
             </div>
             <div class="col-md-12 mt-3">
-                <a href="{{ route('admin.pending') }}" class="btn btn-custom-sec w-50 py-2">⬅️ Torna Indietro</a>
+                <a href="{{ route('admin.pending') }}" class="btn btn-custom-pri w-50 py-2">⬅️ Torna Indietro</a>
             </div>
         </div>
     </div>
