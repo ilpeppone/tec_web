@@ -6,10 +6,19 @@
 <div class="container py-5 text-center">
     <div class="container" style="position: relative; z-index: 1; background-color: #4f4f4f; border-radius: 15px; padding: 40px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
         <h1 class="display-4 text-white mb-4" style="font-weight: 700;">Esplora Eventi</h1>
-        <p class="lead text-white" style="font-size: 1.2rem;">Ciao {{ Auth::user()->name }}! Sei pronto a scoprire eventi incredibili? Trova quelli che più ti piacciono o, se non trovi nulla che ti ispira:</p>
-        <a href="{{ route('events.create') }}" class="btn btn-custom-pri btn-lg mb-5">
-            Crea il tuo Evento
-        </a>
+        @if (Route::has('login'))
+            @auth
+                <p class="lead text-white" style="font-size: 1.2rem;">Ciao {{ Auth::user()->name }}! Sei pronto a scoprire eventi incredibili? Trova quelli che più ti piacciono o, se non trovi nulla che ti ispira:</p>
+                <a href="{{ route('events.create') }}" class="btn btn-custom-pri btn-lg mb-5">
+                    Crea il tuo Evento
+                </a>
+            @else
+                <p class="lead text-white" style="font-size: 1.2rem;">Sei pronto a scoprire eventi incredibili? Trova quelli che più ti piacciono o, se non trovi nulla che ti ispira:</p>
+                <a href="{{ route('events.create') }}" class="btn btn-custom-pri btn-lg mb-5">
+                    Accedi per iniziare a creare Eventi
+                </a>
+            @endauth
+        @endif
 
     <!-- Eventi con più iscritti -->
     <x-event-carousel :events="$mostSubscribedEvents" carouselId="mostSubscribedEventsCarousel" title="Eventi con più iscritti" />
