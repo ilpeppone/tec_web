@@ -281,3 +281,36 @@
 
            
         }
+
+        .admin_card {
+            border: 2px solid #000000;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #f8f9fa;
+            transition: transform 0.2s ease-in-out;
+            background-size: cover; /* Copri tutta la card */
+            background-position: center; /* Centriamo l'immagine */
+        }
+        
+        .admin_card:hover {
+            transform: scale(1.02);
+        }
+        
+        .admin_card .admin_card_title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: rgb(255, 154, 40);
+            background-color: #4e5051c2;
+        }
+        
+        .admin_card .admin_card_description {
+            font-size: 1rem;
+            color: white;
+            background-color: #4e5051c2;
+        }
+        
+        .admin_card .btn {
+            margin-right: 5px;
+        }
+        

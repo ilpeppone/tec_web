@@ -16,25 +16,24 @@
             {{ session('warning') }}
         </div>
     @endif
-    @foreach($pendingEvents as $event)
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">{{ $event->title }}</h5>
-                <p class="card-text">{{ $event->description }}</p>
-                <a href="{{ route('admin.events.show', $event->id) }}" class="btn btn-primary">Visualizza</a>
-                <form action="{{ route('events.approve', $event->id) }}" method="POST" class="d-inline" id="approve-form-{{ $event->id }}">
-                    @csrf
-                    @method('PATCH')
-                    <button type="button" class="btn btn-success" onclick="confirmApprove({{ $event->id }})">Approva</button>
-                </form>
-                <form action="{{ route('admin.events.destroy', $event->id) }}" method="POST" class="d-inline" id="delete-form-{{ $event->id }}">
-                    @csrf
-                    @method('DELETE')
-                    <button type="button" class="btn btn-danger" onclick="confirmDelete({{ $event->id }})">Elimina</button>
-                </form>
-            </div>
-        </div>
+    @foreach($pendingEvents as $event) 
+    <div class="admin_card" style="background-image: url('{{ asset('storage/' . $event->image_path) }}')">
+        <h5 class="admin_card_title">{{ $event->title }}</h5>
+        <p class="admin_card_description">{{ $event->description }}</p>
+        <a href="{{ route('admin.events.show', $event->id) }}" class="btn btn-primary">Visualizza</a>
+        <form action="{{ route('events.approve', $event->id) }}" method="POST" class="d-inline" id="approve-form-{{ $event->id }}">
+            @csrf
+            @method('PATCH')
+            <button type="button" class="btn btn-success" onclick="confirmApprove({{ $event->id }})">Approva</button>
+        </form>
+        <form action="{{ route('admin.events.destroy', $event->id) }}" method="POST" class="d-inline" id="delete-form-{{ $event->id }}">
+            @csrf
+            @method('DELETE')
+            <button type="button" class="btn btn-danger" onclick="confirmDelete({{ $event->id }})">Elimina</button>
+        </form>
+    </div>
     @endforeach
+
     @endif
 </div>
 

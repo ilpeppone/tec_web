@@ -61,7 +61,7 @@
         @endif
         
         <div class="text-center mt-3">
-            <a href="{{ route('events.index') }}" class="btn btn-custom-sec btn-lg w-50">Altri Eventi</a>
+            <a href="{{ route('events.index') }}" class="btn btn-custom-pri btn-lg w-50">Altri Eventi</a>
         </div>
     </div>
 </section>
