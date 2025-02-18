@@ -20,65 +20,10 @@
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <style>
         /* Inserisci qui il tuo CSS personalizzato */
-        .card-header {
-            background: black;
-            color: #f1f1f1;
-        }
-
-        .card-body {
-            background-color: #6c757d; /* Stesso background della navbar */
-            color: black; /* Testo in nero */
-        }
-
-        .navbar {
-            min-height: 50px;
-            background-color: #4e5051; /* Grigio */
-        }
-
-        .nav-link {
-            position: relative;
-            color: white;
-        }
-
-        .nav-link:hover::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -3px;
-            width: 100%;
-            height: 2px;
-            background-color: rgba(180, 83, 9, 0.6);
-        }
-
-
-        .btn-custom-pri {
-            background-color: rgb(255, 136, 0);
-            border-color: #D97706;
-            color: white;
-        }
-
-        .btn-custom-sec {
-            background-color: rgb(189, 101, 0);
-            border-color: rgba(255, 136, 1, 0.73);
-            color: white;
-        }
-
-        .btn-custom-pri:hover, .btn-custom-sec:hover {
-            background-color: rgba(180, 83, 9, 0);
-            border-color: #B45309;
-        }
-
-        .offcanvas-header {
-            background-color: #6c757d81; /* Colore di sfondo del menu a tendina */
-        }
-
-        .offcanvas-body {
-            background-color: #6c757d; /* Colore di sfondo del menu a tendina */
-        }
 
         .password-help {
             display: none;
-            color: #ffc107; /* Colore di testo giallo per distinguere dal background */
+            color: #ffc107;
         }
 
         .no-scroll {
@@ -94,7 +39,6 @@
 </head>
 <body class="bg-dark text-white no-scroll">
     <div id="app">
-        <!-- Navbar -->
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg py-2 fixed-top">
             <div class="container">
@@ -159,7 +103,7 @@
         </div>
 
         <!-- Qui verrà inserito il contenuto specifico della pagina -->
-        <main style="padding-top: 60px">
+        <main style="padding-top: 20px">
             @yield('content')
         </main>
     </div>

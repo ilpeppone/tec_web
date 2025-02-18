@@ -19,9 +19,22 @@
             color: black;
         }
 
+        .text-warning{
+            color: rgb(255, 136, 0) !important;
+        }
+
+        .text-warning:hover{
+            color: rgb(180, 83, 9) !important;
+        }
+
         .navbar {
             height: 60px;
-            background-color: #4e5051; /* Grigio */
+            background-color: #4e5051;
+        }
+
+        .navbar-brand:hover {
+            background-color: rgba(180, 83, 9, 0.197);
+            border-radius: 20px;
         }
 
         .nav-link {

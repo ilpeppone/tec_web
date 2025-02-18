@@ -10,7 +10,7 @@
         </div>
         <div class="col-md-6 d-flex align-items-center justify-content-center bg-dark text-white p-5" style="border-radius: 0 10px 10px 0;">
             <div class="w-75">
-                <h3 class="text-center text-warning">Registrati a <span class="fw-bold">Torbit</span></h3>
+                <h3 class="text-center mb-4">Registrati a <span class="fw-bold">Torbit</span></h3>
                 <p class="text-center">Crea un nuovo account per usufruire di tutte le funzionalità</p>
                 <form method="POST" action="{{ route('register') }}" class="needs-validation" novalidate>
                     @csrf
