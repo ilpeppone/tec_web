@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Eventi - Torbit')
+@section('title', 'Eventi - E-vents')
 
 @section('content')
 <div class="container py-5 text-center">

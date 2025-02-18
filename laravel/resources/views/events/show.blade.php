@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', $event->title . ' - Torbit')
+@section('title', $event->title . ' - E-vents')
 
 @section('breadcrumbs')
     {{ Breadcrumbs::render('events.show', $event) }}
