@@ -1,7 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap');
 
         /* Inserisci qui il tuo CSS personalizzato */
-        
+        .h1{
+            color: rgb(255, 136, 0);
+        }
+
+        .h2{
+            color: rgb(255, 136, 0);
+        }
+
+        .btn{
+            border-width: 2px;
+            border-color: white;
+        }
+
+        .btn:hover{
+            border-color: black;
+            color: black;
+        }
+
         .navbar {
             height: 60px;
             background-color: #4e5051; /* Grigio */
@@ -30,7 +47,12 @@
         }
 
         .breadcrumb-item a {
-            color: white; /* Arancione come i bottoni */
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumb-item a:hover {
+            color:  rgb(180, 83, 9); 
             text-decoration: none;
         }
 
@@ -55,7 +77,7 @@
         }
 
         .btn-custom-pri:hover {
-            background-color: rgb(255, 154, 40);
+            background-color: rgb(218, 127, 23);
             border-color: #000000;
             color: black;
         }
