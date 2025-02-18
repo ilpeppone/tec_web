@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
-use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
@@ -44,17 +42,9 @@ class LoginController extends Controller
 
     protected function attemptLogin(Request $request)
     {
-    $credentials = $this->credentials($request);
-
-    $user = User::where('email', $credentials['email'])->first();
-
-    if ($user && !$user->hasVerifiedEmail()) {
-        return Redirect::route('verification.notice')->with('error', 'Per favore verifica la tua email per accedere.');
+        return Auth::attempt(
+            $this->credentials($request), 
+            $request->filled('remember')
+        );
     }
-
-    return Auth::attempt($credentials, $request->filled('remember'));
-    }
-
-    
-
 }

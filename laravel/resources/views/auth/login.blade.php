@@ -3,6 +3,7 @@
 @section('title', 'Login - E-vent')
 
 @section('content')
+
 <div class="container-fluid vh-100 d-flex justify-content-center align-items-start p-0">
     <div class="row w-100 h-100 m-0">
         <div class="col-md-6 d-flex align-items-center justify-content-center bg-dark text-white p-5" style="border-radius: 10px 0 0 10px;">

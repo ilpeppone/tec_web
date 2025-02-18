@@ -12,9 +12,10 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+Auth::routes(['verify' => true]);
+
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
-Auth::routes(['verify' => true]);
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 
@@ -56,3 +57,4 @@ Route::middleware([\App\Http\Middleware\AdminMiddleware::class])->group(function
 });
 
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
