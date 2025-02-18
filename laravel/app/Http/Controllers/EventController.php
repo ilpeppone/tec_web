@@ -170,11 +170,11 @@ class EventController extends Controller
             }
         }
 
-        if ($request->filled('cost')) {
-            if ($request->cost == 'free') {
-                $query->where('cost', 0);
-            } elseif ($request->cost == 'paid') {
-                $query->where('cost', '>', 0);
+        if ($request->filled('price')) {
+            if ($request->price == 0) {
+                $query->where('price', 0);
+            } elseif ($request->price > 0) {
+                $query->where('price', '>', 0);
             }
         }
 
