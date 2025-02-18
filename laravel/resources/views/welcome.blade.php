@@ -25,22 +25,33 @@
             @endif
         </div>
 
+        
         <!-- Search Bar -->
         <div class="mt-5">
-            <form action="{{ route('events.search') }}" method="GET" class="d-flex justify-content-center" >
-                <input type="text" name="query" class="form-control form-control-lg me-2" placeholder="Termine nella descrizione">
-                <input type="date" name="date" class="form-control form-control-lg me-2">
-                <select name="location" class="form-control form-control-lg me-2">
-                    <option value="">Tutti i luoghi</option>
-                    <option value="outdoor">All'aperto</option>
-                    <option value="indoor">Al chiuso</option>
-                </select>
-                <select name="cost" class="form-control form-control-lg me-2">
-                    <option value="">Tutti i costi</option>
-                    <option value="free">Gratis</option>
-                    <option value="paid">A pagamento</option>
-                </select>
-                <button type="submit" class="btn btn-custom-pri btn-lg ms-2">Cerca</button>
+            <form action="{{ route('events.search') }}" method="GET" class="row g-2 justify-content-center">
+                <div class="col-md-3 col-12">
+                    <input type="text" name="query" class="form-control form-control-lg" placeholder="Termine nella descrizione">
+                </div>
+                <div class="col-md-2 col-12">
+                    <input type="date" name="date" class="form-control form-control-lg">
+                </div>
+                <div class="col-md-2 col-12">
+                    <select name="location" class="form-control form-control-lg">
+                        <option value="">Tutti i luoghi</option>
+                        <option value="outdoor">All'aperto</option>
+                        <option value="indoor">Al chiuso</option>
+                    </select>
+                </div>
+                <div class="col-md-2 col-12">
+                    <select name="cost" class="form-control form-control-lg">
+                        <option value="">Tutti i costi</option>
+                        <option value="free">Gratis</option>
+                        <option value="paid">A pagamento</option>
+                    </select>
+                </div>
+                <div class="col-md-2 col-12 d-grid">
+                    <button type="submit" class="btn btn-custom-pri btn-lg">Cerca</button>
+                </div>
             </form>
         </div>
     </div>
