@@ -1,6 +1,13 @@
 @extends('layouts.main')
 
 @section('content')
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show text-center mx-auto" style="width:300px; length:50px;" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
+
 <div class="container py-5 text-center col-md-8 mx-auto" style="position: relative; z-index: 1; color: white; background-color: #6d6d6d; border-radius: 10px; padding: 20px;">
     <h1 class="text-center mb-4">Contattaci</h1>
     <p class="text-center mb-5">Siamo qui per aiutarti. Contattaci per qualsiasi domanda o informazione.</p>
@@ -49,3 +56,12 @@
     </div>
 </div>
 @endsection
+
+<script>
+    setTimeout(() => {
+        let alert = document.querySelector('.alert');
+        if (alert) {
+            alert.remove();
+        }
+    }, 5000); // Sparisce dopo 5 secondi
+</script>

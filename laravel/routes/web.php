@@ -52,15 +52,4 @@ Route::middleware([\App\Http\Middleware\AdminMiddleware::class])->group(function
     Route::delete('/admin/events/{id}', [EventController::class, 'adminDestroy'])->name('admin.events.destroy');
 });
 
-
-Route::post('/mail/hello', function (Illuminate\Http\Request $request) {
-    $request->validate([
-        'email' => 'required|email',
-    ]);
-
-    $email = $request->input('email');
-
-    Mail::to($email)->send(new HelloMail());
-
-    return redirect()->back()->with('success', 'Email di benvenuto inviata con successo!');
-})->name('mail.hello');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');

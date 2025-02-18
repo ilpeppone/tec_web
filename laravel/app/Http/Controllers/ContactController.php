@@ -10,14 +10,23 @@ class ContactController extends Controller
     public function submit(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'message' => 'required|string',
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required',
         ]);
 
-        // Invia email o salva i dati nel database
-        // Mail::to('info@esempio.com')->send(new ContactMail($request->all()));
+        $data = [
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'userMessage' => $request->input('message'),
+        ];
 
-        return redirect()->route('contact')->with('success', 'Messaggio inviato con successo!');
+        Mail::send('mail.contact', $data, function ($message) use ($data) {
+            $message->to('pepperusso07@gmail.com')
+                    ->subject('Nuovo Messaggio dal Form di Contatto')
+                    ->from($data['email']);
+        });
+
+        return back()->with('success', 'Email inviata con successo!');
     }
 }
