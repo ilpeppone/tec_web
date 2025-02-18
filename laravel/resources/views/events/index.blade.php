@@ -20,46 +20,41 @@
     <!-- Eventi di più recente creazione -->
     <x-event-carousel :events="$newlyCreatedEvents" carouselId="newlyCreatedEventsCarousel" title="Eventi di più recente creazione" />
 
-    <!-- Sezione Filtri -->
-    <div class="container" style="position: relative; z-index: 1; background-color: #6d6d6d; border-radius: 10px; padding: 30px 20px;">
-        <h2 class="text-center text-white mb-4" style="font-weight: 600;">Tutti gli eventi</h2>
-        <div class="mb-4">
-            <form id="filter-form">
-                <div class="row g-3 align-items-center justify-content-center">
-                    <div class="col-md-3">
-                        <label for="sortBy" class="form-label text-white">Ordina per:</label>
-                        <select id="sortBy" name="sortBy" class="form-select">
-                            <option value="title">Alfabetico</option>
-                            <option value="date_asc">Data (più lontana)</option>
-                            <option value="date_desc">Data (più recente)</option>
-                            <option value="price_asc">Prezzo (crescente)</option>
-                            <option value="price_desc">Prezzo (decrescente)</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="maxParticipants" class="form-label text-white">Mostra eventi pieni:</label>
-                        <select id="maxParticipants" name="maxParticipants" class="form-select">
-                            <option value="all">Tutti</option>
-                            <option value="hide">Nascondi eventi pieni</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3 d-flex align-items-end">
-                        <button type="submit" class="btn btn-custom-pri w-10">Filtra</button>
-                    </div>
+    <!-- Barra dei Filtri -->
+    <div class="container-fluid py-3" style="background-color: #6d6d6d; border-radius: 10px;">
+            <h2 class="mb-4">Filtra eventi</h2>
+        <form id="filter-form">
+            <div class="row g-3 align-items-end justify-content-center"> <!-- Aggiungi align-items-end per allineare in basso -->
+                <div class="col-md-3">
+                    <label for="sortBy" class="form-label text-white">Ordina per:</label>
+                    <select id="sortBy" name="sortBy" class="form-select">
+                        <option value="title">Alfabetico</option>
+                        <option value="date_asc">Data (più lontana)</option>
+                        <option value="date_desc">Data (più recente)</option>
+                        <option value="price_asc">Prezzo (crescente)</option>
+                        <option value="price_desc">Prezzo (decrescente)</option>
+                    </select>
                 </div>
-            </form>
-        </div>
+                <div class="col-md-3">
+                    <label for="maxParticipants" class="form-label text-white">Mostra eventi pieni:</label>
+                    <select id="maxParticipants" name="maxParticipants" class="form-select">
+                        <option value="all">Tutti</option>
+                        <option value="hide">Nascondi eventi pieni</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-custom-pri w-100">Filtra</button>
+                </div>
+            </div>
+        </form>
         <!-- Lista Eventi -->
-        <div id="events-container">
-        <div class="row">
-            @foreach ($allEvents as $event)
-                <x-event-card :event="$event" />
-            @endforeach
+        <div id="events-container" class="mt-5">
+            <div class="row">
+                @foreach ($allEvents as $event)
+                    <x-event-card :event="$event" />
+                @endforeach
+            </div>
         </div>
-    </div>
-    </div>
-    
-    
     </div>
 </div>
 
