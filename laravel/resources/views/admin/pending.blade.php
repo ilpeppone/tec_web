@@ -16,24 +16,39 @@
             {{ session('warning') }}
         </div>
     @endif
-    @foreach($pendingEvents as $event) 
-    <div class="admin_card" style="background-image: url('{{ asset('storage/' . $event->image_path) }}')">
-        <h5 class="admin_card_title">{{ $event->title }}</h5>
-        <p class="admin_card_description">{{ $event->description }}</p>
-        <a href="{{ route('admin.events.show', $event->id) }}" class="btn btn-primary">Visualizza</a>
-        <form action="{{ route('events.approve', $event->id) }}" method="POST" class="d-inline" id="approve-form-{{ $event->id }}">
-            @csrf
-            @method('PATCH')
-            <button type="button" class="btn btn-success" onclick="confirmApprove({{ $event->id }})">Approva</button>
-        </form>
-        <form action="{{ route('admin.events.destroy', $event->id) }}" method="POST" class="d-inline" id="delete-form-{{ $event->id }}">
-            @csrf
-            @method('DELETE')
-            <button type="button" class="btn btn-danger" onclick="confirmDelete({{ $event->id }})">Elimina</button>
-        </form>
-    </div>
+    <div class="row">
+    @foreach($pendingEvents as $event)  
+        <div class="col-md-4 mb-4">
+            <div class="admin_card h-100 d-flex flex-column">
+                <div class="admin_card_image" style="background-image: url('{{ asset('storage/' . $event->image_path) }}')"></div>
+                <div class="admin_card_body flex-grow-1 d-flex flex-column">
+                    <h5 class="admin_card_title">{{ $event->title }}</h5>
+                    <p class="admin_card_description">
+                        {{ Str::limit($event->description, 100, '...') }} 
+                        {{-- Limita la descrizione a 100 caratteri con i "..." --}}
+                    </p>
+                    <div class="mt-auto">
+                        <div class="mb-2 d-flex">
+                            <a href="{{ route('admin.events.show', $event->id) }}" class="btn btn-custom-pri w-100">Visualizza</a>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <form action="{{ route('events.approve', $event->id) }}" method="POST" class="flex-grow-1" id="approve-form-{{ $event->id }}">
+                                @csrf
+                                @method('PATCH')
+                                <button type="button" class="btn btn-success w-100" onclick="confirmApprove({{ $event->id }})">Approva</button>
+                            </form>
+                            <form action="{{ route('admin.events.destroy', $event->id) }}" method="POST" class="flex-grow-1" id="delete-form-{{ $event->id }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="button" class="btn btn-danger w-100" onclick="confirmDelete({{ $event->id }})">Elimina</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     @endforeach
-
+    </div>
     @endif
 </div>
 
