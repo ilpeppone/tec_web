@@ -1,12 +1,12 @@
 @extends('layouts.main')
 
-@section('title', 'Termini di Servizio - Torbit')
+@section('title', 'Termini di Servizio - E-vents')
 
 @section('content')
 <div class="container py-5 text-center col-md-6 mx-auto">
     <h1 class="mb-4">Termini di Servizio</h1>
     <p>
-        Questi Termini di Servizio regolano l'accesso e l'utilizzo del sito web di Torbit ("noi", "nostro"). Utilizzando il nostro sito, accetti di essere vincolato da questi termini e dalla nostra Politica sulla Privacy.
+        Questi Termini di Servizio regolano l'accesso e l'utilizzo del sito web di E-vents ("noi", "nostro"). Utilizzando il nostro sito, accetti di essere vincolato da questi termini e dalla nostra Politica sulla Privacy.
     </p>
 
     <h4 class="mt-4">1. Accettazione dei Termini</h4>
@@ -26,12 +26,12 @@
 
     <h4 class="mt-4">4. Contenuti</h4>
     <p>
-        Tutti i contenuti presenti sul sito, inclusi testi, immagini, grafica e loghi, sono di proprietà di Torbit o dei rispettivi titolari. È vietata la riproduzione o distribuzione non autorizzata di tali contenuti.
+        Tutti i contenuti presenti sul sito, inclusi testi, immagini, grafica e loghi, sono di proprietà di E-vents o dei rispettivi titolari. È vietata la riproduzione o distribuzione non autorizzata di tali contenuti.
     </p>
 
     <h4 class="mt-4">5. Limitazione di Responsabilità</h4>
     <p>
-        Il sito viene fornito "così com'è" e, nella misura massima consentita dalla legge, Torbit non sarà responsabile per danni diretti, indiretti, incidentali o consequenziali derivanti dall'uso o dall'impossibilità di utilizzare il sito.
+        Il sito viene fornito "così com'è" e, nella misura massima consentita dalla legge, E-vents non sarà responsabile per danni diretti, indiretti, incidentali o consequenziali derivanti dall'uso o dall'impossibilità di utilizzare il sito.
     </p>
 
     <h4 class="mt-4">6. Legge Applicabile</h4>

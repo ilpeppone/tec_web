@@ -10,7 +10,7 @@
             <h2>Informazioni di Contatto</h2>
             <p><strong>Indirizzo:</strong> Via Cairoli 23, 44121 Ferrara, Italia</p>
             <p><strong>Telefono:</strong> +39  334 5088464</p>
-            <p><strong>Email:</strong> Torbit@gmail.com</p>
+            <p><strong>Email:</strong> E-vents@gmail.com</p>
         </div>
         <div class="col-md-6">
             <h2>Modulo di Contatto</h2>

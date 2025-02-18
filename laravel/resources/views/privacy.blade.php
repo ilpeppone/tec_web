@@ -1,13 +1,13 @@
 @extends('layouts.main')
 
-@section('title', 'Privacy Policy - Torbit')
+@section('title', 'Privacy Policy - E-vents')
 
 @section('content')
 <section class="py-5">
     <div class="container text-center col-md-6 mx-auto">
         <h1 class="mb-4">Politica sulla Privacy</h1>
         <p>
-            La presente informativa sulla privacy descrive come Torbit  raccoglie, utilizza e protegge le informazioni personali degli utenti del nostro sito.
+            La presente informativa sulla privacy descrive come E-vents  raccoglie, utilizza e protegge le informazioni personali degli utenti del nostro sito.
         </p>
 
         <h4 class="mt-4">1. Raccolta delle Informazioni</h4>
