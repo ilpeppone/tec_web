@@ -7,61 +7,74 @@
 @endsection
 
 @section('content')
-<section class="hero-section text-center text-white" style="position: relative; padding: 100px 0;">
-    <div class="container" style="position: relative; z-index: 1; background-color: #6d6d6d; border-radius: 10px; padding: 20px;"">
+<section class="hero-section py-5">
+    <div class="container bg-dark text-light p-4 rounded shadow-lg">
         @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
+            <div class="alert alert-success">{{ session('success') }}</div>
         @endif
         @if (session('error'))
-            <div class="alert alert-danger">
-                {{ session('error') }}
+            <div class="alert alert-danger">{{ session('error') }}</div>
+        @endif  
+
+        <div class="row align-items-center">
+            <!-- Dettagli evento a sinistra -->
+            <div class="col-md-7 d-flex flex-column">
+                <h1 class="mb-3">{{ $event->title }}</h1>
+                <p>{{ $event->description }}</p>
+                <p><strong>Data:</strong> {{ $event->event_date }}</p>
+                <p><strong>Indirizzo:</strong> {{ $event->address }}</p>
+                <p><strong>Luogo:</strong> {{ $event->is_outdoor ? 'All\'aperto' : 'Al chiuso' }}</p>
+                <p><strong>Partecipanti:</strong> {{ $event->participants()->count() }} / {{ $event->max_participants }}</p>
+                <p><strong>Prezzo:</strong> €{{ $event->price }}</p>
             </div>
-        @endif
-        <h1 class="display-4">{{ $event->title }}</h1>
-        <p class="lead">{{ $event->description }}</p>
-        <div class="event-image">
-            @if($event->image_path)
-                <img src="{{ asset('storage/' . $event->image_path) }}" alt="{{ $event->title }}">
-            @else
-                <div class="no-image">No Image Available</div>
-            @endif
+
+            <!-- Immagine a destra -->
+            <div class="col-md-5">
+                <div class="rounded shadow-lg" style="
+                    width: 100%;
+                    height: 300px;
+                    background-image: url('{{ asset($event->image_path ? 'storage/' . $event->image_path : 'images/ferrara.png') }}');
+                    background-size: cover;
+                    background-position: center;">
+                </div>
+            </div>
         </div>
-        <p><strong>Data:</strong> {{ $event->event_date }}</p>
-        <p><strong>Luogo:</strong> {{ $event->is_outdoor ? 'All\'aperto' : 'Al chiuso' }}</p>
-        <p><strong>Indirizzo:</strong> {{ $event->address }}</p>
-        <p><strong>Numero massimo di partecipanti:</strong> {{ $event->max_participants }}</p>
-        <p><strong>Partecipanti attuali:</strong> {{ $event->participants()->count() }}</p>
+
+        <!-- Pulsanti allineati a griglia -->
         @if (Auth::check())
-            <div class="d-flex flex-wrap justify-content-center gap-4">
+        <div class="row mt-4 text-center">
+            <div class="col-md-6">
                 @if ($event->participants->contains(Auth::user()))
-                    <form action="{{ route('events.unparticipate', $event->id) }}" method="POST" class="flex-fill" id="unparticipate-form">
+                    <form action="{{ route('events.unparticipate', $event->id) }}" method="POST" id="unparticipate-form">
                         @csrf
                         @method('DELETE')
-                        <button type="button" class="btn btn-danger btn-lg w-50" onclick="confirmUnparticipate()">Disiscriviti</button>
+                        <button type="button" class="btn btn-warning w-100 py-2" onclick="confirmUnparticipate()">🚫 Disiscriviti</button>
                     </form>
                 @elseif ($event->participants()->count() < $event->max_participants)
-                    <form action="{{ route('events.participate', $event->id) }}" method="POST" class="flex-fill" id="participate-form">
+                    <form action="{{ route('events.participate', $event->id) }}" method="POST" id="participate-form">
                         @csrf
-                        <button type="button" class="btn btn-success btn-lg w-50" onclick="confirmParticipate()">Partecipa</button>
+                        <button type="button" class="btn btn-success w-100 py-2" onclick="confirmParticipate()">✅ Partecipa</button>
                     </form>
                 @else
-                    <button class="btn btn-secondary btn-lg w-50" disabled>Numero massimo di partecipanti raggiunto</button>
-                @endif
-                @if(auth()->user()->id === $event->user_id || Auth::user()->role === 'admin')
-                    <form action="{{ route('events.destroy', $event->id) }}" method="POST" class="flex-fill" id="delete-form">
-                        @csrf
-                        @method('DELETE')
-                        <button type="button" class="btn btn-danger btn-lg w-50" onclick="confirmDelete()">Elimina</button>
-                    </form>
+                    <button class="btn btn-secondary w-100 py-2" disabled>🔴 Posti esauriti</button>
                 @endif
             </div>
-        @endif
-        
-        <div class="text-center mt-3">
-            <a href="{{ route('events.index') }}" class="btn btn-custom-pri btn-lg w-50">Altri Eventi</a>
+
+            @if(auth()->user()->id === $event->user_id || Auth::user()->role === 'admin')
+                <div class="col-md-6">
+                    <form action="{{ route('events.destroy', $event->id) }}" method="POST" id="delete-form">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" class="btn btn-danger w-100 py-2" onclick="confirmDelete()">🗑️ Elimina</button>
+                    </form>
+                </div>
+            @endif
+
+            <div class="col-md-12 mt-3">
+                <a href="{{ route('events.index') }}" class="btn btn-secondary w-50 py-2">⬅️ Altri Eventi</a>
+            </div>
         </div>
+        @endif
     </div>
 </section>
 

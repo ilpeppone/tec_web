@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap');
 
         /* Inserisci qui il tuo CSS personalizzato */
-        .h1{
-            color: rgb(255, 136, 0);
+        .display-4{
+            color: rgb(255, 136, 0) !important; 
         }
 
-        .h2{
-            color: rgb(255, 136, 0);
+        .mb-4{
+            color: rgb(255, 136, 0) !important;
         }
 
         .btn{
@@ -67,7 +67,6 @@
         .breadcrumb-item.active::before {
             color:  rgb(255, 255, 255);
         }
-
 
         .btn-custom-pri{
             background-color: rgb(255, 136, 0);
