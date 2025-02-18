@@ -68,5 +68,9 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        event(new Registered($user));
+
+        // Reindirizza l'utente con un messaggio
+        return redirect()->route('login')->with('status', 'Registrazione riuscita! Per favore verifica la tua email prima di effettuare il login.');
     }
 }
