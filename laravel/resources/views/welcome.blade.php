@@ -27,7 +27,8 @@
         <div class="mt-5">
             <form action="{{ route('events.search') }}" method="GET" class="row g-2 justify-content-center align-items-end">
                 <div class="col-md-2 col-12">
-                    <input type="text" name="query" class="form-control form-control-lg" placeholder="Termine di ricerca">
+                    <label for="term" class="form-label">Termini di ricerca</label>
+                    <input type="text" name="query" id="term" class="form-control form-control-lg" placeholder="Cerca eventi">
                 </div>
                 
                 <div class="col-md-2 col-12">
@@ -59,7 +60,7 @@
                 </div>
 
                 <div class="col-md-2 col-12 d-grid">
-                    <button type="submit" class="btn btn-custom-pri btn-lg">Cerca</button>
+                    <button type="submit" class="btn btn-custom-pri btn-lg">Cerca  <i class="bi bi-search"></i></button>
                 </div>
             </form>
         </div>
