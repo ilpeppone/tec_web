@@ -28,7 +28,6 @@
                 <p><strong>Prezzo:</strong> €{{ $event->price }}</p>
             </div>
 
-            <!-- Immagine a destra -->
             <div class="col-md-5">
                 <div class="rounded shadow-lg" style="
                     width: 100%;
@@ -40,7 +39,6 @@
             </div>
         </div>
 
-        <!-- Pulsanti allineati a griglia -->
         @if (Auth::check())
         <div class="row mt-4 text-center">
             <div class="col-md-6">
