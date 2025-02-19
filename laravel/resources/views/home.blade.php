@@ -31,7 +31,7 @@
                                 <h4>{{ $event->title }}</h4>
                                 <p class="text-muted"><i class="fa fa-calendar"></i> {{ $event->event_date }}</p>
                                 <p class="text-muted"><i class="fa fa-users"></i> Partecipanti: {{ $event->participants()->count() }}</p>
-                                <a href="{{ route('events.show', $event->id) }}" class="btn btn-custom-pri">View Event</a>
+                                <a href="{{ route('events.show', $event->id) }}" class="btn btn-custom-pri"><i class="bi bi-eye"></i> Visualizza</a>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                                 <h4>{{ $event->title }}</h4>
                                 <p class="text-muted"><i class="fa fa-calendar"></i> {{ $event->event_date }}</p>
                                 <p class="text-muted"><i class="fa fa-users"></i> Partecipanti: {{ $event->participants()->count() }}</p>
-                                <a href="{{ route('events.show', $event->id) }}" class="btn btn-primary">View Event</a>
+                                <a href="{{ route('events.show', $event->id) }}" class="btn btn-custom-pri"><i class="bi bi-eye"></i> Visualizza</a>
                             </div>
                         </div>
                     </div>
