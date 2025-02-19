@@ -3,6 +3,18 @@
 @section('title', 'Home - E-vents')
 
 @section('content')
+
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-error">
+        {{ session('error') }}
+    </div>
+@endif
 <section class="hero-section text-center text-white" style="position: relative; padding: 100px 0;">
     <div class="container" style="position: relative; z-index: 1; background-color: #6d6d6d; border-radius: 10px; padding: 20px;">
         <h1 class="display-4" style="margin-bottom: 30px">Benvenuto, {{ Auth::user()->name }}</h1>
@@ -11,8 +23,7 @@
         @endif
       
         <!-- sezione eventi creati dall'utente -->
-        <div id="createdEventsSection">
-            
+        <div id="createdEventsSection"> 
             <h2 class="mb-4">Eventi creati da me</h2>
             <div class="col-md-12">
             @if ($createdEvents->isEmpty())

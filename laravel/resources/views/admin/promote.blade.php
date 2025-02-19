@@ -15,7 +15,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('admin.promote') }}">
+                    <form method="POST" action="{{ route('admin.promote') }}" class="needs-validation" novalidate>
                         @csrf
 
                         <div class="mb-4">

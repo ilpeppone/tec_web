@@ -27,6 +27,6 @@ class AdminController extends Controller
             return redirect()->route('home')->with('success', 'Sei diventato un amministratore.');
         }
 
-        return redirect()->route('home')->with('error', 'Codice admin non valido.');
+        return back()->with('error', 'Codice admin non valido.');
     }
 }

@@ -12,14 +12,14 @@
                 <div class="col-md-8">
                     <div class="mb-3">
                         <label for="title" class="form-label">Titolo</label>
-                        <input type="text" name="title" id="title" class="form-control" required value="{{ old('title') }}" autofocus>
+                        <input type="text" name="title" id="title" class="form-control" placeholder="Titolo di massimo 20 caratteri" required value="{{ old('title') }}" maxlength="20" autofocus>
                         @error('title')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Descrizione</label>
-                        <textarea name="description" id="description" class="form-control" required style="height: 380px">{{ old('description') }}</textarea>
+                        <textarea name="description" id="description" class="form-control" placeholder="Inserisci qui la descrizione dell'evento e tutte le caratteristiche che desideri far conoscere agli altri utenti" required style="height: 380px">{{ old('description') }}</textarea>
                         @error('description')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -52,21 +52,21 @@
                     </div>
                     <div class="mb-3">
                         <label for="max_participants" class="form-label">Numero massimo di partecipanti</label>
-                        <input type="number" name="max_participants" id="max_participants" class="form-control" required value="{{ old('max_participants') }}">
+                        <input type="number" name="max_participants" id="max_participants" class="form-control" placeholder="es. 20" required value="{{ old('max_participants') }}">
                         @error('max_participants')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="address" class="form-label">Indirizzo</label>
-                        <input type="text" name="address" id="address" class="form-control" required value="{{ old('address') }}">
+                        <input type="text" name="address" id="address" class="form-control" placeholder="indirizzo di esempio" required value="{{ old('address') }}">
                         @error('address')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">Prezzo</label>
-                        <input type="number" step="0.01" name="price" id="price" class="form-control" required value="{{ old('price') }}">
+                        <input type="number" step="0.01" name="price" id="price" placeholder=" '0' se l'evento non richirde soldi" class="form-control" required value="{{ old('price') }}">
                         @error('price')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror

@@ -15,8 +15,8 @@
                 <form method="POST" action="{{ route('register') }}" class="needs-validation" novalidate>
                     @csrf
                     <div class="mb-3">
-                        <label for="name" class="form-label">Nome Account</label>
-                        <input type="text" name="name" id="name" class="form-control bg-secondary text-white @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Mario Rossi" required autofocus>
+                        <label for="name" class="form-label">Nome Utente</label>
+                        <input type="text" name="name" id="name" class="form-control bg-secondary text-white @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="NomeUtente max.20" maxlength="20" required autofocus>
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
