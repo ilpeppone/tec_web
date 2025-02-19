@@ -113,7 +113,7 @@
 
             <!-- breadcrumbs: visibile se definito -->
             <div class="breadcrumb-container">
-                <nav aria-label="breadcrumb">
+                <div class="breadcrumb-inner container">
                     <ol class="breadcrumb">
                         @hasSection('breadcrumbs')
                             @yield('breadcrumbs')
@@ -121,7 +121,7 @@
                             {{ Breadcrumbs::render() }}
                         @endif
                     </ol>
-                </nav>
+                </div>
             </div>
 
 
