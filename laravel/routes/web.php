@@ -26,19 +26,11 @@ Route::resource('events', EventController::class);
 Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
 Route::post('/events/filter', [EventController::class, 'filter'])->name('events.filter');
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
-
-Route::get('/contattaci', function () {//spostare dentro il contact controller
-    return view('contacts');
-})->name('contact');
-
-Route::get('/help', function () {
-    return view('help');
-})->name('help');
+Route::get('/about', [LegalController::class, 'about'])->name('about');
+Route::get('/help', [LegalController::class, 'help'])->name('help');
 
 Route::post('/contattaci', [ContactController::class, 'submit'])->name('contact.submit');
+Route::get('/contattaci', [ContactController::class, 'index'])->name('contact');
 
 Route::middleware(['auth','verified'])->group(function () {
     Route::get('/admin/promote', [AdminController::class, 'showPromoteForm'])->name('admin.promote.form');

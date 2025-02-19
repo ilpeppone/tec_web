@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
+    public function index()
+    {
+        return view('contacts');
+    }
+
     public function submit(Request $request)
     {
         $request->validate([
