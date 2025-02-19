@@ -85,16 +85,19 @@ class EventController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'event_date' => 'required|date',
+            'event_date' => 'required|date|after_or_equal:today',
             'is_outdoor' => 'required|boolean',
             'max_participants' => 'required|integer|min:1',
             'address' => 'required|string|max:255',
             'price' => 'required|numeric',
         ]);
 
-        $imagePath = null;
+        // Se è stata caricata un'immagine, salvala
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('events', 'public');
+        } else {
+        // immagine di default se nessuna immagine caricata
+        $imagePath = 'events/default.jpg';
         }
 
         Event::create([

@@ -12,14 +12,14 @@
                 <div class="col-md-8">
                     <div class="mb-3">
                         <label for="title" class="form-label">Titolo</label>
-                        <input type="text" name="title" id="title" class="form-control" required>
+                        <input type="text" name="title" id="title" class="form-control" required value="{{ old('title') }}" autofocus>
                         @error('title')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Descrizione</label>
-                        <textarea name="description" id="description" class="form-control" required style="height: 380px"></textarea>
+                        <textarea name="description" id="description" class="form-control" required style="height: 380px">{{ old('description') }}</textarea>
                         @error('description')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -36,8 +36,8 @@
                     <div class="mb-3">
                         <label for="is_outdoor" class="form-label">Luogo</label>
                         <select name="is_outdoor" id="is_outdoor" class="form-control">
-                            <option value="0">Al chiuso</option>
-                            <option value="1">All'aperto</option>
+                            <option value="0" {{ old('is_outdoor') == '0' ? 'selected' : '' }}>Al chiuso</option>
+                            <option value="1" {{ old('is_outdoor') == '1' ? 'selected' : '' }}>All'aperto</option>
                         </select>
                         @error('is_outdoor')
                             <div class="text-danger">{{ $message }}</div>
@@ -45,28 +45,28 @@
                     </div>
                     <div class="mb-3">
                         <label for="event_date" class="form-label">Data dell'evento</label>
-                        <input type="date" name="event_date" id="event_date" class="form-control" required min="{{ date('Y-m-d') }}">
+                        <input type="date" name="event_date" id="event_date" class="form-control" required min="{{ date('Y-m-d') }}" value="{{ old('event_date') }}">
                         @error('event_date')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="max_participants" class="form-label">Numero massimo di partecipanti</label>
-                        <input type="number" name="max_participants" id="max_participants" class="form-control" required>
+                        <input type="number" name="max_participants" id="max_participants" class="form-control" required value="{{ old('max_participants') }}">
                         @error('max_participants')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="address" class="form-label">Indirizzo</label>
-                        <input type="text" name="address" id="address" class="form-control" required>
+                        <input type="text" name="address" id="address" class="form-control" required value="{{ old('address') }}">
                         @error('address')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">Prezzo</label>
-                        <input type="number" step="0.01" name="price" id="price" class="form-control" required>
+                        <input type="number" step="0.01" name="price" id="price" class="form-control" required value="{{ old('price') }}">
                         @error('price')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
