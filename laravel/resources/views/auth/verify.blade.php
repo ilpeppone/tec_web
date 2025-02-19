@@ -4,10 +4,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="">
-                <div class="">{{ __('Verifica il tuo indirizzo email') }}</div>
+            <div class="container text-center py-5 text-center col-md-6 mx-auto" style="position: relative; z-index: 1; color: white; background-color: #6d6d6d; border-radius: 10px; padding: 20px;">
+                <h1 class="mb-4">{{ __('Verifica il tuo indirizzo email') }}</h1>
 
-                <div class="">
+                <p>
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">
                             {{ __('Un nuovo link di verifica è stato inviato al tuo indirizzo email.') }}
@@ -19,9 +19,9 @@
 
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
-                        <button type="submit" class="btn btn-primary">{{ __('Reinvia email di verifica') }}</button>.
+                        <button type="submit" class="btn btn-custom-pri">{{ __('Reinvia email di verifica') }}</button>
                     </form>
-                </div>
+                </p>
             </div>
         </div>
     </div>
