@@ -79,7 +79,7 @@
                                         <a class="dropdown-item" href="{{ route('home') }}"
                                             onclick="event.preventDefault();
                                                         document.getElementById('home-form').submit();">
-                                                {{ __('Home') }}
+                                                {{ __('Profilo') }}
                                             </a>
                                             <form id="home-form" action="{{ route('home') }}" method="GET" class="d-none">
                                                 @csrf
@@ -150,7 +150,7 @@
                                         <a class="dropdown-item" href="{{ route('home') }}"
                                            onclick="event.preventDefault();
                                                    document.getElementById('home-form').submit();">
-                                            {{ __('Home') }}
+                                            {{ __('Profilo') }}
                                         </a>
                                         <form id="home-form" action="{{ route('home') }}" method="GET" class="d-none">
                                             @csrf

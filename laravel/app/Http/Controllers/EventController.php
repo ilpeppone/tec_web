@@ -62,7 +62,7 @@ class EventController extends Controller
 
     // mostra o nascondi eventi pieni
     if ($request->maxParticipants == "hide") {
-        $query->whereRaw('(SELECT COUNT(*) FROM event_participants WHERE event_participants.event_id = events.id) < max_participants');
+        $query->whereRaw('(SELECT COUNT(*) FROM participants WHERE participants.event_id = events.id) < max_participants');
     }
 
     $events = $query->get();

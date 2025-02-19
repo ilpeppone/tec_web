@@ -21,11 +21,11 @@
         @endif
 
     <!-- caroselli con diversi tipi di presentazioni -->
-    <x-event-carousel :events="$mostSubscribedEvents" carouselId="mostSubscribedEventsCarousel" title="eventi con più iscritti" />
+    <x-event-carousel :events="$mostSubscribedEvents" carouselId="mostSubscribedEventsCarousel" title="Eventi con più iscritti" />
 
-    <x-event-carousel :events="$recentEvents" carouselId="recentEventsCarousel" title="eventi più recenti" />
+    <x-event-carousel :events="$recentEvents" carouselId="recentEventsCarousel" title= "Eventi imminenti" />
 
-    <x-event-carousel :events="$newlyCreatedEvents" carouselId="newlyCreatedEventsCarousel" title="eventi di più recente creazione" />
+    <x-event-carousel :events="$newlyCreatedEvents" carouselId="newlyCreatedEventsCarousel" title="Eventi creati di recente" />
 
     <!-- barra dei filtri -->
     <div class="container-fluid py-3" style="background-color:rgba(79, 79, 79, 0.5); border-radius: 10px;">
