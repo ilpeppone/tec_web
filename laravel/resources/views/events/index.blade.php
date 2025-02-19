@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container py-5 text-center">
-    <div class="container" style="position: relative; z-index: 1; background-color: #4f4f4f; border-radius: 15px; padding: 40px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+    <div class="container" style="position: relative; z-index: 1; background-color: #6d6d6d; border-radius: 15px; padding: 40px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
         <h1 class="display-4 text-white mb-4" style="font-weight: 700;">Esplora eventi</h1>
         @if (Route::has('login'))
             @auth
@@ -28,7 +28,7 @@
     <x-event-carousel :events="$newlyCreatedEvents" carouselId="newlyCreatedEventsCarousel" title="eventi di più recente creazione" />
 
     <!-- barra dei filtri -->
-    <div class="container-fluid py-3" style="background-color: #6d6d6d; border-radius: 10px;">
+    <div class="container-fluid py-3" style="background-color:rgba(79, 79, 79, 0.5); border-radius: 10px;">
             <h2 class="mb-4">Filtra eventi</h2>
         <form id="filter-form">
             <div class="row g-3 align-items-end justify-content-center"> <!-- Aggiungi align-items-end per allineare in basso -->
