@@ -16,8 +16,6 @@ Auth::routes(['verify' => true]);
 
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
-Route::get('/home', [HomeController::class, 'home'])->name('home');
-
 Route::get('/privacy', [LegalController::class, 'privacy'])->name('privacy');
 Route::get('/terms', [LegalController::class, 'terms'])->name('terms');
 
@@ -38,6 +36,7 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::post('/events/{event}/participate', [EventController::class, 'participate'])->name('events.participate');
     Route::delete('/events/{event}/unparticipate', [EventController::class, 'unparticipate'])->name('events.unparticipate');
     Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy');
+    Route::get('/home', [HomeController::class, 'home'])->name('home');
 });
 
 Route::middleware([\App\Http\Middleware\AdminMiddleware::class, 'verified'])->group(function () {
