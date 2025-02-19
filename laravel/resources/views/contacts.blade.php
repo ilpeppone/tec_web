@@ -50,7 +50,7 @@
                         </span>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-info">Invia</button>
+                <button type="submit" class="btn btn-custom-pri">Invia</button>
             </form>
         </div>
     </div>
