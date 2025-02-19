@@ -41,6 +41,8 @@ class EventController extends Controller
     {
         $query = Event::query();
 
+        $query->where('approved', true);
+
         // ordinamento nell'index
         switch ($request->sortBy) {
             case 'title':
@@ -186,6 +188,8 @@ class EventController extends Controller
     public function search(Request $request)
     {
         $query = Event::query();
+
+        $query->where('approved', true);
 
         if ($request->filled('query')) {
             $searchTerm = $request->input('query'); 
