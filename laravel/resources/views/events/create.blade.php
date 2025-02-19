@@ -4,7 +4,7 @@
 
 @section('content')
 <section class="hero-section text-center" style="position: relative; padding: 100px 0;">
-    <div class="container" style="position: relative; z-index: 1; color: white; background-color: #6d6d6d; border-radius: 10px; padding: 20px;">
+    <div class="container" style="position: relative; z-index: 1; color: white; background-color: #6d6d6d; border-radius: 10px; padding: 40px;">
         <h1 class="display-4">Crea un nuovo Evento</h1>
         <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data" class="mt-4 needs-validation" novalidate>
             @csrf
