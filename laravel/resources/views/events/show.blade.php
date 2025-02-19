@@ -69,7 +69,7 @@
             @endif
         </div>
         @endif
-        <div class="col-md-12 mt-3">
+        <div class="col-md-12 mt-3 text-center">
             <a href="{{ route('events.index') }}" class="btn btn-secondary w-50 py-2"><i class="bi bi-arrow-left-square"></i> Altri Eventi</a>
         </div>
     </div>
