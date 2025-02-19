@@ -191,7 +191,6 @@
         </div>
 
         <!-- breadcrumbs: visibile se definito -->
-        @section('breadcrumbs')
         <div class="breadcrumb-container">
             <div class="breadcrumb-inner container">
                 <ol class="breadcrumb">
@@ -202,8 +201,7 @@
                     @endif
                 </ol>
             </div>
-        </div>
-        @show        
+        </div>      
 
         <main> 
             @yield('content')
