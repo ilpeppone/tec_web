@@ -9,7 +9,7 @@
 
 @section('content')
 
-   <!-- Hero Section -->
+   <!-- hero Section -->
 <section class="hero-section text-center text-white" style="position: relative; padding: 100px 0;">
     <div class="container" style="position: relative; z-index: 1; background-color: #6d6d6d; border-radius: 10px; padding: 20px;">
         <h1 class="display-4">Benvenuto su E-vents</h1>
@@ -26,7 +26,7 @@
         </div>
 
         
-        <!-- Search Bar -->
+        <!-- barra di ricerca -->
         <div class="mt-5">
             <form action="{{ route('events.search') }}" method="GET" class="row g-2 justify-content-center">
                 <div class="col-md-3 col-12">
@@ -57,7 +57,7 @@
     </div>
 </section>
 
-<!-- Sezione: Eventi in Evidenza (visualizzati come carosello) -->
+<!-- eventi in evidenza -->
 <section class="featured-events py-5">
     <div class="container text-center">
         <x-event-carousel 

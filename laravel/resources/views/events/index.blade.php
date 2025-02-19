@@ -1,11 +1,11 @@
 @extends('layouts.main')
 
-@section('title', 'Eventi - E-vents')
+@section('title', 'eventi - E-vents')
 
 @section('content')
 <div class="container py-5 text-center">
     <div class="container" style="position: relative; z-index: 1; background-color: #4f4f4f; border-radius: 15px; padding: 40px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
-        <h1 class="display-4 text-white mb-4" style="font-weight: 700;">Esplora Eventi</h1>
+        <h1 class="display-4 text-white mb-4" style="font-weight: 700;">Esplora eventi</h1>
         @if (Route::has('login'))
             @auth
                 <p class="lead text-white" style="font-size: 1.2rem;">Ciao {{ Auth::user()->name }}! Sei pronto a scoprire eventi incredibili? Trova quelli che più ti piacciono o, se non trovi nulla che ti ispira:</p>
@@ -15,21 +15,19 @@
             @else
                 <p class="lead text-white" style="font-size: 1.2rem;">Sei pronto a scoprire eventi incredibili? Trova quelli che più ti piacciono o, se non trovi nulla che ti ispira:</p>
                 <a href="{{ route('events.create') }}" class="btn btn-custom-pri btn-lg mb-5">
-                    Accedi per iniziare a creare Eventi
+                    Accedi per iniziare a creare eventi
                 </a>
             @endauth
         @endif
 
-    <!-- Eventi con più iscritti -->
-    <x-event-carousel :events="$mostSubscribedEvents" carouselId="mostSubscribedEventsCarousel" title="Eventi con più iscritti" />
+    <!-- caroselli con diversi tipi di presentazioni -->
+    <x-event-carousel :events="$mostSubscribedEvents" carouselId="mostSubscribedEventsCarousel" title="eventi con più iscritti" />
 
-    <!-- Eventi più recenti -->
-    <x-event-carousel :events="$recentEvents" carouselId="recentEventsCarousel" title="Eventi più recenti" />
+    <x-event-carousel :events="$recentEvents" carouselId="recentEventsCarousel" title="eventi più recenti" />
 
-    <!-- Eventi di più recente creazione -->
-    <x-event-carousel :events="$newlyCreatedEvents" carouselId="newlyCreatedEventsCarousel" title="Eventi di più recente creazione" />
+    <x-event-carousel :events="$newlyCreatedEvents" carouselId="newlyCreatedEventsCarousel" title="eventi di più recente creazione" />
 
-    <!-- Barra dei Filtri -->
+    <!-- barra dei filtri -->
     <div class="container-fluid py-3" style="background-color: #6d6d6d; border-radius: 10px;">
             <h2 class="mb-4">Filtra eventi</h2>
         <form id="filter-form">
@@ -56,7 +54,7 @@
                 </div>
             </div>
         </form>
-        <!-- Lista Eventi -->
+        <!-- Lista eventi -->
         <div id="events-container" class="mt-5">
             <div class="row">
                 @foreach ($allEvents as $event)
@@ -67,10 +65,10 @@
     </div>
 </div>
 
-<!-- AJAX per il filtraggio -->
+<!-- AJAX filtraggio -->
 <script>
 document.getElementById("filter-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita il refresh della pagina
+    event.preventDefault(); // evita il refresh della pagina
 
     let formData = new FormData(this);
 
@@ -81,9 +79,9 @@ document.getElementById("filter-form").addEventListener("submit", function(event
         },
         body: formData
     })
-    .then(response => response.text()) // Otteniamo l'HTML generato
+    .then(response => response.text()) // otteniamo HTML generato
     .then(data => {
-        document.getElementById("events-container").innerHTML = data; // Aggiorna la lista
+        document.getElementById("events-container").innerHTML = data; // aggiorna la lista
     })
     .catch(error => console.error("Errore:", error));
 });

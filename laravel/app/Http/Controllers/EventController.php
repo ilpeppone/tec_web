@@ -41,7 +41,7 @@ class EventController extends Controller
 {
     $query = Event::query();
 
-    // Ordinamento
+    // ordinamento nell'index
     switch ($request->sortBy) {
         case 'title':
             $query->orderBy('title');
@@ -60,14 +60,14 @@ class EventController extends Controller
             break;
     }
 
-    // Mostra/nascondi eventi pieni
+    // mostra o nascondi eventi pieni
     if ($request->maxParticipants == "hide") {
         $query->whereRaw('(SELECT COUNT(*) FROM event_participants WHERE event_participants.event_id = events.id) < max_participants');
     }
 
     $events = $query->get();
 
-    // Restituiamo la vista parziale con gli eventi filtrati
+    // restituiamo la vista parziale con gli eventi filtrati
     return view('partials.event-list', compact('events'))->render();
 }
 
@@ -141,7 +141,7 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
 
-        // Check if the authenticated user is the owner of the event
+        // controlla se l'user autenticato è l'autore dell'evento
         if (auth()->user()->id !== $event->user_id) {
             return redirect()->route('events.index')->with('error', 'Unauthorized action.');
         }
@@ -185,7 +185,7 @@ class EventController extends Controller
         $query = Event::query();
 
         if ($request->filled('query')) {
-            $searchTerm = $request->input('query'); // Definizione della variabile
+            $searchTerm = $request->input('query'); 
             $query->where(function($q) use ($searchTerm) {
                  $q->where('description', 'like', '%' . $searchTerm . '%')
                    ->orWhere('title', 'like', '%' . $searchTerm . '%');

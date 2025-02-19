@@ -3,7 +3,7 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use App\Http\Middleware\AdminMiddleware; // Importa il middleware
+use App\Http\Middleware\AdminMiddleware; 
 
 class Kernel extends HttpKernel
 {
@@ -11,7 +11,6 @@ class Kernel extends HttpKernel
 
     protected $middlewarePriority = [
         \App\Http\Middleware\AdminMiddleware::class,
-        // other middlewares...
     ];
 
     
@@ -23,7 +22,6 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        // I middleware globali qui
     ];
 
     /**
@@ -33,11 +31,9 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            // I middleware per il gruppo web
         ],
 
         'api' => [
-            // I middleware per il gruppo api
         ],
     ];
 
@@ -49,7 +45,6 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        // Altri middleware
-        'admin' => AdminMiddleware::class,  // Registrazione del middleware admin
+        'admin' => AdminMiddleware::class,  
     ];
 }

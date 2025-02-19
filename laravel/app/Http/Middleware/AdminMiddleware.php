@@ -11,12 +11,12 @@ class AdminMiddleware
     
     public function handle(Request $request, Closure $next)
     {
-        // Verifica se l'utente è loggato e ha il permesso di amministratore
+        // verifica se l'utente è loggato e ha il permesso di amministratore
         if (Auth::check() && Auth::user()->role === 'admin') {
             return $next($request);
         }
 
-        // Se non è un amministratore, redirige con un messaggio di errore
+        // se non è un amministratore, redirige con un messaggio di errore
         return redirect('/home')->with('error', 'Accesso negato.');
     }
 }

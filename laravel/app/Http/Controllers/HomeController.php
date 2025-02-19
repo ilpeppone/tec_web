@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // Recupera gli eventi con più iscritti, ordinati per numero di partecipanti in ordine decrescente
+        // recupera gli eventi con più iscritti, ordinati per numero di partecipanti in ordine decrescente
         $featuredEvents = Event::withCount('participants')
             ->where('approved', true)
             ->orderBy('participants_count', 'desc')
@@ -46,10 +46,10 @@ class HomeController extends Controller
     {
         $user = Auth::user();
 
-        // Eventi creati dall'utente
+        // eventi creati dall'utente
         $createdEvents = Event::where('user_id', $user->id)->get();
 
-        // Eventi a cui l'utente è iscritto
+        // eventi a cui l'utente è iscritto
         $subscribedEvents = $user->events;
 
         return view('home', compact('user', 'createdEvents', 'subscribedEvents'));

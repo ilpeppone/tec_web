@@ -9,7 +9,6 @@
         <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data" class="mt-4 needs-validation" novalidate>
             @csrf
             <div class="row">
-                <!-- Colonna sinistra -->
                 <div class="col-md-8">
                     <div class="mb-3">
                         <label for="title" class="form-label">Titolo</label>
@@ -26,7 +25,6 @@
                         @enderror
                     </div>
                 </div>
-                <!-- Colonna destra -->
                 <div class="col-md-4">
                     <div class="mb-3">
                         <label for="image" class="form-label">Immagine</label>

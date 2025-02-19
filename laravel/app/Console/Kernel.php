@@ -9,7 +9,7 @@ class Kernel extends ConsoleKernel
 {
     protected function schedule(Schedule $schedule)
     {
-        // Esegui il comando ogni giorno a mezzanotte
+        // esegue il comando ogni giorno a mezzanotte
         $schedule->command('events:delete-past')->daily();
     }
 

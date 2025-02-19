@@ -1,5 +1,5 @@
 @php
-    $chunkSize = isset($_COOKIE['is_mobile']) && $_COOKIE['is_mobile'] == "1" ? 1 : 3; // Se mobile, 1 evento per chunk, altrimenti 3
+    $chunkSize = isset($_COOKIE['is_mobile']) && $_COOKIE['is_mobile'] == "1" ? 1 : 3; // se mobile, 1 evento per chunk, altrimenti 3
 @endphp
 
 <h2 class="mb-4">{{ $title }}</h2>

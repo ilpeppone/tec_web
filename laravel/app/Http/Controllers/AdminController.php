@@ -18,7 +18,7 @@ class AdminController extends Controller
             'admin_code' => 'required|string',
         ]);
 
-        // Verifica il codice admin (puoi sostituire 'your_admin_code' con il codice reale)
+        // codice per l'admin
         if ($request->admin_code === 'SECRET_ADMIN_CODE') {
             $user = Auth::user();
             $user->role = 'admin';

@@ -6,23 +6,23 @@
 
     <title>@yield('title', config('app.name', 'E-vents'))</title>
 
-    <!-- Fonts -->
+    <!-- font -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    <!-- Bootstrap CSS -->
+    <!-- bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap Icons -->
+    <!-- bootstrap Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
 
     <!-- SweetAlert2 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
-    <!-- Stili custom -->
+    <!-- stile custom -->
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     
-     <!-- Bootstrap JS and dependencies -->
+     <!-- Bootstrap JS -->
      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     @yield('head')
@@ -30,20 +30,20 @@
 
 <body class="bg-dark text-white">
     <div id="app">
-        <!-- Navbar -->
+        <!-- navbar -->
             <nav class="navbar navbar-expand-lg py-2 fixed-top">
                 <div class="container">
                     
-                    <!-- Toggle per dispositivi mobili -->
+                    <!-- toggle dispositivi mobili -->
                     <button class="navbar-toggler d-lg-none" style="background-color:#6d6d6d;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <!-- Logo -->
+                    <!-- logo -->
                     <a href="{{ url('/') }}" class="navbar-brand mx-auto">
                         <img src="{{ asset('images/logoExt.png') }}" width="144" height="34" alt="Logo">
                     </a>
 
-                    <!-- Menu di navigazione per dispositivi grandi -->
+                    <!-- menu di navigazione dispositivi grandi -->
                     <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
                         <ul class="navbar-nav mx-5 my-auto">
                             <li class="nav-item mx-4">
@@ -64,7 +64,7 @@
                         </ul>
                     </div>
 
-                    <!-- Auth (Login, Register o Utente) -->
+                    <!-- tasti account -->
                     <div class="collapse navbar-collapse d-none d-lg-flex">
                         @if (Route::has('login'))
                             @auth
@@ -111,7 +111,7 @@
                 
             </nav>
 
-            <!-- Breadcrumbs: sarà visibile in ogni pagina se definito -->
+            <!-- breadcrumbs: visibile se definito -->
             <div class="breadcrumb-container">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -125,7 +125,7 @@
             </div>
 
 
-        <!-- Off-canvas menu per dispositivi mobili -->
+        <!-- off-canvas menu dispositivi mobili -->
         <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
@@ -149,7 +149,7 @@
                         <a class="nav-link" href="{{ route('contact') }}">Contattaci</a>
                     </li>
                     
-                    <!-- Auth (Login, Register o Utente) -->
+                    <!-- tasti account offcanvas -->
                     @if (Route::has('login'))
                         @auth
                             <li class="nav-item dropdown">
@@ -205,14 +205,11 @@
             
         </div>
 
-
-        <!-- Qui verrà inserito il contenuto specifico della pagina -->
-        <main> <!-- Aggiungi padding-top per compensare l'altezza della navbar e dei breadcrumbs -->
+        <main> 
             @yield('content')
         </main>
     </div>
     
-    <!-- Footer -->
     <footer class="text-white py-4" style="margin-top: 10px; background-color: #4E5051;">
         <div class="container text-center">
             <p>&copy; {{ date('Y') }} E-vents. Tutti i diritti riservati.</p>
@@ -226,9 +223,8 @@
     <script>
         window.onload = function() {
             let screenWidth = window.innerWidth;
-            let isMobile = screenWidth < 768;  // Considera mobile quando la larghezza è inferiore a 768px
+            let isMobile = screenWidth < 768;  
 
-            // Imposta il cookie is_mobile per passare l'informazione al server
             document.cookie = "is_mobile=" + (isMobile ? "1" : "0");
         }
     </script>

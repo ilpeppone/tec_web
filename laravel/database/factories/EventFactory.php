@@ -20,15 +20,15 @@ class EventFactory extends Factory
     {
         $this->faker = \Faker\Factory::create('it_IT');
 
-        // Crea un percorso di immagine di default
-        $randomImage = 'events/default.jpg'; // esempio di immagine
+    
+        $randomImage = 'events/default.jpg'; 
 
 
         return [
             'user_id' => \App\Models\User::factory(),
             'title' => $this->faker->realText(20),
             'description' => $this->faker->realText(400),
-            'image_path' => $randomImage, // Utilizza l'immagine di default
+            'image_path' => $randomImage, 
             'is_outdoor' => $this->faker->boolean,
             'event_date' => $this->faker->dateTimeBetween('+1 week', '+1 year'),
             'max_participants' => $this->faker->numberBetween(10, 100),

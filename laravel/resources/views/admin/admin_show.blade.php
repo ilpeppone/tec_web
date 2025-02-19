@@ -15,7 +15,6 @@
         @endif  
 
         <div class="row align-items-center">
-            <!-- Dettagli evento a sinistra -->
             <div class="col-md-7 d-flex flex-column">
                 <h1 class="mb-3">{{ $event->title }}</h1>
                 <p>{{ $event->description }}</p> 
@@ -26,7 +25,6 @@
                 <p><strong>Prezzo:</strong> €{{ $event->price }}</p>
             </div>
 
-            <!-- Immagine a destra -->
             <div class="col-md-5">
                 <div class="rounded shadow-lg" style="
                     width: 100%;
@@ -38,7 +36,6 @@
             </div>
         </div>
 
-        <!-- Pulsanti allineati a griglia -->
         <div class="row mt-4 text-center">
             <div class="col-md-6">
                 <form action="{{ route('events.approve', $event->id) }}" method="POST" id="approve-form">

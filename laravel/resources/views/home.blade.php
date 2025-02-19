@@ -10,7 +10,7 @@
             <a href="{{ route('admin.pending') }}" class="btn btn-info" style="padding:5px; margin:10px">Eventi in attesa di approvazione</a>
         @endif
       
-        <!-- Sezione eventi creati dall'utente -->
+        <!-- sezione eventi creati dall'utente -->
         <div id="createdEventsSection">
             
             <h2 class="mb-4">Eventi creati da me</h2>
@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <!-- Sezione eventi a cui l'utente è iscritto -->
+        <!-- sezione eventi a cui l'utente è iscritto -->
         <div id="subscribedEventsSection">
             <h2 class="mb-4">Eventi a cui sono iscritto</h2>
             @if ($subscribedEvents->isEmpty())

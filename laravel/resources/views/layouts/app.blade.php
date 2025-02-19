@@ -6,21 +6,19 @@
 
     <title>@yield('title', config('app.name', 'E-vents'))</title>
 
-    <!-- Fonts -->
+    <!-- fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    <!-- Bootstrap CSS -->
+    <!-- bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap Icons -->
+    <!-- bootstrap Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
 
-    <!-- Stili custom -->
+    <!-- stili custom -->
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <style>
-        /* Inserisci qui il tuo CSS personalizzato */
-
         .password-help {
             display: none;
             color: #ffc107;
@@ -32,27 +30,27 @@
 
     </style>
 
-     <!-- Bootstrap JS and dependencies -->
+     <!-- bootstrap JS and dependencies -->
      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     @yield('head')
 </head>
 <body class="bg-dark text-white no-scroll">
     <div id="app">
-        <!-- Navbar -->
+        <!-- navbar -->
         <nav class="navbar navbar-expand-lg py-2 fixed-top">
             <div class="container">
                     
-                    <!-- Toggle per dispositivi mobili -->
+                    <!-- toggle dispositivi mobili -->
                     <button class="navbar-toggler d-lg-none" style="background-color:#6d6d6d;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <!-- Logo -->
+                    <!-- logo -->
                     <a href="{{ url('/') }}" class="navbar-brand mx-auto">
                         <img src="{{ asset('images/logoExt.png') }}" width="144" height="34" alt="Logo">
                     </a>
 
-                <!-- Menu di navigazione per dispositivi grandi -->
+                <!-- menu di navigazione dispositivi grandi -->
                 <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
                     <ul class="navbar-nav mx-5 my-auto">
                         <li class="nav-item mx-4">
@@ -75,7 +73,7 @@
             </div>
         </nav>
 
-        <!-- Off-canvas menu per dispositivi mobili -->
+        <!-- Off-canvas menu dispositivi mobili -->
         <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
@@ -101,8 +99,7 @@
                 </ul>
             </div>
         </div>
-
-        <!-- Qui verrà inserito il contenuto specifico della pagina -->
+        
         <main style="padding-top: 20px">
             @yield('content')
         </main>
