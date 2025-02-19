@@ -41,18 +41,18 @@
                 <form action="{{ route('events.approve', $event->id) }}" method="POST" id="approve-form">
                     @csrf
                     @method('PATCH')
-                    <button type="button" class="btn btn-success w-100 py-2" onclick="confirmApprove()">✅ Approva</button>
+                    <button type="button" class="btn btn-success w-100 py-2" onclick="confirmApprove()"><i class="bi bi-check-square"></i> Approva</button>
                 </form>
             </div>
             <div class="col-md-6">
                 <form action="{{ route('admin.events.destroy', $event->id) }}" method="POST" id="delete-form">
                     @csrf
                     @method('DELETE')
-                    <button type="button" class="btn btn-danger w-100 py-2" onclick="confirmDelete()">🗑️ Elimina</button>
+                    <button type="button" class="btn btn-danger w-100 py-2" onclick="confirmDelete()"><i class="bi bi-trash3"></i> Elimina</button>
                 </form>
             </div>
             <div class="col-md-12 mt-3">
-                <a href="{{ route('admin.pending') }}" class="btn btn-custom-pri w-50 py-2">⬅️ Torna Indietro</a>
+                <a href="{{ route('admin.pending') }}" class="btn btn-custom-pri w-50 py-2"><i class="bi bi-arrow-left-square"></i> Torna Indietro</a>
             </div>
         </div>
     </div>

@@ -46,15 +46,15 @@
                     <form action="{{ route('events.unparticipate', $event->id) }}" method="POST" id="unparticipate-form">
                         @csrf
                         @method('DELETE')
-                        <button type="button" class="btn btn-warning w-100 py-2" onclick="confirmUnparticipate()">🚫 Disiscriviti</button>
+                        <button type="button" class="btn btn-warning w-100 py-2" onclick="confirmUnparticipate()"><i class="bi bi-x-square"></i> Disiscriviti</button>
                     </form>
                 @elseif ($event->participants()->count() < $event->max_participants)
                     <form action="{{ route('events.participate', $event->id) }}" method="POST" id="participate-form">
                         @csrf
-                        <button type="button" class="btn btn-success w-100 py-2" onclick="confirmParticipate()">✅ Partecipa</button>
+                        <button type="button" class="btn btn-success w-100 py-2" onclick="confirmParticipate()"><i class="bi bi-check-square"></i> Partecipa</button>
                     </form>
                 @else
-                    <button class="btn btn-secondary w-100 py-2" disabled>🔴 Posti esauriti</button>
+                    <button class="btn btn-secondary w-100 py-2" disabled><i class="bi bi-slash-circle-fill"></i> Posti esauriti</button>
                 @endif
             </div>
 
@@ -63,13 +63,13 @@
                     <form action="{{ route('events.destroy', $event->id) }}" method="POST" id="delete-form">
                         @csrf
                         @method('DELETE')
-                        <button type="button" class="btn btn-danger w-100 py-2" onclick="confirmDelete()">🗑️ Elimina</button>
+                        <button type="button" class="btn btn-danger w-100 py-2" onclick="confirmDelete()"><i class="bi bi-trash3"></i> Elimina</button>
                     </form>
                 </div>
             @endif
 
             <div class="col-md-12 mt-3">
-                <a href="{{ route('events.index') }}" class="btn btn-secondary w-50 py-2">⬅️ Altri Eventi</a>
+                <a href="{{ route('events.index') }}" class="btn btn-secondary w-50 py-2"><i class="bi bi-arrow-left-square"></i> Altri Eventi</a>
             </div>
         </div>
         @endif
