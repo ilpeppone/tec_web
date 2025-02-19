@@ -16,7 +16,6 @@ Auth::routes(['verify' => true]);
 
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
 
-
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 
 Route::get('/privacy', [LegalController::class, 'privacy'])->name('privacy');
@@ -25,15 +24,13 @@ Route::get('/terms', [LegalController::class, 'terms'])->name('terms');
 Route::get('/events/search', [EventController::class, 'search'])->name('events.search');
 Route::resource('events', EventController::class);
 Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
-Route::post('/events/{event}/participate', [EventController::class, 'participate'])->name('events.participate');
-Route::delete('/events/{event}/unparticipate', [EventController::class, 'unparticipate'])->name('events.unparticipate');
 Route::post('/events/filter', [EventController::class, 'filter'])->name('events.filter');
 
 Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/contattaci', function () {
+Route::get('/contattaci', function () {//spostare dentro il contact controller
     return view('contacts');
 })->name('contact');
 
@@ -42,19 +39,20 @@ Route::get('/help', function () {
 })->name('help');
 
 Route::post('/contattaci', [ContactController::class, 'submit'])->name('contact.submit');
-Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth','verified'])->group(function () {
     Route::get('/admin/promote', [AdminController::class, 'showPromoteForm'])->name('admin.promote.form');
     Route::post('/admin/promote', [AdminController::class, 'promote'])->name('admin.promote');
+    Route::post('/events/{event}/participate', [EventController::class, 'participate'])->name('events.participate');
+    Route::delete('/events/{event}/unparticipate', [EventController::class, 'unparticipate'])->name('events.unparticipate');
+    Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy');
 });
 
-Route::middleware([\App\Http\Middleware\AdminMiddleware::class])->group(function () {
+Route::middleware([\App\Http\Middleware\AdminMiddleware::class, 'verified'])->group(function () {
     Route::get('/admin/pending', [EventController::class, 'pending'])->name('admin.pending');
     Route::get('/admin/events/{id}', [EventController::class, 'adminShow'])->name('admin.events.show');
     Route::patch('/events/{id}/approve', [EventController::class, 'approve'])->name('events.approve');
     Route::delete('/admin/events/{id}', [EventController::class, 'adminDestroy'])->name('admin.events.destroy');
 });
 
-Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
