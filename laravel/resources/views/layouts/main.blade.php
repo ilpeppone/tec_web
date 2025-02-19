@@ -111,20 +111,6 @@
                 
             </nav>
 
-            <!-- breadcrumbs: visibile se definito -->
-            <div class="breadcrumb-container">
-                <div class="breadcrumb-inner container">
-                    <ol class="breadcrumb">
-                        @hasSection('breadcrumbs')
-                            @yield('breadcrumbs')
-                        @else                                
-                            {{ Breadcrumbs::render() }}
-                        @endif
-                    </ol>
-                </div>
-            </div>
-
-
         <!-- off-canvas menu dispositivi mobili -->
         <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
@@ -201,9 +187,23 @@
                         @endauth
                     @endif
                 </ul>
-            </div>
-            
+            </div>   
         </div>
+
+        <!-- breadcrumbs: visibile se definito -->
+        @section('breadcrumbs')
+        <div class="breadcrumb-container">
+            <div class="breadcrumb-inner container">
+                <ol class="breadcrumb">
+                    @hasSection('breadcrumbs')
+                        @yield('breadcrumbs')
+                    @else                                
+                        {{ Breadcrumbs::render() }}
+                    @endif
+                </ol>
+            </div>
+        </div>
+        @show        
 
         <main> 
             @yield('content')

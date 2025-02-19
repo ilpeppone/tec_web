@@ -1,11 +1,10 @@
-<style>
-    .placeholder{
-        color: aliceblue;
-    }
-</style>
 @extends('layouts.main')
 
 @section('title', 'E-vents - Benvenuto')
+
+@section('breadcrumbs')
+    <!-- vuoto per non vedere le breadcrumbs -->
+@endsection
 
 @section('content')
 
