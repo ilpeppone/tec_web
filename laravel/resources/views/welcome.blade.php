@@ -24,30 +24,40 @@
             @endif
         </div>
 
-        
-        <!-- barra di ricerca -->
         <div class="mt-5">
-            <form action="{{ route('events.search') }}" method="GET" class="row g-2 justify-content-center">
-                <div class="col-md-3 col-12">
+            <form action="{{ route('events.search') }}" method="GET" class="row g-2 justify-content-center align-items-end">
+                <div class="col-md-2 col-12">
                     <input type="text" name="query" class="form-control form-control-lg" placeholder="Termine nella descrizione">
                 </div>
+                
                 <div class="col-md-2 col-12">
-                    <input type="date" name="date" class="form-control form-control-lg">
+                    <label for="start_date" class="form-label">Data Inizio</label>
+                    <input type="date" name="start_date" id="start_date" class="form-control form-control-lg">
                 </div>
+                
                 <div class="col-md-2 col-12">
-                    <select name="location" class="form-control form-control-lg">
+                    <label for="end_date" class="form-label">Data Fine</label>
+                    <input type="date" name="end_date" id="end_date" class="form-control form-control-lg">
+                </div>
+                
+                <div class="col-md-2 col-12">
+                    <label for="location" class="form-label">Luogo</label>
+                    <select name="location" id="location" class="form-control form-control-lg">
                         <option value="">Tutti i luoghi</option>
                         <option value="outdoor">All'aperto</option>
                         <option value="indoor">Al chiuso</option>
                     </select>
                 </div>
+                
                 <div class="col-md-2 col-12">
-                    <select name="cost" class="form-control form-control-lg">
+                    <label for="cost" class="form-label">Costo</label>
+                    <select name="cost" id="cost" class="form-control form-control-lg">
                         <option value="">Tutti i costi</option>
                         <option value="free">Gratis</option>
                         <option value="paid">A pagamento</option>
                     </select>
                 </div>
+
                 <div class="col-md-2 col-12 d-grid">
                     <button type="submit" class="btn btn-custom-pri btn-lg">Cerca</button>
                 </div>
@@ -66,6 +76,5 @@
         />
     </div>
 </section>
-
 
 @endsection

@@ -38,38 +38,38 @@ class EventController extends Controller
     }
 
     public function filter(Request $request)
-{
-    $query = Event::query();
+    {
+        $query = Event::query();
 
-    // ordinamento nell'index
-    switch ($request->sortBy) {
-        case 'title':
-            $query->orderBy('title');
-            break;
-        case 'date_asc':
-            $query->orderBy('event_date', 'asc');
-            break;
-        case 'date_desc':
-            $query->orderBy('event_date', 'desc');
-            break;
-        case 'price_asc':
-            $query->orderBy('price', 'asc');
-            break;
-        case 'price_desc':
-            $query->orderBy('price', 'desc');
-            break;
+        // ordinamento nell'index
+        switch ($request->sortBy) {
+            case 'title':
+                $query->orderBy('title');
+                break;
+            case 'date_asc':
+                $query->orderBy('event_date', 'asc');
+                break;
+            case 'date_desc':
+                $query->orderBy('event_date', 'desc');
+                break;
+            case 'price_asc':
+                $query->orderBy('price', 'asc');
+                break;
+            case 'price_desc':
+                $query->orderBy('price', 'desc');
+                break;
+        }
+
+        // mostra o nascondi eventi pieni
+        if ($request->maxParticipants == "hide") {
+            $query->whereRaw('(SELECT COUNT(*) FROM participants WHERE participants.event_id = events.id) < max_participants');
+        }
+
+        $events = $query->get();
+
+        // restituiamo la vista parziale con gli eventi filtrati
+        return view('partials.event-list', compact('events'))->render();
     }
-
-    // mostra o nascondi eventi pieni
-    if ($request->maxParticipants == "hide") {
-        $query->whereRaw('(SELECT COUNT(*) FROM participants WHERE participants.event_id = events.id) < max_participants');
-    }
-
-    $events = $query->get();
-
-    // restituiamo la vista parziale con gli eventi filtrati
-    return view('partials.event-list', compact('events'))->render();
-}
 
 
     public function create()
@@ -92,7 +92,7 @@ class EventController extends Controller
             'price' => 'required|numeric',
         ]);
 
-        // Se è stata caricata un'immagine, salvala
+        // caricata un'immagine, salvala
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('events', 'public');
         } else {
@@ -194,10 +194,13 @@ class EventController extends Controller
                    ->orWhere('title', 'like', '%' . $searchTerm . '%');
             });
         }
-        
 
-        if ($request->filled('date')) {
-            $query->whereDate('event_date', $request->date);
+        if ($request->has('start_date') && $request->start_date) {
+            $query->where('event_date', '>=', $request->start_date);
+        }
+
+        if ($request->has('end_date') && $request->end_date) {
+            $query->where('event_date', '<=', $request->end_date);
         }
 
         if ($request->filled('location')) {

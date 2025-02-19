@@ -21,7 +21,7 @@ class EventFactory extends Factory
     {
         $this->faker = \Faker\Factory::create('it_IT');
 
-        // Array di immagini predefinite
+        // array di immagini predefinite
         $defaultImages = [
             'events/default.jpg',
             'events/default2.jpg',
@@ -31,7 +31,7 @@ class EventFactory extends Factory
             'events/default6.jpg',
         ];
 
-        // Seleziona un'immagine casualmente
+        // seleziona un'immagine casualmente
         $randomImage = Arr::random($defaultImages);
 
         return [
