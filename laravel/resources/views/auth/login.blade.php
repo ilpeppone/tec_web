@@ -13,7 +13,7 @@
                 <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate>
                     @csrf
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email o Nome Utente</label>
+                        <label for="email" class="form-label">Email</label>
                         <input type="text" name="email" id="email" class="form-control bg-secondary text-white @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="mario.rossi@example.com" required autofocus>
                         @error('email')
                             <span class="invalid-feedback" role="alert">
