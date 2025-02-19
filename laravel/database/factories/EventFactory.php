@@ -6,6 +6,7 @@ use App\Models\Event;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Arr;
 
 class EventFactory extends Factory
 {
@@ -20,9 +21,18 @@ class EventFactory extends Factory
     {
         $this->faker = \Faker\Factory::create('it_IT');
 
-    
-        $randomImage = 'events/default.jpg'; 
+        // Array di immagini predefinite
+        $defaultImages = [
+            'events/default.jpg',
+            'events/default2.jpg',
+            'events/default3.jpg',
+            'events/default4.jpg',
+            'events/default5.jpg',
+            'events/default6.jpg',
+        ];
 
+        // Seleziona un'immagine casualmente
+        $randomImage = Arr::random($defaultImages);
 
         return [
             'user_id' => \App\Models\User::factory(),
