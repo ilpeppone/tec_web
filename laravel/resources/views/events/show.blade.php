@@ -67,12 +67,11 @@
                     </form>
                 </div>
             @endif
-
-            <div class="col-md-12 mt-3">
-                <a href="{{ route('events.index') }}" class="btn btn-secondary w-50 py-2"><i class="bi bi-arrow-left-square"></i> Altri Eventi</a>
-            </div>
         </div>
         @endif
+        <div class="col-md-12 mt-3">
+            <a href="{{ route('events.index') }}" class="btn btn-secondary w-50 py-2"><i class="bi bi-arrow-left-square"></i> Altri Eventi</a>
+        </div>
     </div>
 </section>
 

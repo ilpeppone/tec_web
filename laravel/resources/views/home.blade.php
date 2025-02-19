@@ -15,7 +15,7 @@
             
             <h2 class="mb-4">Eventi creati da me</h2>
             <div class="col-md-12">
-            @if ($subscribedEvents->isEmpty())
+            @if ($createdEvents->isEmpty())
                 <p class="text-muted">Non hai creato nessun evento.</p>
             @else
             <div class="row">
