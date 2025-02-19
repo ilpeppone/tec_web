@@ -27,7 +27,7 @@
         <div class="mt-5">
             <form action="{{ route('events.search') }}" method="GET" class="row g-2 justify-content-center align-items-end">
                 <div class="col-md-2 col-12">
-                    <input type="text" name="query" class="form-control form-control-lg" placeholder="Termine nella descrizione">
+                    <input type="text" name="query" class="form-control form-control-lg" placeholder="Termine di ricerca">
                 </div>
                 
                 <div class="col-md-2 col-12">

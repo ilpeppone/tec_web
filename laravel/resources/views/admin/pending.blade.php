@@ -27,18 +27,18 @@
                     </p>
                     <div class="mt-auto">
                         <div class="mb-2 d-flex">
-                            <a href="{{ route('admin.events.show', $event->id) }}" class="btn btn-custom-pri w-100">Visualizza</a>
+                            <a href="{{ route('admin.events.show', $event->id) }}" class="btn btn-custom-pri w-100">🌍 Visualizza</a>
                         </div>
                         <div class="d-flex gap-2">
                             <form action="{{ route('events.approve', $event->id) }}" method="POST" class="flex-grow-1" id="approve-form-{{ $event->id }}">
                                 @csrf
                                 @method('PATCH')
-                                <button type="button" class="btn btn-success w-100" onclick="confirmApprove({{ $event->id }})">Approva</button>
+                                <button type="button" class="btn btn-success w-100" onclick="confirmApprove({{ $event->id }})">✅ Approva</button>
                             </form>
                             <form action="{{ route('admin.events.destroy', $event->id) }}" method="POST" class="flex-grow-1" id="delete-form-{{ $event->id }}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="button" class="btn btn-danger w-100" onclick="confirmDelete({{ $event->id }})">Elimina</button>
+                                <button type="button" class="btn btn-danger w-100" onclick="confirmDelete({{ $event->id }})">🗑️ Elimina</button>
                             </form>
                         </div>
                     </div>

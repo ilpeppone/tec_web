@@ -15,7 +15,7 @@
                 {{ session('error') }}
             </div>
         @endif
-        <h1>Risultati della ricerca</h1>
+        <h1 class="display-4">Risultati della ricerca</h1>
         @if($events->isEmpty())
             <p>Nessun evento trovato.</p>
         @else
