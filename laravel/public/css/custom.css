@@ -139,8 +139,6 @@
             transition: filter 0.3s ease-in-out;
         }
         
-        
-
         /* Separazione tra gli indicatori e le card */
         .carousel-indicators {
             margin-top: 20px; /* Aggiungi margine sopra gli indicatori */
@@ -198,6 +196,10 @@
         
         main {
             flex: 1; /* Occupa lo spazio disponibile */
+        }
+
+        .card-body.p-3{
+            background-color: #ffffff42;
         }
         
         /* Impostazioni base della card */
@@ -374,7 +376,6 @@
             font-size: 1.25rem;
             font-weight: bold;
             color: rgb(255, 154, 40);
-            background-color: #4e5051c2;
         }
 
         .admin_card_description {
