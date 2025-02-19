@@ -27,9 +27,18 @@
             color: rgb(180, 83, 9) !important;
         }
 
+        .form-control::placeholder {
+            color:rgba(157, 157, 157, 0.74) !important;
+        }
+
+        .form-select {
+            background-color: #43281865;
+            color: white;
+        }
+
         .navbar {
             height: 60px;
-            background-color: #4e5051;
+            background-color: #4f4f4f;
         }
 
         .navbar-brand:hover {
@@ -171,15 +180,26 @@
         box-sizing: border-box;
         }
 
-        html, body {
-        height: 100%;
-        }
-
         body {
         font-family: var(--font-sans);
         padding-top: 60px;
         }
 
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        
+        #app {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        main {
+            flex: 1; /* Occupa lo spazio disponibile */
+        }
+        
         /* Impostazioni base della card */
         .card {
             position: relative;

@@ -28,6 +28,10 @@
             overflow: hidden;
         }
 
+        .form-control::placeholder {
+            color:rgba(157, 157, 157, 0.74) !important;
+        }
+
     </style>
 
      <!-- bootstrap JS and dependencies -->

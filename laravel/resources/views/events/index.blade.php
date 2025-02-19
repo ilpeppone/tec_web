@@ -31,7 +31,7 @@
     <div class="container-fluid py-3" style="background-color:rgba(79, 79, 79, 0.5); border-radius: 10px;">
             <h2 class="mb-4">Filtra eventi</h2>
         <form id="filter-form">
-            <div class="row g-3 align-items-end justify-content-center"> <!-- Aggiungi align-items-end per allineare in basso -->
+            <div class="row g-3 align-items-end justify-content-center">
                 <div class="col-md-3">
                     <label for="sortBy" class="form-label text-white">Ordina per:</label>
                     <select id="sortBy" name="sortBy" class="form-select">

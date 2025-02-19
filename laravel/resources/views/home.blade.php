@@ -4,7 +4,7 @@
 
 @section('content')
 <section class="hero-section text-center text-white" style="position: relative; padding: 100px 0;">
-    <div class="container" style="position: relative; z-index: 1; background-color: rgba(109, 109, 109, 0.605); border-radius: 10px; padding: 20px;">
+    <div class="container" style="position: relative; z-index: 1; background-color: #6d6d6d; border-radius: 10px; padding: 20px;">
         <h1 class="display-4" style="margin-bottom: 30px">Benvenuto, {{ Auth::user()->name }}</h1>
         @if(Auth::user()->role === 'admin')
             <a href="{{ route('admin.pending') }}" class="btn btn-info" style="padding:5px; margin:10px">Eventi in attesa di approvazione</a>
