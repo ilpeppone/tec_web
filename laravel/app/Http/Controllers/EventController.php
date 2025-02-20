@@ -117,7 +117,7 @@ class EventController extends Controller
 
         Log::info('Event created successfully.');
 
-        return redirect()->route('events.index')->with('success', 'Evento creato con successo! In attesa di approvazione.');
+        return redirect()->route('home')->with('success', 'Evento creato con successo! In attesa di approvazione.');
     }
 
     public function show($id)

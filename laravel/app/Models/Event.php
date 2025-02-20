@@ -16,14 +16,6 @@ class Event extends Model
 
     protected $dates = ['event_date'];
 
-    public function setEventDateAttribute($value)
-    {
-        if ($value instanceof \DateTime) {
-            $this->attributes['event_date'] = $value->format('Y-m-d');
-        } else {
-            $this->attributes['event_date'] = Carbon::createFromFormat('Y-m-d', $value)->format('d/m/Y');
-        }
-    }
 
     public function getEventDateAttribute($value)
     {
