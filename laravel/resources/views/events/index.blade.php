@@ -21,7 +21,7 @@
         @endif
 
     <!-- caroselli con diversi tipi di presentazioni -->
-    <x-event-carousel :events="$mostSubscribedEvents" carouselId="mostSubscribedEventsCarousel" title="Eventi con più iscritti" />
+    <x-event-carousel :events="$mostSubscribedEvents" carouselId="mostSubscribedEventsCarousel" title="Eventi in evidenza" />
 
     <x-event-carousel :events="$recentEvents" carouselId="recentEventsCarousel" title= "Eventi imminenti" />
 
