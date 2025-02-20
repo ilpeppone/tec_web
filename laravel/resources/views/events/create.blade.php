@@ -45,7 +45,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="event_date" class="form-label">Data dell'evento</label>
-                        <input type="date" name="event_date" id="event_date" class="form-control" required min="{{ date('Y-m-d') }}" value="{{ old('event_date') }}">
+                        <input type="date" name="event_date" id="event_date" class="form-control" required min="{{ date('d-m-Y') }}" value="{{ old('event_date') }}">
                         @error('event_date')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror

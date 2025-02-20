@@ -21,13 +21,13 @@ class Event extends Model
         if ($value instanceof \DateTime) {
             $this->attributes['event_date'] = $value->format('Y-m-d');
         } else {
-            $this->attributes['event_date'] = Carbon::createFromFormat('Y-m-d', $value)->format('Y-m-d');
+            $this->attributes['event_date'] = Carbon::createFromFormat('Y-m-d', $value)->format('d/m/Y');
         }
     }
 
     public function getEventDateAttribute($value)
     {
-        return Carbon::parse($value)->format('d-m-Y');
+        return Carbon::parse($value)->format('d/m/Y');
     }
 
     public function organizer()
