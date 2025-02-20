@@ -3,7 +3,7 @@
 @endphp
 
 @if($events->isEmpty())
-    <p class="text-white text-center">Nessun evento imminente disponibile.</p>
+    <p class="text-white text-center">Non ci sono {{ $title }} disponibili.</p>
 @else
 <h2 class="mb-4">{{ $title }}</h2>
 <div id="{{ $carouselId }}" class="carousel slide" data-bs-ride="carousel" style="min-height:300px; display:block;">
