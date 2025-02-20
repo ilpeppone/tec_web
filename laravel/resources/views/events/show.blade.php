@@ -20,7 +20,6 @@
         @endif
 
         <div class="row align-items-center">
-            <!-- Dettagli evento a sinistra -->
             <div class="col-md-7 d-flex flex-column">
                 <h1 class="mb-3">{{ $event->title }}</h1>
                 <p>{{ $event->description }}</p>
