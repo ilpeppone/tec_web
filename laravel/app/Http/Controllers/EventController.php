@@ -40,38 +40,47 @@ class EventController extends Controller
     public function filter(Request $request)
     {
         $query = Event::query();
-
-        $query->where('approved', true);
-
-        // ordinamento nell'index
-        switch ($request->sortBy) {
-            case 'title':
-                $query->orderBy('title');
-                break;
-            case 'date_asc':
-                $query->orderBy('event_date', 'asc');
-                break;
-            case 'date_desc':
-                $query->orderBy('event_date', 'desc');
-                break;
-            case 'price_asc':
-                $query->orderBy('price', 'asc');
-                break;
-            case 'price_desc':
-                $query->orderBy('price', 'desc');
-                break;
+    
+        // Ricerca per titolo o descrizione
+        if ($request->filled('searchQuery')) {
+            $search = $request->searchQuery;
+            $query->where(function ($q) use ($search) {
+                $q->where('title', 'like', "%$search%")
+                  ->orWhere('description', 'like', "%$search%");
+            });
         }
-
-        // mostra o nascondi eventi pieni
-        if ($request->maxParticipants == "hide") {
-            $query->whereRaw('(SELECT COUNT(*) FROM participants WHERE participants.event_id = events.id) < max_participants');
+    
+        // Ordinamento
+        if ($request->filled('sortBy')) {
+            switch ($request->sortBy) {
+                case 'title':
+                    $query->orderBy('title');
+                    break;
+                case 'date_asc':
+                    $query->orderBy('event_date', 'asc');
+                    break;
+                case 'date_desc':
+                    $query->orderBy('event_date', 'desc');
+                    break;
+                case 'price_asc':
+                    $query->orderBy('price', 'asc');
+                    break;
+                case 'price_desc':
+                    $query->orderBy('price', 'desc');
+                    break;
+            }
         }
-
+    
+        // Nascondere eventi pieni
+        if ($request->maxParticipants == 'hide') {
+            $query->whereRaw('max_participants IS NULL OR max_participants > (SELECT COUNT(*) FROM participants WHERE participants.event_id = events.id)');
+        }
+    
         $events = $query->get();
-
-        // restituiamo la vista parziale con gli eventi filtrati
-        return view('partials.event-list', compact('events'))->render();
+    
+        return view('partials.events-list', compact('events'));
     }
+    
 
 
     public function create()

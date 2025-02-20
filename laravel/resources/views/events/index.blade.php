@@ -30,30 +30,34 @@
     <!-- barra dei filtri -->
     <div class="container-fluid py-3" style="background-color:rgba(79, 79, 79, 0.5); border-radius: 10px;">
             <h2 class="mb-4">Filtra eventi</h2>
-        <form id="filter-form">
-            <div class="row g-3 align-items-end justify-content-center">
-                <div class="col-md-3">
-                    <label for="sortBy" class="form-label text-white">Ordina per:</label>
-                    <select id="sortBy" name="sortBy" class="form-select">
-                        <option value="title">Alfabetico</option>
-                        <option value="date_asc">Data (più lontana)</option>
-                        <option value="date_desc">Data (più recente)</option>
-                        <option value="price_asc">Prezzo (crescente)</option>
-                        <option value="price_desc">Prezzo (decrescente)</option>
-                    </select>
+            <form id="filter-form">
+                <div class="row g-3 align-items-end justify-content-center">
+                    <div class="col-md-3">
+                        <label for="searchQuery" class="form-label text-white">Cerca eventi:</label>
+                        <input type="text" id="searchQuery" name="searchQuery" class="form-control" placeholder="Titolo o descrizione">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="sortBy" class="form-label text-white">Ordina per:</label>
+                        <select id="sortBy" name="sortBy" class="form-select">
+                            <option value="title">Alfabetico</option>
+                            <option value="date_asc">Data (più vicina)</option>
+                            <option value="date_desc">Data (più lontana)</option>
+                            <option value="price_asc">Prezzo (crescente)</option>
+                            <option value="price_desc">Prezzo (decrescente)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="maxParticipants" class="form-label text-white">Mostra eventi pieni:</label>
+                        <select id="maxParticipants" name="maxParticipants" class="form-select">
+                            <option value="all">Tutti</option>
+                            <option value="hide">Nascondi eventi pieni</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-custom-pri w-100">Filtra</button>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <label for="maxParticipants" class="form-label text-white">Mostra eventi pieni:</label>
-                    <select id="maxParticipants" name="maxParticipants" class="form-select">
-                        <option value="all">Tutti</option>
-                        <option value="hide">Nascondi eventi pieni</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <button type="submit" class="btn btn-custom-pri w-100">Filtra</button>
-                </div>
-            </div>
-        </form>
+            </form>
         <!-- Lista eventi -->
         <div id="events-container" class="mt-5">
             <div class="row">
@@ -70,9 +74,9 @@
 document.getElementById("filter-form").addEventListener("submit", function(event) {
     event.preventDefault(); // evita il refresh della pagina
 
-    let formData = new FormData(this);
+    let formData = new FormData(this); // crea un oggetto con dati del form 
 
-    fetch("{{ route('events.filter') }}", {
+    fetch("{{ route('events.filter') }}", { // invia dati al server
         method: "POST",
         headers: {
             "X-CSRF-TOKEN": "{{ csrf_token() }}"
