@@ -22,8 +22,8 @@ class EventController extends Controller
             ->take(18)
             ->get();
 
-        $recentEvents = Event::where('approved', true)
-            ->orderBy('event_date', 'desc')
+        $mostRecentEvents = Event::where('approved', true)
+            ->orderBy('event_date', 'asc')
             ->take(18)
             ->get();
 
@@ -34,7 +34,7 @@ class EventController extends Controller
 
         $allEvents = Event::where('approved', true)->get();
 
-        return view('events.index', compact('mostSubscribedEvents', 'recentEvents', 'newlyCreatedEvents', 'allEvents'));
+        return view('events.index', compact('mostSubscribedEvents', 'mostRecentEvents', 'newlyCreatedEvents', 'allEvents'));
     }
 
     public function filter(Request $request)

@@ -2,8 +2,11 @@
     $chunkSize = isset($_COOKIE['is_mobile']) && $_COOKIE['is_mobile'] == "1" ? 1 : 3; // se mobile, 1 evento per chunk, altrimenti 3
 @endphp
 
+@if($events->isEmpty())
+    <p class="text-white text-center">Nessun evento imminente disponibile.</p>
+@else
 <h2 class="mb-4">{{ $title }}</h2>
-<div id="{{ $carouselId }}" class="carousel slide" data-bs-ride="carousel">
+<div id="{{ $carouselId }}" class="carousel slide" data-bs-ride="carousel" style="min-height:300px; display:block;">
     <div class="carousel-inner">
         @foreach ($events->chunk($chunkSize) as $chunk)
             <div class="carousel-item @if ($loop->first) active @endif">
@@ -29,3 +32,4 @@
         @endforeach
     </div>
 </div>
+@endif

@@ -20,50 +20,52 @@
             @endauth
         @endif
 
-    <!-- caroselli con diversi tipi di presentazioni -->
-    <x-event-carousel :events="$mostSubscribedEvents" carouselId="mostSubscribedEventsCarousel" title="Eventi in evidenza" />
+        <!-- caroselli con diversi tipi di presentazioni -->
+         
+        <x-event-carousel :events="$mostSubscribedEvents" carouselId="mostSubscribedEventsCarousel" title="Eventi in evidenza" />
 
-    <x-event-carousel :events="$recentEvents" carouselId="recentEventsCarousel" title= "Eventi imminenti" />
+        <x-event-carousel :events="$mostRecentEvents" carouselId="mostRecentEventsCarousel" title="Eventi imminenti" />
 
-    <x-event-carousel :events="$newlyCreatedEvents" carouselId="newlyCreatedEventsCarousel" title="Eventi creati di recente" />
+        <x-event-carousel :events="$newlyCreatedEvents" carouselId="newlyCreatedEventsCarousel" title="Eventi creati di recente" />
 
-    <!-- barra dei filtri -->
-    <div class="container-fluid py-3" style="background-color:rgba(79, 79, 79, 0.5); border-radius: 10px;">
-            <h2 class="mb-4">Filtra eventi</h2>
-            <form id="filter-form">
-                <div class="row g-3 align-items-end justify-content-center">
-                    <div class="col-md-3">
-                        <label for="searchQuery" class="form-label text-white">Cerca eventi:</label>
-                        <input type="text" id="searchQuery" name="searchQuery" class="form-control" placeholder="Titolo o descrizione">
+        <!-- barra dei filtri -->
+        <div class="container-fluid py-3" style="background-color:rgba(79, 79, 79, 0.5); border-radius: 10px;">
+                <h2 class="mb-4">Filtra eventi</h2>
+                <form id="filter-form">
+                    <div class="row g-3 align-items-end justify-content-center">
+                        <div class="col-md-3">
+                            <label for="searchQuery" class="form-label text-white">Cerca eventi:</label>
+                            <input type="text" id="searchQuery" name="searchQuery" class="form-control" placeholder="Titolo o descrizione">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="sortBy" class="form-label text-white">Ordina per:</label>
+                            <select id="sortBy" name="sortBy" class="form-select">
+                                <option value="title">Alfabetico</option>
+                                <option value="date_asc">Data (più vicina)</option>
+                                <option value="date_desc">Data (più lontana)</option>
+                                <option value="price_asc">Prezzo (crescente)</option>
+                                <option value="price_desc">Prezzo (decrescente)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="maxParticipants" class="form-label text-white">Mostra eventi pieni:</label>
+                            <select id="maxParticipants" name="maxParticipants" class="form-select">
+                                <option value="all">Tutti</option>
+                                <option value="hide">Nascondi eventi pieni</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-custom-pri w-100">Filtra</button>
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <label for="sortBy" class="form-label text-white">Ordina per:</label>
-                        <select id="sortBy" name="sortBy" class="form-select">
-                            <option value="title">Alfabetico</option>
-                            <option value="date_asc">Data (più vicina)</option>
-                            <option value="date_desc">Data (più lontana)</option>
-                            <option value="price_asc">Prezzo (crescente)</option>
-                            <option value="price_desc">Prezzo (decrescente)</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="maxParticipants" class="form-label text-white">Mostra eventi pieni:</label>
-                        <select id="maxParticipants" name="maxParticipants" class="form-select">
-                            <option value="all">Tutti</option>
-                            <option value="hide">Nascondi eventi pieni</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <button type="submit" class="btn btn-custom-pri w-100">Filtra</button>
-                    </div>
+                </form>
+            <!-- Lista eventi -->
+            <div id="events-container" class="mt-5">
+                <div class="row">
+                    @foreach ($allEvents as $event)
+                        <x-event-card :event="$event" />
+                    @endforeach
                 </div>
-            </form>
-        <!-- Lista eventi -->
-        <div id="events-container" class="mt-5">
-            <div class="row">
-                @foreach ($allEvents as $event)
-                    <x-event-card :event="$event" />
-                @endforeach
             </div>
         </div>
     </div>
