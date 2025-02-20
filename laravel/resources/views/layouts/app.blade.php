@@ -24,10 +24,6 @@
             color: #ffc107;
         }
 
-        .no-scroll {
-            overflow: hidden;
-        }
-
         .form-control::placeholder {
             color:rgba(157, 157, 157, 0.74) !important;
         }
