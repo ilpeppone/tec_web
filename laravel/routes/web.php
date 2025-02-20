@@ -40,10 +40,12 @@ Route::middleware(['auth','verified'])->group(function () {
 });
 
 Route::middleware([\App\Http\Middleware\AdminMiddleware::class, 'verified'])->group(function () {
-    Route::get('/admin/pending', [EventController::class, 'pending'])->name('admin.pending');
-    Route::get('/admin/events/{id}', [EventController::class, 'adminShow'])->name('admin.events.show');
-    Route::patch('/events/{id}/approve', [EventController::class, 'approve'])->name('events.approve');
-    Route::delete('/admin/events/{id}', [EventController::class, 'adminDestroy'])->name('admin.events.destroy');
+    Route::get('/admin/pending', [AdminController::class, 'pending'])->name('admin.pending');
+    Route::get('/admin/events/{id}', [AdminController::class, 'adminShow'])->name('admin.events.show');
+    Route::patch('/events/{id}/approve', [AdminController::class, 'approve'])->name('admin.approve');
+    Route::delete('/admin/events/{id}', [AdminController::class, 'destroy'])->name('admin.events.destroy');
+    Route::patch('/events/{id}/approve/form', [AdminController::class, 'approveform'])->name('admin.approveform');
+    Route::delete('/admin/events/{id}/form', [AdminController::class, 'destroyform'])->name('admin.events.destroyform');
 });
 
 

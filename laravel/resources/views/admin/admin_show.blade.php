@@ -38,14 +38,14 @@
 
         <div class="row mt-4 text-center">
             <div class="col-md-6">
-                <form action="{{ route('events.approve', $event->id) }}" method="POST" id="approve-form">
+                <form action="{{ route('admin.approveform', $event->id) }}" method="POST" id="approve-form">
                     @csrf
                     @method('PATCH')
                     <button type="button" class="btn btn-success w-100 py-2" onclick="confirmApprove()"><i class="bi bi-check-square"></i> Approva</button>
                 </form>
             </div>
             <div class="col-md-6">
-                <form action="{{ route('admin.events.destroy', $event->id) }}" method="POST" id="delete-form">
+                <form action="{{ route('admin.events.destroyform', $event->id) }}" method="POST" id="delete-form">
                     @csrf
                     @method('DELETE')
                     <button type="button" class="btn btn-danger w-100 py-2" onclick="confirmDelete()"><i class="bi bi-trash3"></i> Elimina</button>

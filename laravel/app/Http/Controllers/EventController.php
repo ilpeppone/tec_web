@@ -165,26 +165,6 @@ class EventController extends Controller
         return redirect()->route('admin.pending')->with('success', 'Evento approvato con successo.');
     }
 
-    public function pending()
-    {
-        $pendingEvents = Event::where('approved', false)->get();
-        return view('admin.pending', compact('pendingEvents'));
-    }
-
-    public function adminShow($id)
-    {
-        $event = Event::findOrFail($id);
-        return view('admin.admin_show', compact('event'));
-    }
-
-    public function adminDestroy($id)
-    {
-        $event = Event::findOrFail($id);
-        $event->delete();
-
-        return redirect()->route('admin.pending')->with('warning', 'Evento eliminato con successo.');
-    }
-
     public function search(Request $request)
     {
         $query = Event::query();

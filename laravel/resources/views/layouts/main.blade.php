@@ -120,6 +120,9 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav">
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('welcome') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('events.index') }}">Eventi</a>
                     </li>
                     <li class="nav-item">
@@ -139,7 +142,7 @@
                     @if (Route::has('login'))
                         @auth
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="mobileAuthDropdown" role="button" data-bs-toggle="dropdown">
+                                <a class="nav-link dropdown-toggle" style="color: orange" href="#" id="mobileAuthDropdown" role="button" data-bs-toggle="dropdown">
                                     @if(Auth::user()->role === 'admin')
                                         <i class="bi bi-shield-check" title="Admin"></i>
                                     @endif
@@ -177,11 +180,11 @@
                             </li>
                         @else
                             <li class="nav-item">
-                                <a href="{{ route('login') }}" class="nav-link">Accedi</a>
+                                <a href="{{ route('login') }}" class="nav-link" style="color: orange">Accedi</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a href="{{ route('register') }}" class="nav-link">Registrati</a>
+                                    <a href="{{ route('register') }}" class="nav-link" style="color: orange">Registrati</a>
                                 </li>
                             @endif
                         @endauth
@@ -226,6 +229,9 @@
             document.cookie = "is_mobile=" + (isMobile ? "1" : "0");
         }
     </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     
