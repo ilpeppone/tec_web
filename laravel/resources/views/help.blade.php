@@ -3,7 +3,7 @@
 @section('title', 'E-vents - Guida')
 
 @section('content')
-<div class="container py-5 text-center col-md-6 mx-auto" style="position: relative; z-index: 1; color: white; background-color: #6d6d6d; border-radius: 10px; padding: 20px;">
+<div class="container py-5 text-center col-md-6 mx-auto" style="position: relative; z-index: 1; color: white; background-color: #6d6d6d50; border-radius: 10px; padding: 20px;">
         <h1 class="display-4">Guida all'uso di E-vents</h1>
         
             <div class="mb-5">

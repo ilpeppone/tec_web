@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-        <div class="container" style="position: relative; z-index: 1; background-color: #6d6d6d; border-radius: 10px; padding: 20px;">
+        <div class="container" style="position: relative; z-index: 1; background-color: #6d6d6d50; border-radius: 10px; padding: 20px;">
         
             <h1 class="display-4 text-center">Reset Password</h1>
             <p class="lead text-center">Per favore fornisci la tua email per resettare la tua password</p>
@@ -15,7 +15,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('password.email') }}">
+                    <form method="POST" action="{{ route('password.email') }}" class="needvalidation" novalidate>
                         @csrf
 
                         <div class="row mb-3">

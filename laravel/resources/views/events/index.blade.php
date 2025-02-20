@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container py-5 text-center">
-    <div class="container" style="position: relative; z-index: 1; background-color: #6d6d6d; border-radius: 15px; padding: 40px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+    <div class="container" style="position: relative; z-index: 1; background-color: #6d6d6d50; border-radius: 15px; padding: 40px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
         <h1 class="display-4 text-white mb-4" style="font-weight: 700;">Esplora eventi</h1>
         @if (Route::has('login'))
             @auth

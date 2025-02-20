@@ -10,7 +10,7 @@
 
    <!-- hero Section -->
 <section class="hero-section text-center text-white" style="position: relative; padding: 100px 0;">
-    <div class="container" style="position: relative; z-index: 1; background-color: #6d6d6d; border-radius: 10px; padding: 20px;">
+    <div class="container" style="position: relative; z-index: 1; background-color: #6d6d6d50; border-radius: 10px; padding: 20px;">
         <h1 class="display-4">Benvenuto su E-vents</h1>
         <p class="lead">Scopri gli eventi più interessanti a Ferrara, organizzati sia da te che dagli altri utenti!</p>
         <div class="d-flex justify-content-center align-items-center mt-4">

@@ -4,7 +4,7 @@
 
 @section('content')
 <section class="py-5">
-    <div class="container text-center col-md-6 mx-auto" style="position: relative; z-index: 1; color: white; background-color: #6d6d6d; border-radius: 10px; padding: 20px;">
+    <div class="container text-center col-md-6 mx-auto" style="position: relative; z-index: 1; color: white; background-color: #6d6d6d50; border-radius: 10px; padding: 20px;">
         <h1 class="mb-4">Politica sulla Privacy</h1>
         <p>
             La presente informativa sulla privacy descrive come E-vents  raccoglie, utilizza e protegge le informazioni personali degli utenti del nostro sito.

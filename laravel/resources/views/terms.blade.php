@@ -3,7 +3,7 @@
 @section('title', 'Termini di Servizio - E-vents')
 
 @section('content')
-<div class="container py-5 text-center col-md-6 mx-auto" style="position: relative; z-index: 1; color: white; background-color: #6d6d6d; border-radius: 10px; padding: 20px;">
+<div class="container py-5 text-center col-md-6 mx-auto" style="position: relative; z-index: 1; color: white; background-color: #6d6d6d50; border-radius: 10px; padding: 20px;">
     <h1 class="mb-4">Termini di Servizio</h1>
     <p>
         Questi Termini di Servizio regolano l'accesso e l'utilizzo del sito web di E-vents ("noi", "nostro"). Utilizzando il nostro sito, accetti di essere vincolato da questi termini e dalla nostra Politica sulla Privacy.
