@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="container py-5 text-center col-md-6 mx-auto" style="position: relative; z-index: 1; color: white; background-color: #6d6d6d; border-radius: 10px; padding: 20px;">
+<div class="container py-5 text-center col-md-6 mx-auto" style="position: relative; z-index: 1; color: white; background-color: #6d6d6d50; border-radius: 10px; padding: 20px;">
     <h1 class="display-4">Chi Siamo</h1>
     <p>Benvenuti nel nostro sito! Siamo una comunità dedicata a condividere eventi organizzati a Ferrara e dintorni, grandi o piccoli che siano.</p>
     

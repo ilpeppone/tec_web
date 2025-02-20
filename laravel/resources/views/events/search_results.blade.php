@@ -4,7 +4,7 @@
 
 @section('content')
 <section class="hero-section text-center text-white" style="position: relative; padding: 100px 0;">
-    <div class="container" style="position: relative; z-index: 1; background-color: #6d6d6d; border-radius: 10px; padding: 20px;">
+    <div class="container" style="position: relative; z-index: 1; background-color: #6d6d6d50;; border-radius: 10px; padding: 20px;">
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
