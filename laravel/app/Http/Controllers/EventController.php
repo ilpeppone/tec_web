@@ -139,7 +139,7 @@ class EventController extends Controller
     public function unparticipate(Event $event)
     {
         $event->participants()->detach(Auth::id());
-        return redirect()->route('events.show', $event->id)->with('success', 'Sei stato rimosso dall\'evento.');
+        return redirect()->route('events.show', $event->id)->with('warning', 'Sei stato rimosso dall\'evento.');
     }
 
     public function destroy($id)
@@ -154,15 +154,6 @@ class EventController extends Controller
         $event->delete();
 
         return redirect()->route('events.index')->with('success', 'Event deleted successfully.');
-    }
-
-    public function approve($id)
-    {
-        $event = Event::findOrFail($id);
-        $event->approved = true;
-        $event->save();
-
-        return redirect()->route('admin.pending')->with('success', 'Evento approvato con successo.');
     }
 
     public function search(Request $request)
