@@ -369,7 +369,7 @@
             max-height: 100px;
             overflow: hidden;
             text-overflow: ellipsis;
-            -webkit-line-clamp: 3; /* Numero di righe */
+            -webkit-line-clamp: 3; /* numero di righe */
             -webkit-box-orient: vertical;
         }
 
@@ -410,10 +410,9 @@
         .event-card .event-card-title {
             font-size: 1.25rem;
             font-weight: bold;
-            max-height: ;
             overflow: hidden;
             text-overflow: ellipsis;
-            -webkit-line-clamp: 1; /* Numero di righe */
+            -webkit-line-clamp: 1; /* numero di righe */
             -webkit-box-orient: vertical;
             color: rgb(255, 154, 40);
         }
