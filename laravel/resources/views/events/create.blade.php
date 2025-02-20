@@ -12,7 +12,7 @@
                 <div class="col-md-8">
                     <div class="mb-3">
                         <label for="title" class="form-label">Titolo</label>
-                        <input type="text" name="title" id="title" class="form-control" placeholder="Titolo di massimo 20 caratteri" required value="{{ old('title') }}" maxlength="20" autofocus>
+                        <input type="text" name="title" id="title" class="form-control" placeholder="Titolo di massimo 30 caratteri" required value="{{ old('title') }}" maxlength="30" autofocus>
                         @error('title')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
