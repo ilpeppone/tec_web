@@ -45,7 +45,7 @@
                                 @if ($event->approved)
                                     <a href="{{ route('events.show', $event->id) }}" class="btn btn-custom-pri"><i class="bi bi-eye"></i> Visualizza</a>
                                 @else
-                                    <p class="text-muted">Evento in attesa di approvazione</p>
+                                    <p class="text-muted mb-4">Evento in attesa di approvazione</p>
                                 @endif
                             </div>
                         </div>
@@ -59,11 +59,11 @@
         <div id="subscribedEventsSection">
             <h2 class="mb-4">Eventi a cui sono iscritto</h2>
             @if ($subscribedEvents->isEmpty())
-                    <div class="col-md-12">
-                        <p class="text-muted">Non sei iscritto a nessun evento.</p>
+                <div class="col-md-12">
+                    <p class="text-muted">Non sei iscritto a nessun evento.</p>
+                </div>
             @else
-            <div class="row">
-                
+            <div class="row">   
                 @foreach ($subscribedEvents as $event)
                     <div class="col-md-4 mb-4">
                         <div class="event-card border">
