@@ -22,7 +22,7 @@
                 <p><strong>Partecipanti:</strong> {{ $event->max_participants }}</p>
                 <p><strong>Indirizzo:</strong> {{ $event->address }}</p>
                 <p><strong>Luogo:</strong> {{ $event->is_outdoor ? 'All\'aperto' : 'Al chiuso' }}</p>
-                <p><strong>Prezzo:</strong> €{{ $event->price }}</p>
+                <p><strong>Prezzo:</strong> {{ $event->price }}</p>
             </div>
 
             <div class="col-md-5">

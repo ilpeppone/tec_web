@@ -22,6 +22,11 @@ class Event extends Model
         return Carbon::parse($value)->format('d/m/Y');
     }
 
+    public function getPriceAttribute($value)
+    {
+        return number_format($value, 2, '.', '') . ' €';
+    }
+
     public function organizer()
     {
         return $this->belongsTo(User::class, 'user_id');
