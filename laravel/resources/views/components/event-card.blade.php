@@ -3,7 +3,7 @@
         <div class="content">
             <h2 class="title">{{ $event->title }}</h2>
             <p class="copy">
-                <i class="fa fa-calendar"></i> {{ \Carbon\Carbon::parse($event->event_date)->format('d-m-Y') }}<br>
+                <i class="fa fa-calendar"></i> {{ $event->event_date}}<br>
                 <i class="fa fa-users"></i> Partecipanti: {{ $event->participants_count }}
             </p>
             @if(!empty($event->description))
