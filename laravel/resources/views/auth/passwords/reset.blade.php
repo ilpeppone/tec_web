@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Reset Password - Torbit')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

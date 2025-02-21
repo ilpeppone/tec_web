@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', 'Diventa Admin - Torbit')
+
 @section('content')
 <div class="container py-5">
     <div class="row justify-content-center">

@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', 'Approvazione - Torbit')
+
 @section('breadcrumbs')
     {{ Breadcrumbs::render('events.show', $event) }}
 @endsection
