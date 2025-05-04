@@ -8,7 +8,7 @@
     <div class="row w-100 h-100 m-0">
         <div class="col-md-6 d-flex align-items-center justify-content-center bg-dark text-white p-5" style="border-radius: 10px 0 0 10px;">
             <div class="w-75">
-                <h3 class="text-center mb-4">Accedi a <span class="fw-bold">Torbit</span></h3>
+                <h3 class="text-center mb-4">Accedi a <span class="fw-bold">E-vents</span></h3>
                 <p class="text-center">Devi <strong>accedere</strong> prima di continuare.</p>
                 <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate>
                     @csrf
