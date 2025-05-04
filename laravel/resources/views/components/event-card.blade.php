@@ -1,5 +1,5 @@
 <div class="col-md-3 mb-4">
-    <div class="card" style="background-image: url('{{ asset('storage/' . $event->image_path) }}')">
+    <div class="card" style="background-image: url('{{ asset($event->image_path) }}')">
         <div class="content">
             <h2 class="title">{{ $event->title }}</h2>
             <p class="copy">

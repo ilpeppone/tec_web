@@ -5,7 +5,6 @@ namespace Database\Factories;
 use App\Models\Event;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Arr;
 
 class EventFactory extends Factory
@@ -23,12 +22,12 @@ class EventFactory extends Factory
 
         // array di immagini predefinite
         $defaultImages = [
-            'events/default.jpg',
-            'events/default2.jpg',
-            'events/default3.jpg',
-            'events/default4.jpg',
-            'events/default5.jpg',
-            'events/default6.jpg',
+            'default.jpg',
+            'default2.jpg',
+            'default3.jpg',
+            'default4.jpg',
+            'default5.jpg',
+            'default6.jpg',
         ];
 
         // seleziona un'immagine casualmente
@@ -37,8 +36,8 @@ class EventFactory extends Factory
         return [
             'user_id' => \App\Models\User::factory(),
             'title' => $this->faker->realText(20),
-            'description' => $this->faker->realText(400),
-            'image_path' => $randomImage, 
+            'description' => $this->faker->realText(200),
+            'image_path' => 'images/events/' . $randomImage,
             'is_outdoor' => $this->faker->boolean,
             'event_date' => $this->faker->dateTimeBetween('+1 week', '+1 year'),
             'max_participants' => $this->faker->numberBetween(10, 100),

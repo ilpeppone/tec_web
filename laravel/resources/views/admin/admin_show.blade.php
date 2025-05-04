@@ -31,7 +31,7 @@
                 <div class="rounded shadow-lg" style="
                     width: 100%;
                     height: 300px;
-                    background-image: url('{{ asset($event->image_path ? 'storage/' . $event->image_path : 'images/ferrara.png') }}');
+                    background-image: url('{{ asset($event->image_path ? $event->image_path : 'images/events/default.jpg') }}');
                     background-size: cover;
                     background-position: center;">
                 </div>

@@ -22,7 +22,7 @@
     @foreach($pendingEvents as $event)  
         <div class="col-md-4 mb-4" id="event-card-{{ $event->id }}">
             <div class="admin_card h-100 d-flex flex-column">
-                <div class="admin_card_image" style="background-image: url('{{ asset('storage/' . $event->image_path) }}')"></div>
+                <div class="admin_card_image" style="background-image: url('{{ asset($event->image_path) }}')"></div>
                 <div class="admin_card_body flex-grow-1 d-flex flex-column">
                     <h5 class="admin_card_title">{{ $event->title }}</h5>
                     <p class="admin_card_description">
