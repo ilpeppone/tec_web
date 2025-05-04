@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Approvazione - Torbit')
+@section('title', 'Approvazione - E-vents')
 
 @section('breadcrumbs')
     {{ Breadcrumbs::render('events.show', $event) }}

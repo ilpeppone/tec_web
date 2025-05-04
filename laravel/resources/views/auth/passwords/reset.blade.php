@@ -12,7 +12,7 @@
                 <p class="lead text-center">Inserisci la nuova password</p>
                 
                 <div>
-                    <form method="POST" action="{{ route('password.update') }}">
+                    <form method="POST" action="{{ route('password.update') }}" id="reset-password-form">
                         @csrf
                         
                         <input type="hidden" name="token" value="{{ $token }}">
@@ -49,4 +49,22 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.getElementById('reset-password-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Previene l'invio del form per simulare il comportamento
+
+        const password = document.getElementById('password').value;
+        const passwordConfirm = document.getElementById('password-confirm').value;
+
+        if (password === passwordConfirm && password.length >= 8) { // Controlla che le password coincidano e siano valide
+            alert('La password è stata cambiata con successo! Verrai reindirizzato alla pagina di login.');
+            setTimeout(() => {
+                window.location.href = "{{ route('login') }}"; // Reindirizza alla pagina di login
+            }, 2000);
+        } else {
+            alert('Le password non coincidono o non sono valide. Riprova.');
+        }
+    });
+</script>
 @endsection
