@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Eventi in Attesa - Torbit')
+@section('title', 'Eventi in Attesa - E-vents')
 
 @section('content')
 <div class="container text-center">

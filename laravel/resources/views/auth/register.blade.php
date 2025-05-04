@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Register - Torbit')
+@section('title', 'Register - E-vents')
 
 @section('content')
 <div class="container-fluid vh-100 d-flex justify-content-center align-items-start p-0">

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Diventa Admin - Torbit')
+@section('title', 'Diventa Admin - E-vents')
 
 @section('content')
 <div class="container py-5">
