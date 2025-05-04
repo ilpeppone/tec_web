@@ -1,3 +1,7 @@
+### Presentazione
+
+Breve presentazione del progetto: 
+[Apri il PDF](E-vents.pdf)
 ## Passaggi per provare il sito web in localhost:
 
  1. Cloniamo il repository.
