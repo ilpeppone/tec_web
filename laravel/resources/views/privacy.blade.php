@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Privacy Policy - E-vents')
+@section('title', 'E-vents - Privacy Policy')
 
 @section('content')
 <section class="py-5">

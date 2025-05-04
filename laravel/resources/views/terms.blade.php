@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Termini di Servizio - E-vents')
+@section('title', 'E-vents - Termini di Servizio')
 
 @section('content')
 <div class="container py-5 text-center col-md-6 mx-auto" style="position: relative; z-index: 1; color: white; background-color: #6d6d6d50; border-radius: 10px; padding: 20px;">

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Home - E-vents')
+@section('title', 'E-vents - Home')
 
 @section('content')
 <section class="hero-section text-center text-white" style="position: relative; padding: 100px 0;">

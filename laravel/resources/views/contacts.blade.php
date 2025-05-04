@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+@section('title', 'E-vents - Contatti')
 @section('content')
 @if(session('success'))
     <div class="alert alert-success alert-dismissible fade show text-center mx-auto" style="width:300px; length:50px;" role="alert">
