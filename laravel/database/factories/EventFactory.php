@@ -35,8 +35,8 @@ class EventFactory extends Factory
 
         return [
             'user_id' => \App\Models\User::factory(),
-            'title' => $this->faker->realText(20),
-            'description' => $this->faker->realText(200),
+            'title' => $this->faker->realText(10),
+            'description' => $this->faker->realText(20),
             'image_path' => 'images/events/' . $randomImage,
             'is_outdoor' => $this->faker->boolean,
             'event_date' => $this->faker->dateTimeBetween('+1 week', '+1 year'),
